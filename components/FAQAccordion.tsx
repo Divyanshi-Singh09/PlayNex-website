@@ -1,0 +1,3 @@
+'use client';import {useState} from 'react';import {Plus} from './Icons';
+export type FaqItem={q:string;a:string};
+export default function FAQAccordion({items}:{items:FaqItem[]}){const [active,setActive]=useState<number|null>(0);return <div className="faq-list">{items.map((x,i)=><div className={`faq-item ${active===i?'is-open':''}`} key={x.q}><button onClick={()=>setActive(active===i?null:i)} type="button" aria-expanded={active===i} aria-controls={`faq-answer-${i}`}><span>{String(i+1).padStart(2,'0')}</span><strong>{x.q}</strong><Plus size={20}/></button><div className="faq-answer" id={`faq-answer-${i}`} hidden={active!==i}><p>{x.a}</p></div></div>)}</div>}

@@ -1,0 +1,27 @@
+{
+  "name": "playnex-interactive-technologies",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check:sources": "node scripts/check-source.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:imports": "node scripts/check-imports.mjs",
+    "check:shopify": "node scripts/test-shopify.mjs"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "gsap": "^3.14.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  }
+}

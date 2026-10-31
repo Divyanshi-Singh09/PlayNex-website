@@ -1,0 +1,10 @@
+export type Concept = {
+ handle: string; name: string; eyebrow: string; phrase: string; description: string; long: string;
+ feeling: string; tint: 'blue'|'peach'|'mint'; symbol: string; moments: string[]; prompts: string[];
+};
+export const concepts: Concept[] = [
+ {handle:'everyday-connection',name:'Everyday Connection',eyebrow:'01 / CONNECTION',phrase:'A little hello can change a day.', description:'For all those small moments when a conversation makes the everyday feel a little lighter.',long:'Imagine an approachable companion that makes room for the little conversations: a curious question, an idea shared out loud, or simply a moment to talk.',feeling:'A sense of presence',tint:'blue',symbol:'✳',moments:['Morning hellos','A moment to unwind','Everyday conversations'],prompts:['Tell me about your day.','What made you smile?','Shall we talk?']},
+ {handle:'curiosity-and-wonder',name:'Curiosity & Wonder',eyebrow:'02 / IMAGINATION',phrase:'One question. A whole new world.',description:'For explorers, thinkers and question-askers, whatever their age.',long:'Curiosity belongs to everyone. This experience imagines open-ended conversations that inspire stories, questions and shared discovery — without relying on another screen.',feeling:'A spark of discovery',tint:'mint',symbol:'✦',moments:['New ideas','Stories together','Questions worth asking'],prompts:['What if clouds had cities?','Tell me something surprising.','Let’s invent a story.']},
+ {handle:'moments-of-calm',name:'Moments of Calm',eyebrow:'03 / PRESENCE',phrase:'Some moments ask for softness.',description:'For quiet pauses, reassuring words and space to simply be.',long:'Not every interaction needs an answer right away. Sometimes the most considerate design offers a gentle invitation and space for the person to choose what comes next.',feeling:'Room to pause',tint:'peach',symbol:'◌',moments:['A quiet pause','A gentle check-in','A moment of reflection'],prompts:['It has been a long day.','Can we take a quiet moment?','Tell me something gentle.']}
+];
+export function getConcept(handle:string){return concepts.find(c=>c.handle===handle)};

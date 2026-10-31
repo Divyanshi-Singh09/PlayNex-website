@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rev-1793468084645",
+    "handle": "abc",
+    "author": "Abc abc",
+    "rating": 5,
+    "title": "very good",
+    "comment": "easy to use",
+    "date": "Oct 31, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-1",
+    "handle": "abc",
+    "author": "Rohan Deshmukh",
+    "rating": 5,
+    "title": "Incredible tactile experience and responsiveness",
+    "comment": "The build quality and interaction exceeded my expectations. Connects seamlessly and feels truly next generation.",
+    "date": "Oct 24, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-2",
+    "handle": "abc",
+    "author": "Ananya Sen",
+    "rating": 5,
+    "title": "Delivered on time with immaculate packaging",
+    "comment": "Delivery was super fast. The product design is clean, minimal, and fits right into my daily workspace.",
+    "date": "Oct 28, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-3",
+    "handle": "product-2",
+    "author": "Vikram Mehta",
+    "rating": 5,
+    "title": "Top-notch performance and finish",
+    "comment": "PlayNex has created something truly special here. Smooth responsiveness and wonderful attention to detail.",
+    "date": "Oct 27, 2026",
+    "verified": true
+  }
+]

@@ -1,0 +1,11 @@
+'use client';
+import {useState} from 'react';
+
+
+const feelingSamples=[
+ {symbol:'✳',title:"I'm curious",description:'Take me somewhere unexpected',prompt:'“What if clouds had their own stories?”',response:'“Then every rainy day could begin a whole new chapter. What would your cloud be called?”'},
+ {symbol:'☾',title:'I need a moment',description:'Something gentler today',prompt:'“Today has been a lot.”',response:'“Would you rather tell me about one good moment, or imagine somewhere peaceful for a little while?”'},
+ {symbol:'♡',title:"Let's connect",description:'A little conversation',prompt:'“Want to make up a story with me?”',response:'“Of course! You choose the setting, and I’ll bring the next idea. A forest, a city, or somewhere in the stars?”'},
+];
+export function HomeFeeling(){const [active,setActive]=useState(0);const picked=feelingSamples[active];return <section className="human-moment-section" id="feel-the-difference" aria-labelledby="feeling-title"><div className="wrap"><div className="human-moment-top" data-home-reveal><p className="eyebrow"><span className="eyebrow-indicator"/> AN EXPERIENCE, NOT JUST A PRODUCT</p><h2 id="feeling-title">How could a<br/>moment <em>feel?</em></h2><p>Choose a feeling. Explore an example of the interaction design thinking behind PlayNex.</p></div><div className="feeling-playground" data-home-reveal><div className="feeling-choices" role="group" aria-label="Choose an experience mood">{feelingSamples.map((v,i)=><button className={`feeling-choice ${i===active?'active':''}`} key={v.title} onClick={()=>setActive(i)} type="button" aria-pressed={active===i}><span className="feeling-choice-emoji">{v.symbol}</span><span><strong>{v.title}</strong><small>{v.description}</small></span><span className="feeling-choice-arrow">↗</span></button>)}</div><div className="feeling-display" data-mode={active}><div className="feeling-bubbles" aria-hidden><i/><i/><i/></div><span className="feeling-display-number">PLAYNEX / EXAMPLE INTERACTION</span><div className="feeling-display-orbit"><span>{picked.symbol}</span></div><p className="feeling-mini-label">YOU MIGHT SAY</p><h3>{picked.prompt}</h3><p>{picked.response}</p><span className="feeling-disclosure">Scripted concept dialogue — not a live product demonstration.</span></div></div></div></section>}
+
