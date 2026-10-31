@@ -158,20 +158,14 @@ export default function CartDrawer() {
   function handleCheckoutClick() {
     setError('');
 
-    // 1. Compulsory login check
-    if (!user) {
-      openAuthModal('checkout');
+    // If user is already signed in, proceed directly to Shopify Checkout! Never ask for sign in.
+    if (user) {
+      proceedToShopifyCheckout();
       return;
     }
 
-    // 2. Check for required address and mobile number
-    if (!hasDeliveryDetails) {
-      setIsEditingDetails(true);
-      return;
-    }
-
-    // 3. Already has details -> proceed to Shopify Checkout
-    proceedToShopifyCheckout();
+    // Only prompt for sign in if not signed in
+    openAuthModal('checkout');
   }
 
   return (
@@ -226,8 +220,8 @@ export default function CartDrawer() {
             <div className="bag-details-form-wrap">
               <div className="bag-details-form-intro">
                 <span className="micro-label">SHIPPING & CONTACT INFO</span>
-                <h3>Enter delivery details</h3>
-                <p>Please provide your mobile number and address so we can deliver your order and send tracking updates.</p>
+                <h3>Delivery details</h3>
+                <p>Provide your delivery address and phone number for courier shipping.</p>
               </div>
 
               {detailsError && (
@@ -246,7 +240,7 @@ export default function CartDrawer() {
                       required
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      placeholder="e.g. Alex"
+                      placeholder="First name"
                       autoComplete="given-name"
                     />
                   </label>
@@ -257,14 +251,14 @@ export default function CartDrawer() {
                       required
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      placeholder="e.g. Sharma"
+                      placeholder="Last name"
                       autoComplete="family-name"
                     />
                   </label>
                 </div>
 
                 <label className="auth-field">
-                  <span>Mobile number * (for courier delivery & OTP)</span>
+                  <span>Mobile number * (for courier updates)</span>
                   <div className="bag-phone-input-wrap">
                     <span className="bag-phone-prefix">+91</span>
                     <input
@@ -280,7 +274,7 @@ export default function CartDrawer() {
                 </label>
 
                 <label className="auth-field">
-                  <span>Delivery address (House / Flat / Plot, Street) *</span>
+                  <span>Street address (House / Flat / Building, Street) *</span>
                   <input
                     type="text"
                     required
@@ -288,17 +282,6 @@ export default function CartDrawer() {
                     onChange={(e) => setAddress1(e.target.value)}
                     placeholder="e.g. Flat 402, Lotus Towers, 5th Main Road"
                     autoComplete="address-line1"
-                  />
-                </label>
-
-                <label className="auth-field">
-                  <span>Apartment, Suite, Landmark (Optional)</span>
-                  <input
-                    type="text"
-                    value={address2}
-                    onChange={(e) => setAddress2(e.target.value)}
-                    placeholder="e.g. Near Metro Station / Sector 4"
-                    autoComplete="address-line2"
                   />
                 </label>
 
@@ -310,18 +293,18 @@ export default function CartDrawer() {
                       required
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      placeholder="e.g. Mumbai"
+                      placeholder="City"
                       autoComplete="address-level2"
                     />
                   </label>
                   <label className="auth-field">
-                    <span>State / Province *</span>
+                    <span>State *</span>
                     <input
                       type="text"
                       required
                       value={province}
                       onChange={(e) => setProvince(e.target.value)}
-                      placeholder="e.g. Maharashtra"
+                      placeholder="State"
                       autoComplete="address-level1"
                     />
                   </label>
@@ -329,7 +312,7 @@ export default function CartDrawer() {
 
                 <div className="auth-name-row">
                   <label className="auth-field">
-                    <span>PIN / Postal code *</span>
+                    <span>PIN code *</span>
                     <input
                       type="text"
                       required
@@ -484,11 +467,9 @@ export default function CartDrawer() {
             >
               {busy
                 ? 'Connecting securely…'
-                : !user
-                ? 'Sign in & Checkout 🔒'
-                : !hasDeliveryDetails
-                ? 'Add Delivery Details ↗'
-                : 'Proceed to Shopify Checkout ↗'}
+                : user
+                ? 'Proceed to Shopify Checkout ↗'
+                : 'Sign in to Checkout 🔒'}
             </button>
             <button type="button" className="bag-continue" onClick={() => setOpen(false)}>
               Continue exploring

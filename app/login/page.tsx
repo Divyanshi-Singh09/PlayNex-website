@@ -20,19 +20,13 @@ function LoginContent() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-  const [address1, setAddress1] = useState('');
-  const [city, setCity] = useState('');
-  const [province, setProvince] = useState('');
-  const [zip, setZip] = useState('');
-  const [country] = useState('India');
-  const [showAddressFields, setShowAddressFields] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successNotice, setSuccessNotice] = useState<string | null>(null);
 
-  // If already logged in, redirect to account or specified URL
+  // If already logged in, redirect
   useEffect(() => {
     if (!loading && user) {
       router.push(redirectUrl);
@@ -55,25 +49,16 @@ function LoginContent() {
         }
       } else if (tab === 'register') {
         const res = await register({
-          firstName,
-          lastName,
-          email,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
           password,
-          phone: phone.trim() || undefined,
-          address: address1.trim()
-            ? {
-                address1: address1.trim(),
-                city: city.trim(),
-                province: province.trim(),
-                zip: zip.trim(),
-                country
-              }
-            : undefined
+          phone: phone.trim() || undefined
         });
         if (res.success) {
           router.push(redirectUrl);
         } else {
-          setError(res.error || 'Could not create account.');
+          setError(res.error || 'Could not create account. Please check your details.');
         }
       } else if (tab === 'recover') {
         const res = await recoverPassword(email);
@@ -95,8 +80,8 @@ function LoginContent() {
           <Link href="/" className="login-logo-link" aria-label="PlayNex Home">
             <Image
               src="/images/playnex-horizontal.png"
-              width={180}
-              height={58}
+              width={160}
+              height={52}
               priority
               unoptimized
               alt="PlayNex"
@@ -104,14 +89,18 @@ function LoginContent() {
           </Link>
 
           <h1>
-            {tab === 'login' && 'Sign in to your account'}
-            {tab === 'register' && 'Create your PlayNex account'}
-            {tab === 'recover' && 'Reset your password'}
+            {tab === 'recover'
+              ? 'Reset Password'
+              : tab === 'login'
+              ? 'Sign In to Your Account'
+              : 'Create Your Account'}
           </h1>
           <p>
-            {tab === 'login' && 'Access your Shopify customer profile, orders, and express checkout.'}
-            {tab === 'register' && 'Sync orders, saved addresses, mobile updates, and faster checkout.'}
-            {tab === 'recover' && 'Enter your email address to receive password reset instructions.'}
+            {tab === 'recover'
+              ? 'Enter your email to receive password reset instructions.'
+              : tab === 'login'
+              ? 'Access orders, saved address, and express checkout.'
+              : 'Enter your details to create your customer account.'}
           </p>
         </div>
 
@@ -171,7 +160,7 @@ function LoginContent() {
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="e.g. Alex"
+                    placeholder="First name"
                     autoComplete="given-name"
                   />
                 </label>
@@ -182,70 +171,27 @@ function LoginContent() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    placeholder="e.g. Sharma"
+                    placeholder="Last name"
                     autoComplete="family-name"
                   />
                 </label>
               </div>
 
               <label className="auth-field">
-                <span>Mobile number (for courier coordination)</span>
+                <span>Mobile number * (for delivery updates)</span>
                 <div className="bag-phone-input-wrap">
                   <span className="bag-phone-prefix">+91</span>
                   <input
                     type="tel"
+                    required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="10-digit mobile number"
                     autoComplete="tel"
+                    maxLength={15}
                   />
                 </div>
               </label>
-
-              <button
-                type="button"
-                className="auth-link-btn"
-                style={{alignSelf: 'flex-start', margin: '1px 0 3px'}}
-                onClick={() => setShowAddressFields(!showAddressFields)}
-              >
-                {showAddressFields ? '− Remove delivery address' : '+ Add delivery address now (optional)'}
-              </button>
-
-              {showAddressFields && (
-                <>
-                  <label className="auth-field">
-                    <span>Street address</span>
-                    <input
-                      type="text"
-                      value={address1}
-                      onChange={(e) => setAddress1(e.target.value)}
-                      placeholder="Flat/House no., building, street"
-                      autoComplete="street-address"
-                    />
-                  </label>
-
-                  <div className="auth-name-row">
-                    <label className="auth-field">
-                      <span>City</span>
-                      <input
-                        type="text"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        placeholder="e.g. Mumbai"
-                      />
-                    </label>
-                    <label className="auth-field">
-                      <span>PIN code</span>
-                      <input
-                        type="text"
-                        value={zip}
-                        onChange={(e) => setZip(e.target.value)}
-                        placeholder="e.g. 400001"
-                      />
-                    </label>
-                  </div>
-                </>
-              )}
             </>
           )}
 
@@ -312,7 +258,7 @@ function LoginContent() {
               <>
                 {tab === 'login' && 'Sign In ↗'}
                 {tab === 'register' && 'Create Account ↗'}
-                {tab === 'recover' && 'Send Reset Instructions ↗'}
+                {tab === 'recover' && 'Send Reset Link ↗'}
               </>
             )}
           </button>
@@ -353,7 +299,7 @@ export default function LoginPage() {
     <Suspense
       fallback={
         <div className="login-page-shell">
-          <div className="login-card" style={{minHeight: '400px', display: 'grid', placeItems: 'center'}}>
+          <div className="login-card" style={{minHeight: '320px', display: 'grid', placeItems: 'center'}}>
             <p>Loading PlayNex Account…</p>
           </div>
         </div>

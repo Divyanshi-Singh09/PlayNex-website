@@ -360,7 +360,7 @@ export async function getPlayNexProducts(limit = 150): Promise<StoreProduct[]> {
 
 type CartResult = {
   cart: { id: string; checkoutUrl: string; totalQuantity: number } | null;
-  userErrors: { message: string }[];
+  userErrors: { field?: string[]; message: string }[];
 };
 
 export async function createCart(
@@ -370,19 +370,34 @@ export async function createCart(
   customerInfo?: { email?: string; phone?: string; countryCode?: string }
 ) {
   if (!shopifyEnabled) throw new Error('Shopify is not configured');
-  const m = `mutation($input:CartInput!){cartCreate(input:$input){cart{id checkoutUrl totalQuantity}userErrors{message}}}`;
-  const input: {
-    lines: { merchandiseId: string; quantity: number }[];
-    buyerIdentity?: {
-      customerAccessToken?: string;
-      email?: string;
-      phone?: string;
-      countryCode?: string;
-    };
-  } = { lines };
+  const m = `mutation($input:CartInput!){cartCreate(input:$input){cart{id checkoutUrl totalQuantity}userErrors{field message}}}`;
+
+  // Helper to execute cartCreate mutation
+  const tryCreate = async (buyerIdentity?: {
+    customerAccessToken?: string;
+    email?: string;
+    phone?: string;
+    countryCode?: string;
+  }) => {
+    const input: {
+      lines: { merchandiseId: string; quantity: number }[];
+      buyerIdentity?: typeof buyerIdentity;
+    } = { lines };
+    if (buyerIdentity && Object.keys(buyerIdentity).length > 0) {
+      input.buyerIdentity = buyerIdentity;
+    }
+    return await storefront<{ cartCreate: CartResult }>(m, { input }, buyerIp);
+  };
+
+  let initialBuyerIdentity: {
+    customerAccessToken?: string;
+    email?: string;
+    phone?: string;
+    countryCode?: string;
+  } | undefined = undefined;
 
   if (customerAccessToken || customerInfo?.email || customerInfo?.phone) {
-    input.buyerIdentity = {
+    initialBuyerIdentity = {
       ...(customerAccessToken ? { customerAccessToken } : {}),
       ...(customerInfo?.email ? { email: customerInfo.email } : {}),
       ...(customerInfo?.phone ? { phone: customerInfo.phone } : {}),
@@ -390,12 +405,34 @@ export async function createCart(
     };
   }
 
-  const d = await storefront<{ cartCreate: CartResult }>(m, { input }, buyerIp);
+  // Attempt 1: Full buyerIdentity (with customer token if available)
+  let d = await tryCreate(initialBuyerIdentity);
+
+  // Fallback 1: If customer token failed or was rejected as invalid, retry without customerAccessToken
+  if (
+    (d.cartCreate.userErrors.length > 0 || !d.cartCreate.cart?.checkoutUrl) &&
+    customerAccessToken
+  ) {
+    console.warn('cartCreate failed with customer token. Retrying with email & phone fallback...', d.cartCreate.userErrors);
+    const fallbackIdentity = {
+      ...(customerInfo?.email ? { email: customerInfo.email } : {}),
+      ...(customerInfo?.phone ? { phone: customerInfo.phone } : {}),
+      ...(customerInfo?.countryCode ? { countryCode: customerInfo.countryCode } : { countryCode: 'IN' })
+    };
+    d = await tryCreate(Object.keys(fallbackIdentity).length ? fallbackIdentity : undefined);
+  }
+
+  // Fallback 2: If still failing (e.g., carrier phone format error), retry with bare lines
+  if (d.cartCreate.userErrors.length > 0 || !d.cartCreate.cart?.checkoutUrl) {
+    console.warn('cartCreate failed with buyerIdentity. Retrying with direct cart lines...', d.cartCreate.userErrors);
+    d = await tryCreate(undefined);
+  }
+
   if (d.cartCreate.userErrors.length) {
     throw new Error(d.cartCreate.userErrors.map((e) => e.message).join('; '));
   }
   if (!d.cartCreate.cart?.checkoutUrl) {
-    throw new Error('Shopify could not create a checkout');
+    throw new Error('Shopify could not create a checkout destination');
   }
   return d.cartCreate.cart;
 }

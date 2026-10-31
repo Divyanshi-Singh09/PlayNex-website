@@ -40,9 +40,10 @@ export async function POST(req: NextRequest) {
     const cart = await createCart(lines, ip, customerToken, customerInfo);
     return NextResponse.json({checkoutUrl: cart.checkoutUrl, cartId: cart.id});
   } catch (err) {
-    console.error('Checkout failed', err);
+    console.error('Checkout failed:', err);
+    const msg = err instanceof Error ? err.message : 'Could not begin checkout. Please try again.';
     return NextResponse.json(
-      {error: 'We could not begin checkout. Please try again or contact us.'},
+      {error: msg},
       {status: 502}
     );
   }

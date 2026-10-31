@@ -4,13 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type {StoreProduct} from '@/lib/shopify';
 import {useCart, price} from './CartProvider';
-import {useAuth} from './AuthProvider';
 
 export function AddToCart({product, category = 'original'}: {product: StoreProduct; category?: 'original' | 'discover'}) {
   const [variant, setVariant] = useState(product.variants.find((v) => v.availableForSale) || product.variants[0]);
   const [quantity, setQuantity] = useState(1);
   const {add} = useCart();
-  const {user} = useAuth();
 
   const handleAdd = () => {
     if (!variant || !variant.availableForSale) return;
@@ -69,18 +67,6 @@ export function AddToCart({product, category = 'original'}: {product: StoreProdu
         >
           {variant?.availableForSale ? 'Add to bag ↗' : 'Currently unavailable'}
         </button>
-      </div>
-
-      <div className="purchase-auth-badge">
-        {user ? (
-          <span className="auth-badge-signed-in">
-            <span className="auth-dot" /> Signed in as <strong>{user.firstName || user.email}</strong>
-          </span>
-        ) : (
-          <span className="auth-badge-required">
-            <span>🔒</span> Secure customer login & address confirmed at checkout
-          </span>
-        )}
       </div>
 
       <p className="purchase-note">

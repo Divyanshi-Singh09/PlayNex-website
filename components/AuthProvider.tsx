@@ -47,7 +47,15 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({children}: {children: React.ReactNode}) {
-  const [user, setUser] = useState<CustomerUser | null>(null);
+  const [user, setUser] = useState<CustomerUser | null>(() => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const saved = localStorage.getItem('playnex_customer_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(true);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalReason, setAuthModalReason] = useState<'checkout' | 'account' | null>(null);
@@ -62,6 +70,9 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
         const data = await res.json();
         if (data.customer) {
           setUser(data.customer);
+          try {
+            localStorage.setItem('playnex_customer_user', JSON.stringify(data.customer));
+          } catch {}
           return data.customer;
         }
       }
@@ -80,7 +91,20 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
           const data = await res.json();
           if (mounted && data.customer) {
             setUser(data.customer);
+            try {
+              localStorage.setItem('playnex_customer_user', JSON.stringify(data.customer));
+            } catch {}
+          } else if (mounted) {
+            setUser(null);
+            try {
+              localStorage.removeItem('playnex_customer_user');
+            } catch {}
           }
+        } else if (mounted) {
+          setUser(null);
+          try {
+            localStorage.removeItem('playnex_customer_user');
+          } catch {}
         }
       } catch (err) {
         console.error('Session check failed:', err);
@@ -95,6 +119,14 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
   }, []);
 
   const openAuthModal = useCallback((reasonOrItem?: 'checkout' | 'account' | CartItem) => {
+    // If the person is already signed in, do NOT ask them for signin!
+    if (user) {
+      if (reasonOrItem === 'checkout') {
+        cart.setOpen(true);
+      }
+      return;
+    }
+
     if (typeof reasonOrItem === 'string') {
       setAuthModalReason(reasonOrItem);
       setPendingCartItem(null);
@@ -105,7 +137,7 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
       setAuthModalReason(null);
     }
     setIsAuthModalOpen(true);
-  }, []);
+  }, [user, cart]);
 
   const closeAuthModal = useCallback(() => {
     setIsAuthModalOpen(false);
@@ -115,6 +147,9 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
   const handlePostAuthAction = useCallback(
     (customer: CustomerUser) => {
       setUser(customer);
+      try {
+        localStorage.setItem('playnex_customer_user', JSON.stringify(customer));
+      } catch {}
       setIsAuthModalOpen(false);
 
       if (pendingCartItem) {
@@ -215,6 +250,9 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
       // Ignored
     } finally {
       setUser(null);
+      try {
+        localStorage.removeItem('playnex_customer_user');
+      } catch {}
       setPendingCartItem(null);
       // Clear all items and close the bag when customer logs out
       cart.clear();

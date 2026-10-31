@@ -5,7 +5,7 @@ import {useAuth} from './AuthProvider';
 import {Close} from './Icons';
 
 export default function AuthModal() {
-  const {isAuthModalOpen, closeAuthModal, authModalReason, pendingCartItem, login, register, recoverPassword} = useAuth();
+  const {user, isAuthModalOpen, closeAuthModal, authModalReason, login, register, recoverPassword} = useAuth();
   const [tab, setTab] = useState<'login' | 'register' | 'recover'>('login');
 
   // Form states
@@ -16,10 +16,7 @@ export default function AuthModal() {
   const [phone, setPhone] = useState('');
   const [address1, setAddress1] = useState('');
   const [city, setCity] = useState('');
-  const [province, setProvince] = useState('');
   const [zip, setZip] = useState('');
-  const [country] = useState('India');
-  const [showAddressFields, setShowAddressFields] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
@@ -45,7 +42,7 @@ export default function AuthModal() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAuthModalOpen, closeAuthModal]);
 
-  // Lock scroll when open
+  // Lock body scroll when modal is open
   useEffect(() => {
     if (isAuthModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -57,7 +54,8 @@ export default function AuthModal() {
     };
   }, [isAuthModalOpen]);
 
-  if (!isAuthModalOpen) return null;
+  // Never show auth modal if user is already signed in
+  if (!isAuthModalOpen || user) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,23 +71,36 @@ export default function AuthModal() {
         }
       } else if (tab === 'register') {
         const res = await register({
-          firstName,
-          lastName,
-          email,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
           password,
           phone: phone.trim() || undefined,
           address: address1.trim()
             ? {
                 address1: address1.trim(),
                 city: city.trim(),
-                province: province.trim(),
+                province: '',
                 zip: zip.trim(),
-                country
+                country: 'India'
               }
             : undefined
         });
-        if (!res.success) {
-          setError(res.error || 'Could not create account.');
+
+        if (res.success) {
+          try {
+            localStorage.setItem(
+              'playnex_saved_delivery_address',
+              JSON.stringify({
+                phone: phone.trim(),
+                address1: address1.trim(),
+                city: city.trim(),
+                zip: zip.trim()
+              })
+            );
+          } catch {}
+        } else {
+          setError(res.error || 'Could not create account. Please check your details.');
         }
       } else if (tab === 'recover') {
         const res = await recoverPassword(email);
@@ -116,41 +127,24 @@ export default function AuthModal() {
           <Close size={18} />
         </button>
 
-        {/* Checkout requirement notice */}
-        {authModalReason === 'checkout' && (
-          <div className="auth-cart-notice">
-            <span className="auth-lock-icon">🔒</span>
-            <div>
-              <strong>Sign in required to checkout</strong>
-              <p>Please sign in or create an account to confirm your delivery address, mobile number, and complete checkout.</p>
-            </div>
-          </div>
-        )}
-
-        {/* Security / Pending Item Notice (fallback) */}
-        {pendingCartItem && !authModalReason && (
-          <div className="auth-cart-notice">
-            <span className="auth-lock-icon">🔒</span>
-            <div>
-              <strong>Sign in to proceed</strong>
-              <p>
-                Sign in to your account to securely manage{' '}
-                <span className="auth-item-title">&ldquo;{pendingCartItem.title}&rdquo;</span> in your bag.
-              </p>
-            </div>
-          </div>
-        )}
-
         <div className="auth-header">
           <h2>
-            {tab === 'login' && 'Sign in to PlayNex'}
-            {tab === 'register' && 'Create your account'}
-            {tab === 'recover' && 'Reset your password'}
+            {tab === 'recover'
+              ? 'Reset Password'
+              : authModalReason === 'checkout'
+              ? 'Sign in to Checkout'
+              : tab === 'login'
+              ? 'Sign In'
+              : 'Create Account'}
           </h2>
           <p>
-            {tab === 'login' && 'Access your orders, saved items, and verified checkout.'}
-            {tab === 'register' && 'Join PlayNex for personalized experiences, faster checkout, and direct orders.'}
-            {tab === 'recover' && 'Enter your email address and we will send you a reset link.'}
+            {tab === 'recover'
+              ? 'Enter your email address to receive reset instructions.'
+              : authModalReason === 'checkout'
+              ? 'Sign in or create an account to complete your order.'
+              : tab === 'login'
+              ? 'Welcome back to PlayNex.'
+              : 'Save your details once to order and track shipments.'}
           </p>
         </div>
 
@@ -164,6 +158,7 @@ export default function AuthModal() {
               onClick={() => {
                 setTab('login');
                 setError(null);
+                setSuccessNotice(null);
               }}
             >
               Sign In
@@ -176,6 +171,7 @@ export default function AuthModal() {
               onClick={() => {
                 setTab('register');
                 setError(null);
+                setSuccessNotice(null);
               }}
             >
               Create Account
@@ -208,7 +204,7 @@ export default function AuthModal() {
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="e.g. Alex"
+                    placeholder="First name"
                     autoComplete="given-name"
                   />
                 </label>
@@ -219,70 +215,65 @@ export default function AuthModal() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    placeholder="e.g. Sharma"
+                    placeholder="Last name"
                     autoComplete="family-name"
                   />
                 </label>
               </div>
 
               <label className="auth-field">
-                <span>Mobile number (for delivery coordination)</span>
+                <span>Mobile number * (for courier delivery updates)</span>
                 <div className="bag-phone-input-wrap">
                   <span className="bag-phone-prefix">+91</span>
                   <input
                     type="tel"
+                    required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="10-digit mobile number"
                     autoComplete="tel"
+                    maxLength={15}
                   />
                 </div>
               </label>
 
-              <button
-                type="button"
-                className="auth-link-btn"
-                style={{alignSelf: 'flex-start', margin: '1px 0 3px'}}
-                onClick={() => setShowAddressFields(!showAddressFields)}
-              >
-                {showAddressFields ? '− Remove delivery address' : '+ Add delivery address now (optional)'}
-              </button>
+              <label className="auth-field">
+                <span>Delivery address * (House/Flat, Street)</span>
+                <input
+                  type="text"
+                  required
+                  value={address1}
+                  onChange={(e) => setAddress1(e.target.value)}
+                  placeholder="e.g. Flat 402, Lotus Towers, 5th Main Road"
+                  autoComplete="street-address"
+                />
+              </label>
 
-              {showAddressFields && (
-                <>
-                  <label className="auth-field">
-                    <span>Street address</span>
-                    <input
-                      type="text"
-                      value={address1}
-                      onChange={(e) => setAddress1(e.target.value)}
-                      placeholder="Flat/House no., building, street"
-                      autoComplete="street-address"
-                    />
-                  </label>
-
-                  <div className="auth-name-row">
-                    <label className="auth-field">
-                      <span>City</span>
-                      <input
-                        type="text"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        placeholder="e.g. Mumbai"
-                      />
-                    </label>
-                    <label className="auth-field">
-                      <span>PIN code</span>
-                      <input
-                        type="text"
-                        value={zip}
-                        onChange={(e) => setZip(e.target.value)}
-                        placeholder="e.g. 400001"
-                      />
-                    </label>
-                  </div>
-                </>
-              )}
+              <div className="auth-name-row">
+                <label className="auth-field">
+                  <span>City *</span>
+                  <input
+                    type="text"
+                    required
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="City"
+                    autoComplete="address-level2"
+                  />
+                </label>
+                <label className="auth-field">
+                  <span>PIN code *</span>
+                  <input
+                    type="text"
+                    required
+                    value={zip}
+                    onChange={(e) => setZip(e.target.value)}
+                    placeholder="e.g. 400001"
+                    autoComplete="postal-code"
+                    maxLength={10}
+                  />
+                </label>
+              </div>
             </>
           )}
 
@@ -309,6 +300,7 @@ export default function AuthModal() {
                     onClick={() => {
                       setTab('recover');
                       setError(null);
+                      setSuccessNotice(null);
                     }}
                   >
                     Forgot password?
@@ -369,7 +361,7 @@ export default function AuthModal() {
             </button>
           ) : (
             <p className="auth-terms-note">
-              🔒 Safe & secure customer accounts verified by Shopify. By continuing, you agree to PlayNex&apos;s Terms & Privacy.
+              🔒 Details saved securely to your Shopify customer account.
             </p>
           )}
         </div>
