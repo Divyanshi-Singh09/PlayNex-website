@@ -20,6 +20,9 @@ function LoginContent() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
+  const [address1, setAddress1] = useState('');
+  const [city, setCity] = useState('');
+  const [zip, setZip] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
@@ -48,12 +51,28 @@ function LoginContent() {
           setError(res.error || 'Invalid email or password.');
         }
       } else if (tab === 'register') {
+        const fullPhone = phone.trim() ? (phone.trim().startsWith('+') ? phone.trim() : `+91${phone.trim().replace(/^0+/, '')}`) : undefined;
+        // Save delivery address at the start
+        try {
+          localStorage.setItem(
+            'playnex_saved_delivery_address',
+            JSON.stringify({
+              firstName: firstName.trim(),
+              lastName: lastName.trim(),
+              phone: fullPhone,
+              address1: address1.trim(),
+              city: city.trim(),
+              zip: zip.trim()
+            })
+          );
+        } catch {}
+
         const res = await register({
           firstName: firstName.trim(),
           lastName: lastName.trim(),
           email: email.trim(),
           password,
-          phone: phone.trim() || undefined
+          phone: fullPhone
         });
         if (res.success) {
           router.push(redirectUrl);
@@ -192,6 +211,44 @@ function LoginContent() {
                   />
                 </div>
               </label>
+
+              <label className="auth-field">
+                <span>Delivery address *</span>
+                <input
+                  type="text"
+                  required
+                  value={address1}
+                  onChange={(e) => setAddress1(e.target.value)}
+                  placeholder="House/flat no., building, street"
+                  autoComplete="street-address"
+                />
+              </label>
+
+              <div className="auth-name-row">
+                <label className="auth-field">
+                  <span>City *</span>
+                  <input
+                    type="text"
+                    required
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="City"
+                    autoComplete="address-level2"
+                  />
+                </label>
+                <label className="auth-field">
+                  <span>PIN code *</span>
+                  <input
+                    type="text"
+                    required
+                    value={zip}
+                    onChange={(e) => setZip(e.target.value)}
+                    placeholder="PIN code"
+                    autoComplete="postal-code"
+                    maxLength={10}
+                  />
+                </label>
+              </div>
             </>
           )}
 

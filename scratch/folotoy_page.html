@@ -1,0 +1,2513 @@
+<!doctype html>
+<html class="js" lang="en">
+  <head><script data-source-attribution="shopify.exit_interstitial">(()=>{var s=Function.prototype.bind.bind(Function.prototype.call),yt=(c,r)=>{for(let d=c;d;d=Object.getPrototypeOf(d)){let g=Object.getOwnPropertyDescriptor(d,r);if(g)return g}throw new TypeError(`${r} is not defined`)},u=(c,r)=>s(yt(c,r).get),B=(c,r)=>s(yt(c,r).set);var Et=s(String.prototype.endsWith),Pe=s(String.prototype.slice),_=s(RegExp.prototype.exec),Ae=/^_(self|top|parent)$/i,Le=/(^|\s)noreferrer(\s|$)/i,mt=/^(no-referrer(-when-downgrade)?|same-origin|(strict-)?origin(-when-cross-origin)?|unsafe-url)$/i,We=/^(never|default|always|origin-when-crossorigin)$/i,wt=/^(no-referrer|same-origin|never)$/i,Ie=/\s(musical_ly|trill)_|\sBytedanceWebview\//,ht=c=>Et(c,".")?Pe(c,0,-1):c,_t=c=>{let r=ht(c),d=`.${r}`;return g=>{let m=ht(g);return m===r||Et(m,d)}},bt=(c,r,d)=>c!==void 0&&(c.protocol==="https:"||c.protocol==="http:")&&c.origin!==r&&!d(c.hostname),kt=(c,r,d)=>c!==null&&_(Le,c)!==null?!0:r!==null&&_(mt,r)!==null?_(wt,r)!==null:d,vt=(c,r)=>_(mt,c)!==null||_(We,c)!==null?_(wt,c)!==null:r,L=(c,{metaKey:r,ctrlKey:d,shiftKey:g,button:m})=>c&&_(Ae,c)===null?c:r||d||g||m===1?"_blank":"",Nt=c=>_(Ie,c)!==null;var Te="http://www.w3.org/2000/svg",Me="http://www.w3.org/1999/xlink",G=["rel","referrerpolicy","download","ping","hreflang","type"];function St(c){let r=window;if(r.top!==r)return;let d=document,g=r.navigation,m=location.origin,N=URL,q=u(N.prototype,"href"),Rt=u(N.prototype,"origin"),xt=u(N.prototype,"protocol"),Ot=u(N.prototype,"hostname"),Y=s(Event.prototype.preventDefault),Pt=s(Event.prototype.stopPropagation),j=s(Event.prototype.stopImmediatePropagation),V=s(Event.prototype.composedPath),At=u(Event.prototype,"type"),Lt=u(Event.prototype,"cancelable"),X=u(Event.prototype,"defaultPrevented"),Wt=u(Event.prototype,"bubbles"),It=u(Event.prototype,"currentTarget"),Tt=u(Event.prototype,"eventPhase"),{CAPTURING_PHASE:Mt}=Event,z=u(Event.prototype,"cancelBubble"),Ct=B(Event.prototype,"cancelBubble"),Dt=u(MouseEvent.prototype,"button"),Ft=u(MouseEvent.prototype,"metaKey"),Ht=u(MouseEvent.prototype,"ctrlKey"),$t=u(MouseEvent.prototype,"shiftKey"),Kt=g&&u(NavigateEvent.prototype,"destination"),Ut=g&&u(NavigationDestination.prototype,"url"),J=g&&u(NavigateEvent.prototype,"navigationType"),Bt=g&&u(NavigateEvent.prototype,"formData"),Q=g&&"sourceElement"in NavigateEvent.prototype?u(NavigateEvent.prototype,"sourceElement"):void 0,w=s(Element.prototype.getAttribute),Gt=s(Element.prototype.getAttributeNS),W=s(Element.prototype.setAttribute),qt=u(Element.prototype,"localName"),Yt=u(Element.prototype,"namespaceURI"),jt=s(Document.prototype.querySelector),Vt=s(Document.prototype.querySelectorAll),Xt=u(NodeList.prototype,"length"),zt=s(NodeList.prototype.item),I=u(Node.prototype,"baseURI"),Jt=s(Document.prototype.createElement),Qt=s(HTMLElement.prototype.click),Zt=s(r.open),te=s(location.assign),ee=s(location.replace),ne=encodeURIComponent,oe=s(String.prototype.startsWith),Z=s(r.setTimeout),re=s(r.addEventListener),se=s(r.removeEventListener),tt=s(EventTarget.prototype.addEventListener),et=s(EventTarget.prototype.removeEventListener),nt=Object.defineProperties,ot=t=>{let e=[],n=[HTMLElement.prototype,SVGElement.prototype,Document.prototype,r];for(let o=0;o<n.length;o+=1)try{e[e.length]={get:u(n[o],t),set:B(n[o],t)}}catch{}return e},ce={click:ot("onclick"),auxclick:ot("onauxclick")},rt=WeakMap,ie=WeakSet,st=s(WeakMap.prototype.get),ae=s(WeakMap.prototype.set),le=s(WeakMap.prototype.delete),ue=s(WeakSet.prototype.add),pe=s(WeakSet.prototype.has),fe=_t(c.site),de=Nt(navigator.userAgent),ct=q(new N(c.exitPath,m)),ge=`${ct}?`,O=(t,e)=>{try{let n=new N(t,e);return{href:q(n),origin:Rt(n),protocol:xt(n),hostname:Ot(n)}}catch{return}},ye=(t,e,n)=>{let o=n?"&noreferrer=1":"";return`${ct}?q=${ne(t.href)}&trigger=${e}${o}`},it=()=>{let t=Vt(d,'meta[name="referrer" i][content]'),e=!1;for(let n=0;n<Xt(t);n+=1)e=vt(w(zt(t,n),"content"),e);return e},at=(t,e,{target:n,noReferrer:o,replaces:a})=>{let f=ye(t,e,o);if(n){Zt(r,f,n,"noopener");return}(a?ee:te)(location,f)},T=t=>bt(t,m,fe),P=0,M,C=!1,he=t=>{if(P>0){M=t;return}t()},Ee=t=>{if(P-=1,t&&(C=!0),P>0)return;let e=C?void 0:M;M=void 0,C=!1,e&&e()},me=t=>t!==void 0&&oe(t.href,ge),lt=t=>{try{return qt(t)}catch{return}},ut=t=>kt(w(t,"rel"),w(t,"referrerpolicy"),it()),we=t=>{let e=Q?Q(t):null,n=e===null?void 0:lt(e);return n==="a"||n==="area"?ut(e):it()},_e=t=>{let e=O(Ut(Kt(t)));if(me(e)){j(t);return}if(!Lt(t)||J(t)==="traverse"||!T(e)||Bt(t)!==null)return;Y(t);let n={target:"",noReferrer:we(t),replaces:J(t)==="replace"};he(()=>at(e,"navigate",n))},R=t=>{let e=w(t,"href");return e===null&&Yt(t)===Te?Gt(t,Me,"href"):e},be=t=>{let e=V(t);for(let n=0;n<e.length;n+=1){let o=e[n],a=lt(o);if(a==="a"||a==="area"){let f=R(o);if(f!==null)return{node:o,href:f}}}},D=t=>{let e=w(t,"target");if(e!==null)return e;let n=jt(d,"base[target]");return n?w(n,"target"):""},ke=t=>{try{return{metaKey:Ft(t),ctrlKey:Ht(t),shiftKey:$t(t),button:Dt(t)}}catch{return}},pt=new ie,ve=t=>{let e=!1,n=()=>{e=!0},o=()=>e||pe(pt,t);return nt(t,{__proto__:null,preventDefault:{__proto__:null,configurable:!0,value:n},defaultPrevented:{__proto__:null,configurable:!0,get:o},returnValue:{__proto__:null,configurable:!0,get:()=>!o(),set:a=>{a||n()}}}),o},Ne={click:new rt,auxclick:new rt},Se=(t,e)=>{let n=ce[t],o=Ne[t],a=[],f=p=>{for(let l=0;l<a.length;l+=1)if(a[l]===p)return!0;return!1},b=(p,l,E)=>{let y=s(E);function A(v){let x=y(this,v);return x===!1&&typeof v=="object"&&v!==null&&ue(pt,v),x}return{target:p,accessor:l,handler:E,wrapper:A,inFlight:0}},k=()=>{for(let p=0;p<e.length;p+=1)for(let l=0;l<n.length;l+=1){let E;try{E=n[l].get(e[p])}catch{continue}if(typeof E=="function"){let y=st(o,e[p]);(!y||y.wrapper!==E)&&(y=b(e[p],n[l],E),n[l].set(e[p],y.wrapper),ae(o,e[p],y)),f(y)||(y.inFlight+=1,a[a.length]=y)}break}};return k(),{wrap:k,unwrap:()=>{for(let p=0;p<a.length;p+=1){let l=a[p];l.inFlight-=1,!(l.inFlight>0)&&(st(o,l.target)===l&&le(o,l.target),l.accessor.get(l.target)===l.wrapper&&l.accessor.set(l.target,l.handler))}}}},ft=(t,e,n)=>{let o=R(t),a=o===null?void 0:O(o,I(d));if(!T(a))return;let f={target:de?"":L(D(t),n),noReferrer:ut(t),replaces:!1};return{inWindow:f.target==="",go:()=>at(a,e,f)}},dt=t=>{let e=R(t);if(e===null||w(t,"download")===null)return!1;let n=O(e,I(d));return n!==void 0&&(n.origin===m||n.protocol==="blob:"||n.protocol==="data:")},Re=(t,e)=>R(t)!==null&&!dt(t)&&L(D(t),e)==="",xe=(t,e)=>{let n=R(t);if(n===null)return!1;let o=Jt(d,"a"),a=L(D(t),e);W(o,"href",n),W(o,"target",a||"_self");for(let f=0;f<G.length;f+=1){let b=w(t,G[f]);b!==null&&W(o,G[f],b)}return Qt(o),a===""&&!dt(t)},Oe=(t,e,n,o)=>{P+=1;let a=V(t),f=a.length-1,b=0,k=!1,F=!1,p=i=>{F||(F=!0,Ee(i))},l=i=>{if(k)return;k=!0;let S=X(t),h=S?void 0:ft(n,e,o),U;!S&&(h||i)&&(Y(t),U=ve(t)),Z(r,()=>{if(!U){p(!X(t)&&Re(n,o));return}if(U()){p(!1);return}if(i&&(h=ft(n,e,o),!h)){p(xe(n,o));return}h.go(),p(h.inWindow)},0)},E=(i,S)=>{for(let h=0;h<a.length;h+=1)if(a[h]===i)return S===Mt?f-h:a.length+h;return-1},y=()=>{E(It(t),Tt(t))<=b&&l(!0)},A=i=>{i===t&&l(!1)},v=Se(e,a),x=i=>S=>{if(S===t){if(b=i,z(t)){l(!1);return}v.wrap()}},H=[],$=[],K=Wt(t);if(K){for(let i=0;i<f;i+=1)H[i]=x(f-i),$[i]=x(a.length+i),tt(a[i],e,H[i],!0),tt(a[i],e,$[i],!1);re(r,e,A,!1)}if(Z(r,()=>{if(k||p(!1),k=!0,v.unwrap(),!!K){for(let i=0;i<f;i+=1)et(a[i],e,H[i],!0),et(a[i],e,$[i],!1);se(r,e,A,!1)}},0),!K){l(!0);return}nt(t,{__proto__:null,stopPropagation:{__proto__:null,configurable:!0,value:()=>{y(),Pt(t)}},stopImmediatePropagation:{__proto__:null,configurable:!0,value:()=>{l(!0),j(t)}},cancelBubble:{__proto__:null,configurable:!0,get:()=>z(t),set:i=>{i&&y(),Ct(t,i)}}})},gt=t=>{let e=At(t),n=ke(t);if(!n||e==="auxclick"&&n.button!==1)return;let o=be(t);!o||!T(O(o.href,I(d)))||Oe(t,e,o.node,n)};g?.addEventListener("navigate",_e,!0),r.addEventListener("click",gt,!0),r.addEventListener("auxclick",gt,!0)}St({"site":"folotoy.com","exitPath":"\/url"});})();
+//# sourceURL=exit-interstitial.js
+</script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="https://store.folotoy.com/products/folotoy-ai-teddy"><link rel="icon" type="image/png" href="//store.folotoy.com/cdn/shop/files/logo-chat_2x_7e7902ee-403f-481d-b534-033815e97358.png?crop=center&height=32&v=1730192069&width=32"><link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><title>
+      FoloToy Kumma AI Teddy Bear - Interactive Plush Toy
+ &ndash; FOLOTOY</title>
+
+    
+      <meta name="description" content="Meet Kumma, a soft AI teddy for curious kids. Enjoy interactive stories, multilingual chats, Wi-Fi connection, and a removable AI module for easy care.">
+    
+
+    
+
+<meta property="og:site_name" content="FOLOTOY">
+<meta property="og:url" content="https://store.folotoy.com/products/folotoy-ai-teddy">
+<meta property="og:title" content="FoloToy Kumma AI Teddy Bear - Interactive Plush Toy">
+<meta property="og:type" content="product">
+<meta property="og:description" content="Meet Kumma, a soft AI teddy for curious kids. Enjoy interactive stories, multilingual chats, Wi-Fi connection, and a removable AI module for easy care."><meta property="og:image" content="http://store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930">
+  <meta property="og:image:secure_url" content="https://store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930">
+  <meta property="og:image:width" content="1254">
+  <meta property="og:image:height" content="1254"><meta property="og:price:amount" content="99.00">
+  <meta property="og:price:currency" content="USD"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FoloToy Kumma AI Teddy Bear - Interactive Plush Toy">
+<meta name="twitter:description" content="Meet Kumma, a soft AI teddy for curious kids. Enjoy interactive stories, multilingual chats, Wi-Fi connection, and a removable AI module for easy care.">
+
+
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/constants.js?v=132983761750457495441788336348" defer="defer"></script>
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/pubsub.js?v=158357773527763999511788336348" defer="defer"></script>
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/global.js?v=88558128918567037191788336348" defer="defer"></script>
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/details-disclosure.js?v=13653116266235556501788336348" defer="defer"></script>
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/details-modal.js?v=25581673532751508451788336348" defer="defer"></script>
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/search-form.js?v=133129549252120666541788336348" defer="defer"></script><script src="//store.folotoy.com/cdn/shop/t/14/assets/animations.js?v=88693664871331136111788336348" defer="defer"></script><script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><meta name="google-site-verification" content="rZp6B-3EmLao5Py5blyoTvj1TI_Goql_z2Dz1Yf9DQk">
+<meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/58660585547/digital_wallets/dialog">
+<meta id="in-context-paypal-metadata" data-shop-id="58660585547" data-venmo-supported="false" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="USD">
+<link rel="ucp" href="/.well-known/ucp" version="2026-08-25"><link rel="buy" href="/cart/41113156911179:1?ucp/version=2026-08-25&amp;context/payment/0/handler=dev.shopify.shop_pay" payment="dev.shopify.shop_pay com.google.pay dev.shopify.card"><link rel="alternate" type="application/json+oembed" href="https://store.folotoy.com/products/folotoy-ai-teddy.oembed">
+<script async="async" src="/checkouts/internal/preloads.js?locale=en-CN"></script>
+<link rel="preconnect" href="https://shop.app" crossorigin="anonymous">
+<script async="async" src="https://shop.app/checkouts/internal/preloads.js?locale=en-CN&shop_id=58660585547" crossorigin="anonymous"></script>
+<script id="apple-pay-shop-capabilities" type="application/json">{"shopId":58660585547,"countryCode":"SG","currencyCode":"USD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/58660585547","merchantName":"FOLOTOY","requiredBillingContactFields":["postalAddress","email","phone"],"requiredShippingContactFields":["postalAddress","email","phone"],"shippingType":"shipping","supportedNetworks":["visa","masterCard"],"total":{"type":"pending","label":"FOLOTOY","amount":"1.00"},"shopifyPaymentsEnabled":true,"supportsSubscriptions":true}</script>
+<script id="shopify-features" type="application/json">{"accessToken":"b066b3721c83f937280a5c562b03bd73","betas":["rich-media-storefront-analytics"],"domain":"store.folotoy.com","predictiveSearch":true,"shopId":58660585547,"locale":"en"}</script>
+<script>var Shopify = Shopify || {};
+Shopify.shop = "02c22c-58.myshopify.com";
+Shopify.locale = "en";
+Shopify.currency = {"active":"USD","rate":"1.0"};
+Shopify.country = "CN";
+Shopify.theme = {"name":"Copy of Radiant","id":142628847691,"schema_name":"Dawn","schema_version":"15.1.0","theme_store_id":887,"role":"main"};
+Shopify.theme.handle = "null";
+Shopify.theme.style = {"id":null,"handle":null};
+Shopify.cdnHost = "store.folotoy.com/cdn";
+Shopify.routes = Shopify.routes || {};
+Shopify.routes.root = "/";
+Shopify.shopJsCdnBaseUrl = "https://cdn.shopify.com/shopifycloud/shop-js";
+Shopify.SignInWithShop = Shopify.SignInWithShop || {};
+Shopify.SignInWithShop.User = Shopify.SignInWithShop.User || {};
+Shopify.SignInWithShop.User.recognized = false;</script>
+<script type="module">!function(o){(o.Shopify=o.Shopify||{}).modules=!0}(window);</script>
+<script>!function(o){function n(){var o=[];function n(){o.push(Array.prototype.slice.apply(arguments))}return n.q=o,n}var t=o.Shopify=o.Shopify||{};t.loadFeatures=n(),t.autoloadFeatures=n()}(window);</script>
+<script>
+  window.ShopifyPay = window.ShopifyPay || {};
+  window.ShopifyPay.apiHost = "shop.app\/pay";
+  window.ShopifyPay.redirectState = null;
+</script>
+<script>
+  window.Shopify = window.Shopify || {};
+  window.Shopify.SignInWithShop = window.Shopify.SignInWithShop || {};
+  window.Shopify.SignInWithShop.assetMetrics = { sampleRate: 0.25 };
+  window.Shopify.SignInWithShop.eligible = true;
+</script>
+<script id="shop-js-analytics" type="application/json">{"pageType":"product"}</script>
+<script defer="defer" async type="module" src="https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js"></script>
+<script type="module">
+  await import("https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js");
+
+  window.Shopify.SignInWithShop?.initShopCartSync?.({"fedCMEnabled":true,"windoidEnabled":true,"backendHost":"c3RvcmUuZm9sb3RveS5jb20="});
+
+</script>
+<script>
+  window.Shopify = window.Shopify || {};
+  if (!window.Shopify.featureAssets) window.Shopify.featureAssets = {};
+  window.Shopify.featureAssets['shop-js'] = {"avatar":["modules/v2/loader.avatar.en.esm.js"],"checkout-modal":["modules/v2/loader.checkout-modal.en.esm.js"],"init-customer-accounts-sign-up":["modules/v2/loader.init-customer-accounts-sign-up.en.esm.js"],"init-customer-accounts":["modules/v2/loader.init-customer-accounts.en.esm.js"],"init-fed-cm":["modules/v2/loader.init-fed-cm.en.esm.js"],"init-shop-cart-sync":["modules/v2/loader.init-shop-cart-sync.en.esm.js"],"init-shop-email-lookup-coordinator":["modules/v2/loader.init-shop-email-lookup-coordinator.en.esm.js"],"init-shop-for-new-customer-accounts":["modules/v2/loader.init-shop-for-new-customer-accounts.en.esm.js"],"init-shop-user-recognition":["modules/v2/loader.init-shop-user-recognition.en.esm.js"],"init-windoid":["modules/v2/loader.init-windoid.en.esm.js"],"lead-capture":["modules/v2/loader.lead-capture.en.esm.js"],"listener":["modules/v2/loader.listener.en.esm.js"],"pay-button":["modules/v2/loader.pay-button.en.esm.js"],"payment-terms":["modules/v2/loader.payment-terms.en.esm.js"],"shop-button":["modules/v2/loader.shop-button.en.esm.js"],"shop-cart-sync":["modules/v2/loader.shop-cart-sync.en.esm.js"],"shop-cash-offers":["modules/v2/loader.shop-cash-offers.en.esm.js"],"shop-follow-button":["modules/v2/loader.shop-follow-button.en.esm.js"],"shop-login-button":["modules/v2/loader.shop-login-button.en.esm.js"],"shop-login":["modules/v2/loader.shop-login.en.esm.js"],"shop-toast-manager":["modules/v2/loader.shop-toast-manager.en.esm.js"],"shop-user-recognition":["modules/v2/loader.shop-user-recognition.en.esm.js"]};
+</script>
+<script id="__st">var __st={"a":58660585547,"offset":28800,"reqid":"a095f99d-7784-4f4f-997f-d1b1be11dc95-1793516604","pageurl":"store.folotoy.com\/products\/folotoy-ai-teddy","u":"9b24999ec166","p":"product","rtyp":"product","rid":7249157718091};</script>
+<script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+<script id="captcha-bootstrap">!function(){'use strict';const t='contact',e='account',n='new_comment',o=[[t,t],['blogs',n],['comments',n],[t,'customer']],c=[[e,'customer_login'],[e,'guest_login'],[e,'recover_customer_password'],[e,'create_customer']],r=t=>t.map((([t,e])=>`form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),a=t=>()=>t?[...document.querySelectorAll(t)].map((t=>t.form)):[];function s(){const t=[...o],e=r(t);return a(e)}const i='password',u='form_key',d=['recaptcha-v3-token','g-recaptcha-response','h-captcha-response',i],f=()=>{try{return window.sessionStorage}catch{return}},m='__shopify_v',_=t=>t.elements[u];function p(t,e,n=!1){try{const o=window.sessionStorage,c=JSON.parse(o.getItem(e)),{data:r}=function(t){const{data:e,action:n}=t;return t[m]||n?{data:e,action:n}:{data:t,action:n}}(c);for(const[e,n]of Object.entries(r))t.elements[e]&&(t.elements[e].value=n);n&&o.removeItem(e)}catch(o){console.error('form repopulation failed',{error:o})}}const l='form_type',E='cptcha';function T(t){t.dataset[E]=!0}const w=window,h=w.document,L='Shopify',v='ce_forms',y='captcha';let A=!1;((t,e)=>{const n=(g='f06e6c50-85a8-45c8-87d0-21a2b65856fe',I='https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.3.iife.js',D={infoText:'Protected by hCaptcha',privacyText:'Privacy',termsText:'Terms'},(t,e,n)=>{const o=w[L][v],c=o.bindForm;if(c)return c(t,g,e,D).then(n);var r;o.q.push([[t,g,e,D],n]),r=I,A||(h.body.append(Object.assign(h.createElement('script'),{id:'captcha-provider',async:!0,src:r})),A=!0)});var g,I,D;w[L]=w[L]||{},w[L][v]=w[L][v]||{},w[L][v].q=[],w[L][y]=w[L][y]||{},w[L][y].protect=function(t,e){n(t,void 0,e),T(t)},Object.freeze(w[L][y]),function(t,e,n,w,h,L){const[v,y,A,g]=function(t,e,n){const i=e?o:[],u=t?c:[],d=[...i,...u],f=r(d),m=r(i),_=r(d.filter((([t,e])=>n.includes(e))));return[a(f),a(m),a(_),s()]}(w,h,L),I=t=>{const e=t.target;return e instanceof HTMLFormElement?e:e&&e.form},D=t=>v().includes(t);t.addEventListener('submit',(t=>{const e=I(t);if(!e)return;const n=D(e)&&!e.dataset.hcaptchaBound&&!e.dataset.recaptchaBound,o=_(e),c=g().includes(e)&&(!o||!o.value);(n||c)&&t.preventDefault(),c&&!n&&(function(t){try{if(!f())return;!function(t){const e=f();if(!e)return;const n=_(t);if(!n)return;const o=n.value;o&&e.removeItem(o)}(t);const e=Array.from(Array(32),(()=>Math.random().toString(36)[2])).join('');!function(t,e){_(t)||t.append(Object.assign(document.createElement('input'),{type:'hidden',name:u})),t.elements[u].value=e}(t,e),function(t,e){const n=f();if(!n)return;const o=[...t.querySelectorAll(`input[type='${i}']`)].map((({name:t})=>t)),c=[...d,...o],r={};for(const[a,s]of new FormData(t).entries())c.includes(a)||(r[a]=s);n.setItem(e,JSON.stringify({[m]:1,action:t.action,data:r}))}(t,e)}catch(e){console.error('failed to persist form',e)}}(e),e.submit())}));const S=(t,e)=>{t&&!t.dataset[E]&&(n(t,e.some((e=>e===t))),T(t))};for(const o of['focusin','change'])t.addEventListener(o,(t=>{const e=I(t);D(e)&&S(e,y())}));const B=e.get('form_key'),M=e.get(l),P=B&&M;t.addEventListener('DOMContentLoaded',(()=>{const t=y();if(P)for(const e of t)e.elements[l].value===M&&p(e,B);[...new Set([...A(),...v().filter((t=>'true'===t.dataset.shopifyCaptcha))])].forEach((e=>S(e,t)))}))}(h,new URLSearchParams(w.location.search),n,t,e,['guest_login'])})(!0,!0)}();</script>
+<script integrity="sha256-FYHzja/5XSmzkjz6zHj7s4rACJGFuVoYZdumgoO2Ecs=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//store.folotoy.com/cdn/shopifycloud/storefront/assets/storefront/load_feature-ed94c51f.js" crossorigin="anonymous"></script>
+<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//store.folotoy.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script><script crossorigin="anonymous" defer="defer" src="//store.folotoy.com/cdn/shopifycloud/storefront/assets/shopify_pay/storefront-f0e26bdf.js?v=20250812"></script>
+<script id="shopify-origin-trials" async="async" integrity="sha256-qJbe/jEZBHtr5W/BlA2cKAz3vkXu6vJQyLjgvgCC86g=" src="//cdn.shopify.com/shopifycloud/storefront/assets/storefront/origin_trials-318ab40a.js" crossorigin="anonymous" onload="window.__shopifyOriginTrialsDone = true" onerror="window.__shopifyOriginTrialsDone = true"></script>
+<script>(()=>{var d="shopify:webmcp_adapter_loaded",n=Symbol.for("shopify.webmcp_adapter_loading");function s(c,a,{win:r=window,doc:o=document}={}){function p(){try{return r.localStorage.getItem(d)==="true"}catch{return!1}}function l(){try{r.localStorage.setItem(d,"true")}catch{}}function u(){return typeof(o.modelContext||r.navigator?.modelContext)?.registerTool=="function"}function f(){if(r[n]||!u())return;let t=o.head||o.getElementsByTagName("head")[0];if(!t)return;let e=o.createElement("script");e.type="module",e.crossOrigin="anonymous",a&&(e.integrity=a),e.src=c,e.addEventListener("load",l,{once:!0}),e.addEventListener("error",()=>{r[n]=!1},{once:!0}),t.appendChild(e),r[n]=!0}function _(t){let e=o.getElementById("shopify-origin-trials");if(!e||r.__shopifyOriginTrialsDone){t();return}e.addEventListener("load",t,{once:!0}),e.addEventListener("error",t,{once:!0})}function i(){_(()=>r.setTimeout(f,0))}function m(){o.addEventListener("DOMContentLoaded",i,{once:!0})}p()?i():m()}s("\/\/store.folotoy.com\/cdn\/shopifycloud\/storefront\/assets\/storefront\/webmcp-23c12384.js","sha256-r8Pww6V2udgtSdaVbcRtdZ4Kg+gXP7aLPZOtQSJPrbM=");})();
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.dynamic.init">var Shopify=Shopify||{};Shopify.PaymentButton=Shopify.PaymentButton||{isStorefrontPortableWallets:!0,init:function(){window.Shopify.PaymentButton.init=function(){};var t=document.createElement("script");t.src="https://store.folotoy.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js",t.type="module",document.head.appendChild(t)}};
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.buyer_consent">
+  function portableWalletsHideBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.add("hidden"),t.setAttribute("aria-hidden","true"),n.removeEventListener("click",e))}function portableWalletsShowBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.remove("hidden"),t.removeAttribute("aria-hidden"),n.addEventListener("click",e))}window.Shopify?.PaymentButton&&(window.Shopify.PaymentButton.hideBuyerConsent=portableWalletsHideBuyerConsent,window.Shopify.PaymentButton.showBuyerConsent=portableWalletsShowBuyerConsent);
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.cart.bootstrap">document.addEventListener("DOMContentLoaded",(function(){function t(){return document.querySelector("shopify-accelerated-checkout-cart, shopify-accelerated-checkout")}if(t())Shopify.PaymentButton.init();else{new MutationObserver((function(e,n){t()&&(Shopify.PaymentButton.init(),n.disconnect())})).observe(document.body,{childList:!0,subtree:!0})}}));
+</script>
+<script id='scb4127' type='text/javascript' async='' src='https://store.folotoy.com/cdn/shopifycloud/privacy-banner/privacy-banner.js'></script><link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="https://store.folotoy.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">
+<style id="shopify-accelerated-checkout-cart">
+        #shopify-buyer-consent {
+  margin-top: 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+#shopify-buyer-consent.hidden {
+  display: none;
+}
+
+#shopify-subscription-policy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#shopify-subscription-policy-button::before {
+  box-shadow: none;
+}
+
+      </style>
+<script id="sections-script" data-sections="header" defer="defer" src="//store.folotoy.com/cdn/shop/t/14/compiled_assets/scripts.js?v=184325197989695213571789498260"></script>
+<script id="shopify-cfh-end">window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
+
+
+    <style data-shopify>
+      @font-face {
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("//store.folotoy.com/cdn/fonts/archivo/archivo_n4.dc8d917cc69af0a65ae04d01fd8eeab28a3573c9.woff2") format("woff2"),
+       url("//store.folotoy.com/cdn/fonts/archivo/archivo_n4.bd6b9c34fdb81d7646836be8065ce3c80a2cc984.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("//store.folotoy.com/cdn/fonts/archivo/archivo_n7.651b020b3543640c100112be6f1c1b8e816c7f13.woff2") format("woff2"),
+       url("//store.folotoy.com/cdn/fonts/archivo/archivo_n7.7e9106d320e6594976a7dcb57957f3e712e83c96.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("//store.folotoy.com/cdn/fonts/archivo/archivo_i4.37d8c4e02dc4f8e8b559f47082eb24a5c48c2908.woff2") format("woff2"),
+       url("//store.folotoy.com/cdn/fonts/archivo/archivo_i4.839d35d75c605237591e73815270f86ab696602c.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("//store.folotoy.com/cdn/fonts/archivo/archivo_i7.3dc798c6f261b8341dd97dd5c78d97d457c63517.woff2") format("woff2"),
+       url("//store.folotoy.com/cdn/fonts/archivo/archivo_i7.3b65e9d326e7379bd5f15bcb927c5d533d950ff6.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("//store.folotoy.com/cdn/fonts/archivo/archivo_n4.dc8d917cc69af0a65ae04d01fd8eeab28a3573c9.woff2") format("woff2"),
+       url("//store.folotoy.com/cdn/fonts/archivo/archivo_n4.bd6b9c34fdb81d7646836be8065ce3c80a2cc984.woff") format("woff");
+}
+
+
+      
+        :root,
+        .color-background-1 {
+          --color-background: 255,255,255;
+        
+          --gradient-background: #ffffff;
+        
+
+        
+
+        --color-foreground: 236,72,153;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 42,0,253;
+        --color-button: 42,0,253;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 42,0,253;
+        --color-link: 42,0,253;
+        --color-badge-foreground: 236,72,153;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 236,72,153;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+      
+        
+        .color-background-2 {
+          --color-background: 230,235,252;
+        
+          --gradient-background: #e6ebfc;
+        
+
+        
+
+        --color-foreground: 42,0,253;
+        --color-background-contrast: 116,144,238;
+        --color-shadow: 42,0,253;
+        --color-button: 42,0,253;
+        --color-button-text: 230,235,252;
+        --color-secondary-button: 230,235,252;
+        --color-secondary-button-text: 42,0,253;
+        --color-link: 42,0,253;
+        --color-badge-foreground: 42,0,253;
+        --color-badge-background: 230,235,252;
+        --color-badge-border: 42,0,253;
+        --payment-terms-background-color: rgb(230 235 252);
+      }
+      
+        
+        .color-inverse {
+          --color-background: 218,227,254;
+        
+          --gradient-background: radial-gradient(rgba(2, 123, 251, 1), rgba(215, 204, 250, 1) 100%);
+        
+
+        
+
+        --color-foreground: 18,18,18;
+        --color-background-contrast: 94,133,251;
+        --color-shadow: 18,18,18;
+        --color-button: 18,18,18;
+        --color-button-text: 218,227,254;
+        --color-secondary-button: 218,227,254;
+        --color-secondary-button-text: 18,18,18;
+        --color-link: 18,18,18;
+        --color-badge-foreground: 18,18,18;
+        --color-badge-background: 218,227,254;
+        --color-badge-border: 18,18,18;
+        --payment-terms-background-color: rgb(218 227 254);
+      }
+      
+        
+        .color-accent-1 {
+          --color-background: 255,255,255;
+        
+          --gradient-background: #ffffff;
+        
+
+        
+
+        --color-foreground: 42,0,253;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 42,0,253;
+        --color-button: 42,0,253;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 42,0,253;
+        --color-link: 42,0,253;
+        --color-badge-foreground: 42,0,253;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 42,0,253;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+      
+        
+        .color-accent-2 {
+          --color-background: 255,255,255;
+        
+          --gradient-background: #ffffff;
+        
+
+        
+
+        --color-foreground: 18,18,18;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 236,72,153;
+        --color-button: 236,72,153;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 236,72,153;
+        --color-link: 236,72,153;
+        --color-badge-foreground: 18,18,18;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 18,18,18;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+      
+        
+        .color-accent-3 {
+          --color-background: 255,255,255;
+        
+          --gradient-background: #ffffff;
+        
+
+        
+
+        --color-foreground: 18,18,18;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 18,18,18;
+        --color-button: 39,40,42;
+        --color-button-text: 230,235,252;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 39,40,42;
+        --color-link: 39,40,42;
+        --color-badge-foreground: 18,18,18;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 18,18,18;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+      
+        
+        .color-scheme-443cde37-aae9-4e5f-9d38-dc593c64f508 {
+          --color-background: 255,255,255;
+        
+          --gradient-background: #ffffff;
+        
+
+        
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 191,191,191;
+        --color-shadow: 236,72,153;
+        --color-button: 236,72,153;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 255,255,255;
+        --color-secondary-button-text: 236,72,153;
+        --color-link: 236,72,153;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 255,255,255;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(255 255 255);
+      }
+      
+        
+        .color-scheme-bb2c541b-8552-4104-bc07-ce611d81153a {
+          --color-background: 236,72,153;
+        
+          --gradient-background: #ec4899;
+        
+
+        
+
+        --color-foreground: 255,255,255;
+        --color-background-contrast: 164,17,89;
+        --color-shadow: 42,0,253;
+        --color-button: 42,0,253;
+        --color-button-text: 255,255,255;
+        --color-secondary-button: 236,72,153;
+        --color-secondary-button-text: 42,0,253;
+        --color-link: 42,0,253;
+        --color-badge-foreground: 255,255,255;
+        --color-badge-background: 236,72,153;
+        --color-badge-border: 255,255,255;
+        --payment-terms-background-color: rgb(236 72 153);
+      }
+      
+
+      body, .color-background-1, .color-background-2, .color-inverse, .color-accent-1, .color-accent-2, .color-accent-3, .color-scheme-443cde37-aae9-4e5f-9d38-dc593c64f508, .color-scheme-bb2c541b-8552-4104-bc07-ce611d81153a {
+        color: rgba(var(--color-foreground), 0.75);
+        background-color: rgb(var(--color-background));
+      }
+
+      :root {
+        --font-body-family: Archivo, sans-serif;
+        --font-body-style: normal;
+        --font-body-weight: 400;
+        --font-body-weight-bold: 700;
+
+        --font-heading-family: Archivo, sans-serif;
+        --font-heading-style: normal;
+        --font-heading-weight: 400;
+
+        --font-body-scale: 1.0;
+        --font-heading-scale: 1.25;
+
+        --media-padding: px;
+        --media-border-opacity: 0.05;
+        --media-border-width: 1px;
+        --media-radius: 0px;
+        --media-shadow-opacity: 0.0;
+        --media-shadow-horizontal-offset: 0px;
+        --media-shadow-vertical-offset: 4px;
+        --media-shadow-blur-radius: 5px;
+        --media-shadow-visible: 0;
+
+        --page-width: 120rem;
+        --page-width-margin: 0rem;
+
+        --product-card-image-padding: 0.0rem;
+        --product-card-corner-radius: 0.0rem;
+        --product-card-text-alignment: left;
+        --product-card-border-width: 0.0rem;
+        --product-card-border-opacity: 0.1;
+        --product-card-shadow-opacity: 0.0;
+        --product-card-shadow-visible: 0;
+        --product-card-shadow-horizontal-offset: 0.0rem;
+        --product-card-shadow-vertical-offset: 0.4rem;
+        --product-card-shadow-blur-radius: 0.5rem;
+
+        --collection-card-image-padding: 0.0rem;
+        --collection-card-corner-radius: 0.0rem;
+        --collection-card-text-alignment: left;
+        --collection-card-border-width: 0.0rem;
+        --collection-card-border-opacity: 0.1;
+        --collection-card-shadow-opacity: 0.0;
+        --collection-card-shadow-visible: 0;
+        --collection-card-shadow-horizontal-offset: 0.0rem;
+        --collection-card-shadow-vertical-offset: 0.4rem;
+        --collection-card-shadow-blur-radius: 0.5rem;
+
+        --blog-card-image-padding: 0.0rem;
+        --blog-card-corner-radius: 0.0rem;
+        --blog-card-text-alignment: left;
+        --blog-card-border-width: 0.0rem;
+        --blog-card-border-opacity: 0.1;
+        --blog-card-shadow-opacity: 0.0;
+        --blog-card-shadow-visible: 0;
+        --blog-card-shadow-horizontal-offset: 0.0rem;
+        --blog-card-shadow-vertical-offset: 0.4rem;
+        --blog-card-shadow-blur-radius: 0.5rem;
+
+        --badge-corner-radius: 4.0rem;
+
+        --popup-border-width: 1px;
+        --popup-border-opacity: 0.1;
+        --popup-corner-radius: 0px;
+        --popup-shadow-opacity: 0.05;
+        --popup-shadow-horizontal-offset: 0px;
+        --popup-shadow-vertical-offset: 4px;
+        --popup-shadow-blur-radius: 5px;
+
+        --drawer-border-width: 1px;
+        --drawer-border-opacity: 0.1;
+        --drawer-shadow-opacity: 0.0;
+        --drawer-shadow-horizontal-offset: 0px;
+        --drawer-shadow-vertical-offset: 4px;
+        --drawer-shadow-blur-radius: 5px;
+
+        --spacing-sections-desktop: 0px;
+        --spacing-sections-mobile: 0px;
+
+        --grid-desktop-vertical-spacing: 8px;
+        --grid-desktop-horizontal-spacing: 8px;
+        --grid-mobile-vertical-spacing: 4px;
+        --grid-mobile-horizontal-spacing: 4px;
+
+        --text-boxes-border-opacity: 0.1;
+        --text-boxes-border-width: 0px;
+        --text-boxes-radius: 0px;
+        --text-boxes-shadow-opacity: 0.0;
+        --text-boxes-shadow-visible: 0;
+        --text-boxes-shadow-horizontal-offset: 0px;
+        --text-boxes-shadow-vertical-offset: 4px;
+        --text-boxes-shadow-blur-radius: 5px;
+
+        --buttons-radius: 0px;
+        --buttons-radius-outset: 0px;
+        --buttons-border-width: 1px;
+        --buttons-border-opacity: 1.0;
+        --buttons-shadow-opacity: 0.0;
+        --buttons-shadow-visible: 0;
+        --buttons-shadow-horizontal-offset: 0px;
+        --buttons-shadow-vertical-offset: 4px;
+        --buttons-shadow-blur-radius: 5px;
+        --buttons-border-offset: 0px;
+
+        --inputs-radius: 0px;
+        --inputs-border-width: 1px;
+        --inputs-border-opacity: 0.55;
+        --inputs-shadow-opacity: 0.0;
+        --inputs-shadow-horizontal-offset: 0px;
+        --inputs-margin-offset: 0px;
+        --inputs-shadow-vertical-offset: 4px;
+        --inputs-shadow-blur-radius: 5px;
+        --inputs-radius-outset: 0px;
+
+        --variant-pills-radius: 40px;
+        --variant-pills-border-width: 1px;
+        --variant-pills-border-opacity: 0.55;
+        --variant-pills-shadow-opacity: 0.0;
+        --variant-pills-shadow-horizontal-offset: 0px;
+        --variant-pills-shadow-vertical-offset: 4px;
+        --variant-pills-shadow-blur-radius: 5px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: calc(var(--font-body-scale) * 62.5%);
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: 0.06rem;
+        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+
+      @media screen and (min-width: 750px) {
+        body {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+
+    <link href="//store.folotoy.com/cdn/shop/t/14/assets/base.css?v=94266557971103095941788336348" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-cart-items.css?v=123238115697927560811788336348" media="print" onload="this.media='all'">
+      <link rel="preload" as="font" href="//store.folotoy.com/cdn/fonts/archivo/archivo_n4.dc8d917cc69af0a65ae04d01fd8eeab28a3573c9.woff2" type="font/woff2" crossorigin>
+      
+
+      <link rel="preload" as="font" href="//store.folotoy.com/cdn/fonts/archivo/archivo_n4.dc8d917cc69af0a65ae04d01fd8eeab28a3573c9.woff2" type="font/woff2" crossorigin>
+      
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-localization-form.css?v=86199867289619414191788336348" rel="stylesheet" type="text/css" media="all" />
+      <script src="//store.folotoy.com/cdn/shop/t/14/assets/localization-form.js?v=144176611646395275351788336348" defer="defer"></script><link
+        rel="stylesheet"
+        href="//store.folotoy.com/cdn/shop/t/14/assets/component-predictive-search.css?v=118923337488134913561788336348"
+        media="print"
+        onload="this.media='all'"
+      ><script>
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+  <!-- BEGIN app block: shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b --><link rel='modulepreload' href='https://cdn.shopify.com/storefront/web-components/chat.js' crossorigin fetchpriority='low'>
+
+<script id='shopify-chat-app-embed-data' type='application/json'>
+  {
+    "settings": {
+      "invertActivatorColors": false,
+      "greetingMessage": "Hi! 👋 Questions about shipping, setup, or choosing the right FoloToy? We're happy to help.",
+      "showFeaturedProducts": false,
+      "featuredProducts": [],
+      "horizontalPosition": "bottom_right",
+      "icon": "chat_bubble",
+      "buttonLabel": "Chat"
+    },
+    "floatingInputContext": {
+      "pagePath": "\/products\/folotoy-ai-teddy",
+      "pageType": "product",
+      "title": "FoloToy AI Teddy Kumma AI Toy",
+      "searchTerms": null,
+      "searchPerformed": false,
+      "available": true,
+      "priceMin": null,
+      "priceMax": null,
+      "products": []
+    }
+    
+  }
+</script>
+
+<style data-shopify>
+  
+
+  /* Shadow DOM content does not prevent theme-wide :empty rules from matching the host. */
+  shopify-chat:defined:empty {
+    display: grid;
+  }
+
+  :root {
+    --shopify-chat-bg-color: #FFFFFF;
+    --shopify-chat-text-color: #EC4899;
+    --shopify-chat-accent-bg-color: #EC4899;
+    --shopify-chat-accent-text-color: #FFFFFF;
+    --shopify-chat-activator-offset: 20px;
+
+    
+
+    --shopify-chat-activator-font-size: 13px;
+    --shopify-chat-border-radius: 16px;
+  }
+
+  
+</style>
+
+<script src='https://cdn.shopify.com/storefront/web-components/chat.js' type='module' crossorigin fetchpriority='low' async></script>
+
+
+<!-- END app block --><link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+<script>
+  window.__TREKKIE_SHIM_QUEUE = window.__TREKKIE_SHIM_QUEUE || [];
+</script>
+<script>(function(){var wpmLoader=function(){"use strict";var e=/Googlebot|Storebot-Google|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Applebot|AdsBot-Google|Mediapartners-Google|APIs-Google|PetalBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|Acunetix|PerplexityBot|Perplexity-User/i,t=/bytedance/i;function i(){try{var e=document.cookie;if(!e||"string"!=typeof e)return;for(var t=0,i=e.split(";");t<i.length;t++){var n=i[t],r=n.indexOf("=");if(-1!==r){var o=n.slice(0,r).trim();if(o){var a=void 0;try{a=decodeURIComponent(o)}catch(e){a=o}if("_shopify_s"===a){var d=n.slice(r+1).trim();try{return decodeURIComponent(d)}catch(e){return d}}}}}return}catch(e){return}}function n(e){try{"undefined"!=typeof console&&"function"==typeof console.warn&&console.warn(e)}catch(e){}}function r(e,t){return"string"==typeof e&&e.length>0&&e.length<=t?e:void 0}function o(e){var t;switch(null==(t=null==e?void 0:e.navigation)?void 0:t.type){case 0:return"navigate";case 1:return"reload";case 2:return"back_forward";default:return}}function a(){var e,t,i;try{var n=null==(i=null==(t=null==(e=self.ShopifyAnalytics)?void 0:e.lib)?void 0:t.trekkie)?void 0:i.state;return"awaiting-consent"===n||"initialized"===n?n:void 0}catch(e){return}}return function(d,s,u,l){var c=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{};try{var p=c.trekkieShim;!0!==p&&"true"!==p||null!=window.__TREKKIE_SHIM_QUEUE||(window.__TREKKIE_SHIM_QUEUE=[])}catch(e){}var f,v,h,y,g=(v=(f={modern:/Edge?\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Firefox\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Chrom(ium|e)\/(9{2}|\d{3,})\.\d+(\.\d+|)|(Maci|X1{2}).+ Version\/(15\.\d+|(1[6-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(9{2}|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(15[._]\d+|(1[6-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Android.+Firefox\/(15\d|1[6-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|SamsungBrowser\/([2-9]\d|\d{3,})\.\d+/,legacy:/Edge?\/(1[6-9]|[2-9]\d|\d{3,})\.\d+(\.\d+|)|Firefox\/(5[4-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)|Chrom(ium|e)\/(5[1-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)([\d.]+$|.*Safari\/(?![\d.]+ Edge\/[\d.]+$))|(Maci|X1{2}).+ Version\/(10\.\d+|(1[1-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(3[89]|[4-9]\d|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(10[._]\d+|(1[1-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Mobile Safari.+OPR\/([89]\d|\d{3,})\.\d+\.\d+|Android.+Firefox\/(15\d|1[6-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+(UC? ?Browser|UCWEB|U3)[ /]?(15\.([5-9]|\d{2,})|(1[6-9]|[2-9]\d|\d{3,})\.\d+)\.\d+|SamsungBrowser\/(5\.\d+|([6-9]|\d{2,})\.\d+)|Android.+MQ{2}Browser\/(14(\.(9|\d{2,})|)|(1[5-9]|[2-9]\d|\d{3,})(\.\d+|))(\.\d+|)|K[Aa][Ii]OS\/(3\.\d+|([4-9]|\d{2,})\.\d+)(\.\d+|)/}).modern,h=f.legacy,(y=navigator.userAgent).match(e)?"bot":y.match(v)?"modern":y.match(h)?"legacy":y.match(t)?"bot":"unknown"),m=function(e){var t,i,n=r(e,128);try{var a=window.performance,d=null==(t=null==a?void 0:a.getEntriesByType)?void 0:t.call(a,"navigation")[0];if(!d)return{requestId:n,navigationType:o(a)};var s="type"in d?r(d.type,64):void 0,u="serverTiming"in d&&Array.isArray(d.serverTiming)?d.serverTiming:[];return{requestId:null!=n?n:r(null==(i=u.find(function(e){return"requestID"===e.name}))?void 0:i.description,128),navigationType:s}}catch(e){return{requestId:n}}}(c.requestId),w=function(e){var t=e.version,r=e.browserTarget,o=e.surface,a=e.shopId,d=e.monorailEndpoint,s=window.location.href;return{emit:function(e){var u=e.status,l=e.errorMsg,c=e.failureReason,p=e.useKeepaliveFallback,f=void 0!==p&&p,v=e.navigationType,h=e.pagehidePersisted,y=e.requestId,g=e.trekkieState;if(d){var m,w;try{var b=(new Date).getTime();m=JSON.stringify({metadata:{event_sent_at_ms:b},events:[{schema_id:"web_pixels_manager_load/3.3",payload:{version:t,bundle_target:r,page_url:s,status:u,surface:o,error_msg:l,failure_reason:c,navigation_type:v,pagehide_persisted:h,request_id:y,trekkie_state:g,shop_id:a,visit_token:i()},metadata:{event_created_at_ms:b}}]})}catch(e){return}try{if("function"==typeof window.navigator.sendBeacon&&-1===(w=window.navigator.userAgent).indexOf("iPhone; CPU iPhone OS 12_")&&-1===w.indexOf("iPad; CPU OS 12_")&&-1===w.indexOf("iPod touch; CPU iPhone OS 12_")&&window.navigator.sendBeacon.bind(window.navigator)(d,m))return}catch(e){}if(f)try{"function"==typeof window.fetch&&window.fetch(d,{method:"POST",headers:{"Content-Type":"text/plain"},body:m,keepalive:!0}).catch(function(){})}catch(e){}else try{var _=new XMLHttpRequest;_.open("POST",d,!0),_.setRequestHeader("Content-Type","text/plain"),_.send(m)}catch(e){n("[Web Pixels Manager] Got an unhandled error while logging to Monorail.")}}else n("[Web Pixels Manager] No Monorail endpoint provided, skipping logging.")}}}({version:u,browserTarget:g,surface:d.surface,shopId:d.shopId,monorailEndpoint:d.monorailEndpoint});if(Boolean(null==(_=null==(b=window.Shopify)?void 0:b.analytics)?void 0:_.replayQueue))w.emit({status:"setup-skipped",errorMsg:"replay queue already initialized."});else{var b,_;w.emit({status:"setup-started"}),window.Shopify=window.Shopify||{};var S=window.Shopify;S.analytics=S.analytics||{};var P=S.analytics;P.replayQueue=[],P.publish=function(e,t,i){return P.replayQueue.push([e,t,i]),!0};try{self.performance.mark("wpm:start")}catch(e){}var k,C="modern"===g?"modern":"legacy",E=(null!=l?l:{modern:"",legacy:""})[C],I=[(k={baseUrl:s,hashVersion:u,buildTarget:C}).baseUrl,"/wpm","/b",k.hashVersion,"modern"===k.buildTarget?"m":"l",".js"].join(""),O=!1,T=!1;try{c.browserTarget=g,function(){O=!0;try{window.addEventListener("pagehide",M)}catch(e){O=!1}}(),R(function(){try{R(x)}catch(e){D(e)}}),w.emit({status:"loading",requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()})}catch(e){D(e)}}function U(){var e;if(q(),!function(){var e,t;return Boolean(null==(t=null==(e=window.Shopify)?void 0:e.analytics)?void 0:t.initialized)}()){var t,i,n;try{if("function"!=typeof(null==(e=window.webPixelsManager)?void 0:e.init))return void A();if(!(null!==(n=i=t=window.webPixelsManager.init(d))&&"function"!=typeof n&&Object(n)===n&&"publish"in i&&"function"==typeof i.publish&&"publishCustomEvent"in i&&"function"==typeof i.publishCustomEvent&&"visitor"in i&&"function"==typeof i.visitor))return void A()}catch(e){return void A(e)}var r=window.Shopify.analytics;r.replayQueue.forEach(function(e){var i=e[0],n=e[1],r=e[2];t.publishCustomEvent(i,n,r)}),r.replayQueue=[],r.publish=t.publishCustomEvent,r.visitor=t.visitor,r.initialized=!0}}function A(e){B("manager_api_unavailable",void 0===e?void 0:Q(e))}function x(){B("script_load_failed","".concat(I," has failed to load"))}function B(e,t){T||(T=!0,q(),w.emit({status:"failed",errorMsg:t,failureReason:e,requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()}))}function M(e){O&&(q(),w.emit({status:"pagehide-while-loading",useKeepaliveFallback:!0,pagehidePersisted:e.persisted,requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()}))}function q(){O=!1;try{window.removeEventListener("pagehide",M)}catch(e){}}function R(e){var t;!function(e){var t=e.src,i=e.async,n=void 0===i||i,r=e.onload,o=e.onerror,a=e.sri,d=e.scriptDataAttributes,s=void 0===d?{}:d,u=document.createElement("script"),l=document.querySelector("head"),c=document.querySelector("body");if(u.async=n,u.src=t,a&&(u.integrity=a,u.crossOrigin="anonymous"),s)for(var p in s)if(Object.prototype.hasOwnProperty.call(s,p))try{u.dataset[p]=String(s[p])}catch(e){}if(r&&u.addEventListener("load",r),o&&u.addEventListener("error",o),l)l.appendChild(u);else{if(!c)throw new Error("Did not find a head or body element to append the script");c.appendChild(u)}}({src:I,async:!0,onload:U,onerror:e,sri:(t=E,"string"==typeof t&&/^sha384-[A-Za-z0-9+/=]+$/.test(t)?E:""),scriptDataAttributes:c})}function D(e){B("script_append_failed",Q(e))}function Q(e){return e instanceof Error?e.message:"Unknown error"}}}();wpmLoader({shopId: 58660585547,storefrontBaseUrl: "https://store.folotoy.com",extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",monorailEndpoint: "https://store.folotoy.com/.well-known/shopify/monorail/unstable/produce_batch",surface: "storefront-renderer",enabledBetaFlags: ["7b21cf0b","b13923a8","4c64608a"],webPixelsConfigList: [{"id":"1898971211","configuration":"{\"config\":\"{\\\"google_tag_ids\\\":[\\\"G-KHGS7Q2X04\\\",\\\"GT-MR8CBB33\\\",\\\"G-PB46C3QK4R\\\"],\\\"target_country\\\":\\\"US\\\",\\\"gtag_events\\\":[{\\\"type\\\":\\\"begin_checkout\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"search\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"remove_from_cart\\\",\\\"action_label\\\":\\\"G-KHGS7Q2X04\\\"},{\\\"type\\\":\\\"view_item\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"MC-4PB4484118\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"add_shipping_info\\\",\\\"action_label\\\":\\\"G-KHGS7Q2X04\\\"},{\\\"type\\\":\\\"purchase\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"MC-4PB4484118\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"page_view\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"MC-4PB4484118\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"view_item_list\\\",\\\"action_label\\\":\\\"G-KHGS7Q2X04\\\"},{\\\"type\\\":\\\"add_payment_info\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"add_to_cart\\\",\\\"action_label\\\":[\\\"G-KHGS7Q2X04\\\",\\\"G-PB46C3QK4R\\\"]},{\\\"type\\\":\\\"view_cart\\\",\\\"action_label\\\":\\\"G-KHGS7Q2X04\\\"}],\\\"enable_monitoring_mode\\\":false}\"}","eventPayloadVersion":"v1","runtimeContext":"OPEN","scriptVersion":"a3321ca85cf5aaf6b57585fcd8d67b3a","type":"APP","apiClientId":1780363,"privacyPurposes":[],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"],"dataSharingControls":["share_all_events"]},"dataSharingState":"optimized","enabledFlags":["9a3ed68a"]},{"id":"1744404555","configuration":"{\"myshopifyDomain\":\"02c22c-58.myshopify.com\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"23b97d18e2aa74363140dc29c9284e87","type":"APP","apiClientId":2775569,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_phone","read_customer_personal_data"],"dataSharingControls":["share_all_events"]},"dataSharingState":"optimized"},{"id":"130154571","eventPayloadVersion":"1","runtimeContext":"LAX","scriptVersion":"1","type":"CUSTOM","privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"name":"google 广告购买"},{"id":"shopify-app-pixel","configuration":"{}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"APP","privacyPurposes":["ANALYTICS","MARKETING"]},{"id":"shopify-custom-pixel","eventPayloadVersion":"v1","runtimeContext":"LAX","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"CUSTOM","privacyPurposes":["ANALYTICS","MARKETING"]}],isMerchantRequest: false,initData: {"shop":{"name":"FOLOTOY","paymentSettings":{"currencyCode":"USD"},"myshopifyDomain":"02c22c-58.myshopify.com","countryCode":"SG","storefrontUrl":"https:\/\/store.folotoy.com"},"customer":null,"cart":null,"checkout":null,"productVariants":[{"price":{"amount":99.0,"currencyCode":"USD"},"product":{"title":"FoloToy AI Teddy Kumma AI Toy","vendor":"FoloToy","id":"7249157718091","untranslatedTitle":"FoloToy AI Teddy Kumma AI Toy","url":"\/products\/folotoy-ai-teddy","type":""},"id":"41113156911179","image":{"src":"\/\/store.folotoy.com\/cdn\/shop\/files\/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930"},"sku":null,"title":"Default Title","untranslatedTitle":"Default Title"}],"products":[{"id":"7249157718091","handle":"folotoy-ai-teddy","isCollective":null,"title":"FoloToy AI Teddy Kumma AI Toy","type":null,"untranslatedTitle":"FoloToy AI Teddy Kumma AI Toy","url":"\/products\/folotoy-ai-teddy","vendor":"FoloToy","remoteShopId":null,"variants":[{"id":"41113156911179","image":{"src":"\/\/store.folotoy.com\/cdn\/shop\/files\/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930"},"price":{"amount":99.0,"currencyCode":"USD"},"sku":null,"title":"Default Title","untranslatedTitle":"Default Title"}]}],"purchasingCompany":null},},"https://store.folotoy.com/cdn","610a19cewf693d529pf324840bm6169d9b4",{"modern":"","legacy":""},{"trekkieShim":true,"agentContext":true,"apiClientId":"580111","facebookCapiEnabled":"true","themeId":"142628847691","themeStoreId":"887","themePublished":"true","eventMetadataId":"23a17454-0e55-4d96-9c19-506f113152f3","pageType":"product","resourceId":"7249157718091","shopId":"58660585547","storefrontBaseUrl":"https:\/\/store.folotoy.com","extensionBaseUrl":"https:\/\/extensions.shopifycdn.com\/cdn\/shopifycloud\/web-pixels-manager","surface":"storefront-renderer","enabledBetaFlags":"[\"7b21cf0b\", \"b13923a8\", \"4c64608a\"]","isMerchantRequest":"false","hashVersion":"610a19cewf693d529pf324840bm6169d9b4","publish":"custom","events":"[[\"page_viewed\",{}],[\"product_viewed\",{\"productVariant\":{\"price\":{\"amount\":99.0,\"currencyCode\":\"USD\"},\"product\":{\"title\":\"FoloToy AI Teddy Kumma AI Toy\",\"vendor\":\"FoloToy\",\"id\":\"7249157718091\",\"untranslatedTitle\":\"FoloToy AI Teddy Kumma AI Toy\",\"url\":\"\/products\/folotoy-ai-teddy\",\"type\":\"\"},\"id\":\"41113156911179\",\"image\":{\"src\":\"\/\/store.folotoy.com\/cdn\/shop\/files\/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930\"},\"sku\":null,\"title\":\"Default Title\",\"untranslatedTitle\":\"Default Title\"}}]]"});})();</script><script>
+  window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+  window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+  window.ShopifyAnalytics.meta.currency = 'USD';
+  var meta = {"product":{"id":7249157718091,"gid":"gid:\/\/shopify\/Product\/7249157718091","vendor":"FoloToy","type":"","handle":"folotoy-ai-teddy","variants":[{"id":41113156911179,"price":9900,"name":"FoloToy AI Teddy Kumma AI Toy","public_title":null,"sku":null}],"remote":false},"page":{"pageType":"product","resourceType":"product","resourceId":7249157718091,"requestId":"a095f99d-7784-4f4f-997f-d1b1be11dc95-1793516604"}};
+  for (var attr in meta) {
+    window.ShopifyAnalytics.meta[attr] = meta[attr];
+  }
+</script>
+<script class="analytics">
+  (function () {
+    var customDocumentWrite = function(content) {
+      var jquery = null;
+
+      if (window.jQuery) {
+        jquery = window.jQuery;
+      } else if (window.Checkout && window.Checkout.$) {
+        jquery = window.Checkout.$;
+      }
+
+      if (jquery) {
+        jquery('body').append(content);
+      }
+    };
+
+    var hasLoggedConversion = function(token) {
+      if (token) {
+        return document.cookie.indexOf('loggedConversion=' + token) !== -1;
+      }
+      return false;
+    }
+
+    var setCookieIfConversion = function(token) {
+      if (token) {
+        var twoMonthsFromNow = new Date(Date.now());
+        twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+        document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
+      }
+    }
+
+    var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+    window.ShopifyAnalytics.lib.trekkie = window.trekkie;
+    if (trekkie.integrations) {
+      return;
+    }
+    trekkie.methods = [
+      'identify',
+      'page',
+      'ready',
+      'track',
+      'trackForm',
+      'trackLink'
+    ];
+    trekkie.factory = function(method) {
+      return function() {
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift(method);
+        trekkie.push(args);
+        if (method == 'track' || method == 'page') {
+          var pageUrl;
+          try {
+            pageUrl = window.location.href;
+          } catch (e) {}
+          var pageReferrer;
+          try {
+            pageReferrer = document.referrer;
+          } catch (e) {}
+          try {
+            if (window.__TREKKIE_SHIM_QUEUE == null) {
+              window.__TREKKIE_SHIM_QUEUE = [];
+            }
+            window.__TREKKIE_SHIM_QUEUE.push({
+              from: 'trekkie-stub',
+              method: method,
+              args: args.slice(1),
+              pageContext: {
+                url: pageUrl,
+                referrer: pageReferrer
+              }
+            });
+          } catch (e) {
+            // no-op
+          }
+        }
+        return trekkie;
+      };
+    };
+    for (var i = 0; i < trekkie.methods.length; i++) {
+      var key = trekkie.methods[i];
+      trekkie[key] = trekkie.factory(key);
+    }
+    trekkie.load = function(config) {
+      trekkie.config = config || {};
+      trekkie.config.initialDocumentCookie = document.cookie;
+      
+    };
+    trekkie.load(
+      {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":58660585547,"isMerchantRequest":null,"themeId":142628847691,"themeCityHash":"11775790221329572502","contentLanguage":"en","currency":"USD","eventMetadataId":"23a17454-0e55-4d96-9c19-506f113152f3"},"isServerSideCookieWritingEnabled":true,"monorailRegion":"shop_domain","enabledBetaFlags":["7b21cf0b","b13923a8","4c64608a"]},"Session Attribution":{},"S2S":{"facebookCapiEnabled":true,"source":"trekkie-storefront-renderer","apiClientId":580111}}
+    );
+
+    var loaded = false;
+    trekkie.ready(function() {
+      if (loaded) return;
+      loaded = true;
+
+      window.ShopifyAnalytics.lib = window.trekkie;
+
+      var originalDocumentWrite = document.write;
+      document.write = customDocumentWrite;
+      try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+      document.write = originalDocumentWrite;
+
+      var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
+      var token = match? match[1]: undefined;
+      if (!hasLoggedConversion(token)) {
+        setCookieIfConversion(token);
+        window.ShopifyAnalytics.lib.track("Viewed Product",{"currency":"USD","variantId":41113156911179,"productId":7249157718091,"productGid":"gid:\/\/shopify\/Product\/7249157718091","name":"FoloToy AI Teddy Kumma AI Toy","price":"99.00","sku":null,"brand":"FoloToy","variant":null,"category":"","nonInteraction":true,"remote":false,"available":true},undefined,undefined,{"shopifyEmitted":true});
+      }
+    });
+
+    window.ShopifyAnalytics.lib.page(null,{"pageType":"product","resourceType":"product","resourceId":7249157718091,"requestId":"a095f99d-7784-4f4f-997f-d1b1be11dc95-1793516604","shopifyEmitted":true});
+
+    var eventsListenerScript = document.createElement('script');
+    eventsListenerScript.async = true;
+    eventsListenerScript.src = "//store.folotoy.com/cdn/shopifycloud/storefront/assets/shop_events_listener-819172a8.js";
+    document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+})();</script>
+<script
+  defer
+  src="https://store.folotoy.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-3.14.0.min.js"
+  data-application="storefront-renderer"
+  data-shop-id="58660585547"
+  data-render-region="gcp-asia-southeast1"
+  data-page-type="product"
+  data-theme-instance-id="142628847691"
+  data-theme-name="Dawn"
+  data-theme-version="15.1.0"
+  data-monorail-region="shop_domain"
+  data-resource-timing-sampling-rate="10"
+  data-shs="true"
+  data-shs-beacon="true"
+  data-shs-export-with-fetch="true"
+  data-shs-logs-sample-rate="1"
+  data-shs-beacon-endpoint="https://store.folotoy.com/api/collect"
+></script>
+<script id="shopify-chat-page-data" type="application/json">{"greetingMessage":"Welcome to FOLOTOY. How can I help?","customerServiceEmail":"shopify@folotoy.com","onlineStorePasswordProtected":false,"continueAsChip":true,"exportCommand":false,"shopName":"FOLOTOY","translations":[{"key":"agent_chat.panel.open_chat","value":"Open chat"},{"key":"agent_chat.panel.ask_anything","value":"Ask anything"},{"key":"agent_chat.panel.title","value":"Storekick"},{"key":"agent_chat.panel.unread_replies","value":"Unread replies"},{"key":"agent_chat.panel.back_to_chat","value":"Back to chat"},{"key":"agent_chat.panel.see_history","value":"See chat history"},{"key":"agent_chat.panel.new_chat","value":"Create a new chat"},{"key":"agent_chat.panel.close","value":"Close chat"},{"key":"agent_chat.panel.undock","value":"Undock chat"},{"key":"agent_chat.panel.dock","value":"Dock chat"},{"key":"agent_chat.panel.expand","value":"Expand chat"},{"key":"agent_chat.panel.contract","value":"Contract chat"},{"key":"agent_chat.panel.jump_to_latest","value":"Jump to latest"},{"key":"agent_chat.panel.loading_chat","value":"Loading chat"},{"key":"agent_chat.input.label","value":"Type your message"},{"key":"agent_chat.input.placeholder","value":"Ask anything..."},{"key":"agent_chat.input.send","value":"Send"},{"key":"agent_chat.input.stop","value":"Stop generating"},{"key":"agent_chat.thinking","value":"Thinking..."},{"key":"agent_chat.first_response_delayed","value":"Agent is taking longer to respond…"},{"key":"agent_chat.searching","value":"Searching..."},{"key":"agent_chat.message.sent_timestamp","value":"Sent · {{time}}"},{"key":"agent_chat.message.automated_label","value":"Automated"},{"key":"agent_chat.message.automated_timestamp","value":"Automated · {{time}}"},{"key":"agent_chat.liveAgentHandoff","value":"Someone from our team will be with you shortly"},{"key":"agent_chat.human_handoff.action","value":"Chat with our team"},{"key":"agent_chat.human_handoff.request","value":"I’d like to talk to someone from your team"},{"key":"agent_chat.human_handoff.ai_assistant","value":"AI assistant"},{"key":"agent_chat.greeting.default","value":"Hi there!"},{"key":"agent_chat.greeting.with_name","value":"Hi {{name}}!"},{"key":"agent_chat.greeting.welcome","value":"You can ask questions about shopping, sizing\/dimensions, shipping, returns, or order status."},{"key":"agent_chat.greeting.welcome_back","value":"Welcome back to %{shop_name}! How can I help?"},{"key":"agent_chat.greeting.welcome_back_no_shop","value":"Welcome back! How can I help?"},{"key":"agent_chat.greeting.welcome_to_shop","value":"Welcome to %{shop_name}. How can I help?"},{"key":"agent_chat.greeting.generic","value":"How can I help?"},{"key":"agent_chat.disclaimer.text","value":"This chat is powered by AI from Shopify and may make mistakes. Your messages are visible to {{shop_name}}. See"},{"key":"agent_chat.disclaimer.text_human","value":"Your messages are visible to {{shop_name}} and to Shopify for the provision and improvement of the services. See"},{"key":"agent_chat.disclaimer.link_text","value":"privacy policy"},{"key":"agent_chat.error.response_unavailable","value":"Response unavailable"},{"key":"agent_chat.error.generic","value":"Something went wrong."},{"key":"agent_chat.error.response_failed","value":"Couldn’t load this message"},{"key":"agent_chat.error.message_send_failed","value":"Your message couldn’t be sent"},{"key":"agent_chat.error.attachment_upload_failed","value":"Your attachment didn’t upload"},{"key":"agent_chat.error.first_response_stalled","value":"Agent couldn’t respond"},{"key":"agent_chat.error.try_again","value":"Try again"},{"key":"agent_chat.error.unavailable","value":"Chat isn't available right now - try again later"},{"key":"agent_chat.error.usage_limit","value":"Message limit reached — try again later or email us at {{email}}"},{"key":"agent_chat.error.usage_limit_no_email","value":"Message limit reached — try again later"},{"key":"agent_chat.error.cost_quota_unhandled","value":"Chat isn’t available right now—email us at {{email}}"},{"key":"agent_chat.error.cost_quota_unhandled_no_email","value":"Chat isn’t available right now"},{"key":"agent_chat.error.cost_quota_handover","value":"AI assistant isn’t available right now — our team will reply shortly"},{"key":"agent_chat.unavailable.title","value":"Chat isn’t available right now"},{"key":"agent_chat.unavailable.description","value":"Something went wrong while loading the chat."},{"key":"agent_chat.history.heading","value":"Chat history"},{"key":"agent_chat.history.loading","value":"Loading conversation history"},{"key":"agent_chat.history.aria_label","value":"Conversation history"},{"key":"agent_chat.history.no_conversations","value":"No conversations"},{"key":"agent_chat.history.conversation.one","value":"conversation"},{"key":"agent_chat.history.conversation.other","value":"conversations"},{"key":"agent_chat.history.error_message","value":"Something went wrong."},{"key":"agent_chat.history.try_again","value":"Try again"},{"key":"agent_chat.history.no_past","value":"No past conversations"},{"key":"agent_chat.history.start_new","value":"Start a new chat"},{"key":"agent_chat.history.untitled","value":"Untitled conversation"},{"key":"agent_chat.history.resume","value":"Resume: {{title}}"},{"key":"agent_chat.history.resume_with_time","value":"Resume: {{title}}, {{time}}"},{"key":"agent_chat.history.delete","value":"Delete conversation: {{title}}"},{"key":"agent_chat.history.delete_failed","value":"Could not delete conversation"},{"key":"agent_chat.feedback.group_label","value":"Message feedback"},{"key":"agent_chat.feedback.thumbs_up","value":"Thumbs up"},{"key":"agent_chat.feedback.thumbs_down","value":"Thumbs down"},{"key":"agent_chat.feedback.add_comment","value":"Add comment"},{"key":"agent_chat.feedback.thanks","value":"Thanks for your feedback"},{"key":"agent_chat.feedback.placeholder_up","value":"Tell us what went well"},{"key":"agent_chat.feedback.placeholder_down","value":"Tell us what could have been better"},{"key":"agent_chat.feedback.comment_label","value":"Feedback comment"},{"key":"agent_chat.feedback.cancel","value":"Cancel"},{"key":"agent_chat.feedback.submit","value":"Submit"},{"key":"agent_chat.feedback.character_count","value":"{{current}}\/{{max}}"},{"key":"agent_chat.feedback.character_limit_reached","value":"Maximum length reached. Feedback is limited to {{max}} characters."},{"key":"agent_chat.buyer_profile.button.open","value":"Buyer Profile"},{"key":"agent_chat.buyer_profile.title","value":"Buyer Profile"},{"key":"agent_chat.buyer_profile.empty","value":"No buyer profile available."},{"key":"agent_chat.buyer_profile.close","value":"Close"},{"key":"agent_chat.suggestions.empty_state_label","value":"Suggested questions"},{"key":"agent_chat.suggestions.quick_reply_label","value":"Suggested replies"},{"key":"agent_chat.auth.sign_in_to_continue","value":"Sign in to continue"},{"key":"agent_chat.auth.sign_in","value":"Sign in"},{"key":"agent_chat.auth.skip_and_chat","value":"Skip and start chatting"},{"key":"agent_chat.auth.pre_chat_title","value":"Sign in to personalize and save your chats"},{"key":"agent_chat.auth.pre_chat_subtitle","value":"Sign in or create an account"},{"key":"agent_chat.auth.staff_chat_required_title","value":"Don't miss a reply"},{"key":"agent_chat.auth.staff_chat_required_subtitle","value":"Sign in to chat with our team. We'll email you if you leave the chat."},{"key":"agent_chat.auth.share_disclaimer","value":"By continuing, Shop will share your name and email with this store. See their {{terms_link}} and {{privacy_link}}"},{"key":"agent_chat.auth.terms_link","value":"terms"},{"key":"agent_chat.auth.privacy_link","value":"privacy policy"},{"key":"agent_chat.auth.declined_pre_chat","value":"I can’t connect you with the store unless you sign in."},{"key":"agent_chat.reply_by_email.continuation_prompt","value":"If you leave the chat, we’ll email you when there’s a reply."},{"key":"agent_chat.reply_by_email.sign_in_prompt","value":"Sign in to get emailed when there’s a reply."},{"key":"agent_chat.order_lookup.track_order","value":"Track my order"},{"key":"agent_chat.order_lookup.track_another_order","value":"Track another order"},{"key":"agent_chat.order_lookup.new_conversation","value":"New conversation"},{"key":"agent_chat.order_lookup.follow_up_label","value":"Order lookup actions"},{"key":"agent_chat.order_lookup.enter_order_information","value":"Enter order information"},{"key":"agent_chat.order_lookup.prompt","value":"To see your order status, please provide your order details."},{"key":"agent_chat.order_lookup.form_title","value":"Track my order"},{"key":"agent_chat.order_lookup.form_subtitle","value":"Please provide your information."},{"key":"agent_chat.order_lookup.order_number_label","value":"Order number"},{"key":"agent_chat.order_lookup.email_label","value":"Email address"},{"key":"agent_chat.order_lookup.submit","value":"Track my order"},{"key":"agent_chat.order_lookup.cancel","value":"Cancel"},{"key":"agent_chat.order_lookup.invalid_order_number","value":"Please enter a valid order number with only numbers and letters, no spaces (e.g. 1006)."},{"key":"agent_chat.order_lookup.invalid_order_number_whitespace","value":"Please enter a valid order number with only numbers and letters, no spaces (e.g. 1006)."},{"key":"agent_chat.order_lookup.invalid_email","value":"Please enter a valid email address"},{"key":"agent_chat.order_lookup.generic_error","value":"There was a problem looking up your order. Please try again."},{"key":"agent_chat.order_lookup.rate_limited_error","value":"Too many attempts. Try again later."},{"key":"agent_chat.order_lookup.locked_composer_status","value":"Order lookup is in progress. Start a new conversation to ask something else."},{"key":"agent_chat.legacy_contact.form_title","value":"Before we get started"},{"key":"agent_chat.legacy_contact.form_subtitle","value":"Please provide your information so we can reply to you if you leave the chat."},{"key":"agent_chat.legacy_contact.first_name_label","value":"First name"},{"key":"agent_chat.legacy_contact.last_name_label","value":"Last name"},{"key":"agent_chat.legacy_contact.email_label","value":"Email"},{"key":"agent_chat.legacy_contact.marketing_opt_in","value":"Email me with news and offers"},{"key":"agent_chat.legacy_contact.submit","value":"Start chat"},{"key":"agent_chat.legacy_contact.cancel","value":"Cancel"},{"key":"agent_chat.legacy_contact.invalid_first_name","value":"Enter a valid first name."},{"key":"agent_chat.legacy_contact.invalid_last_name","value":"Enter a valid last name."},{"key":"agent_chat.legacy_contact.invalid_email","value":"Enter a valid email address."},{"key":"agent_chat.legacy_contact.invalid_email_length","value":"Email address is too long."},{"key":"agent_chat.legacy_contact.generic_error","value":"Something went wrong."},{"key":"agent_chat.legacy_contact.rate_limited_error","value":"Too many attempts. Try again later."},{"key":"agent_chat.discountCard.useDiscount","value":"Use discount"},{"key":"agent_chat.discountCard.discountApplicationContext","value":"Applies automatically at checkout"},{"key":"agent_chat.cart.checkout","value":"Checkout"},{"key":"agent_chat.product.add_to_cart","value":"Add to cart"},{"key":"agent_chat.product.view_details","value":"View details"},{"key":"agent_chat.product.out_of_stock","value":"Out of stock"},{"key":"agent_chat.product.compare_suggestions","value":"Compare suggestions"},{"key":"agent_chat.product.hide_suggestions","value":"Hide suggestions"},{"key":"agent_chat.product.sold_out","value":"Sold out"},{"key":"agent_chat.order.item.one","value":"item"},{"key":"agent_chat.order.item.other","value":"items"},{"key":"agent_chat.order.less_items.one","value":"- hide {{count}} item"},{"key":"agent_chat.order.less_items.other","value":"- hide {{count}} items"},{"key":"agent_chat.order.more_items.one","value":"+ {{count}} more item"},{"key":"agent_chat.order.more_items.other","value":"+ {{count}} more items"},{"key":"agent_chat.order.view_order","value":"View order {{orderId}}"},{"key":"agent_chat.order.track_shipment","value":"Track shipment"},{"key":"agent_chat.order.of_total","value":"{{index}} of {{total}}"},{"key":"agent_chat.order.label","value":"Order {{number}}"},{"key":"agent_chat.order.count.one","value":"{{count}} Order"},{"key":"agent_chat.order.count.other","value":"{{count}} Orders"},{"key":"agent_chat.order.ordered_on","value":"Ordered {{date}}"},{"key":"agent_chat.order.select","value":"Select order {{number}}"},{"key":"agent_chat.return.heading","value":"Select items to return"},{"key":"agent_chat.return.toggle_item","value":"Select {{name}}"},{"key":"agent_chat.return.select_item_non_returnable","value":"{{name}}, not returnable"},{"key":"agent_chat.return.quantity_label","value":"Return quantity"},{"key":"agent_chat.return.reason_label","value":"Reason for return"},{"key":"agent_chat.return.reason_placeholder","value":"Select a reason"},{"key":"agent_chat.return.confirm","value":"Request return"},{"key":"agent_chat.return.confirmed","value":"Return requested"},{"key":"agent_chat.return.reason.size_too_small","value":"Size too small"},{"key":"agent_chat.return.reason.size_too_large","value":"Size too large"},{"key":"agent_chat.return.reason.unwanted","value":"Unwanted"},{"key":"agent_chat.return.reason.not_as_described","value":"Not as described"},{"key":"agent_chat.return.reason.wrong_item","value":"Wrong item"},{"key":"agent_chat.return.reason.defective","value":"Defective"},{"key":"agent_chat.return.reason.style","value":"Style"},{"key":"agent_chat.return.reason.color","value":"Color"},{"key":"agent_chat.return.reason.other_reason","value":"Other"},{"key":"agent_chat.scroll.previous","value":"Previous"},{"key":"agent_chat.scroll.next","value":"Next"}]}</script>
+<script id="shopify-customer-account-data" type="application/json">{"customer":null,"shop":{"id":"58660585547","customerAccountTranslations":[{"key":"account_menu.signed_out_state.sheet_title","value":"Sign in or create account"},{"key":"account_menu.signed_out_state.section_divider","value":"More ways to sign in"},{"key":"account_menu.signed_out_state.alternate_divider","value":"OR"},{"key":"account_menu.signed_out_state.email_field_label","value":"Email"},{"key":"account_menu.signed_out_state.orders_button","value":"Orders"},{"key":"account_menu.signed_out_state.profile_button","value":"Profile"},{"key":"account_menu.signed_out_state.shop_login_button","value":"Sign in with Shop"},{"key":"account_menu.signed_out_state.continue_with_google","value":"Continue with Google"},{"key":"account_menu.signed_out_state.continue_with_facebook","value":"Continue with Facebook"},{"key":"account_menu.signed_out_state.marketing_consent_label","value":"Email me with news and offers"},{"key":"account_menu.signed_in_state.greeting_with_name","value":"Hi, {{first_name}}"},{"key":"account_menu.signed_in_state.greeting_without_name","value":"Account"},{"key":"account_menu.signed_in_state.orders_button","value":"Orders"},{"key":"account_menu.signed_in_state.profile_button","value":"Profile"},{"key":"account_menu.location_picker.sheet_title","value":"Locations"},{"key":"account_menu.location_picker.search_field_placeholder","value":"Search"},{"key":"account_menu.aria_labels.close_menu","value":"Close menu"},{"key":"account_menu.aria_labels.back_to_main_menu","value":"Back to main menu from {{title}}"},{"key":"account_menu.aria_labels.open_submenu","value":"{{title}}, opens submenu"},{"key":"account_menu.aria_labels.loading_menu","value":"Loading menu"},{"key":"account_menu.aria_labels.loading","value":"Loading"},{"key":"account_menu.aria_labels.account","value":"Account"},{"key":"account_menu.aria_labels.sign_in_with_email","value":"Sign in with email"},{"key":"account_menu.aria_labels.sign_in","value":"Sign in"}],"socialLoginProviders":[{"handle":"Shop"}],"legacyCustomerAccounts":false,"signInLinksVisible":true,"b2bEnabled":false,"marketingConsentSigninEnabled":true,"marketingConsentPreselected":false},"visitor":{"country":"CN","language":"en"}}</script>
+<meta name="shopify-y" content="d5c5ae8f-bc71-4aff-888c-bed5c3fe6669" data-expiration="1825074205000"><meta name="shopify-s" content="74daec62-77d3-47fa-85bc-bd15f08af0fb" data-expiration="1793518405000"><meta name="request-id" content="a095f99d-7784-4f4f-997f-d1b1be11dc95-1793516604"        >
+</head>
+
+  <body class="gradient">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      Skip to content
+    </a><!-- BEGIN sections: header-group -->
+<div id="shopify-section-sections--19340608831563__header" class="shopify-section shopify-section-group-header-group section-header"><link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-list-menu.css?v=151968516119678728991788336348" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-search.css?v=165164710990765432851788336348" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-menu-drawer.css?v=147478906057189667651788336348" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-cart-notification.css?v=54116361853792938221788336348" media="print" onload="this.media='all'"><link rel="stylesheet" href="//store.folotoy.com/cdn/shop/t/14/assets/component-price.css?v=70172745017360139101788336348" media="print" onload="this.media='all'"><style>
+  header-drawer {
+    justify-self: start;
+    margin-left: -1.2rem;
+  }.scrolled-past-header .header__heading-logo-wrapper {
+      width: 75%;
+    }.menu-drawer-container {
+    display: flex;
+  }
+
+  .list-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-menu--inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  summary.list-menu__item {
+    padding-right: 2.7rem;
+  }
+
+  .list-menu__item {
+    display: flex;
+    align-items: center;
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+  }
+
+  .list-menu__item--link {
+    text-decoration: none;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+
+  @media screen and (min-width: 750px) {
+    .list-menu__item--link {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+</style><style data-shopify>.header {
+    padding: 4px 3rem 4px 3rem;
+  }
+
+  .section-header {
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-header {
+      margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .header {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }</style><script src="//store.folotoy.com/cdn/shop/t/14/assets/cart-notification.js?v=133508293167896966491788336348" defer="defer"></script><sticky-header data-sticky-type="reduce-logo-size" class="header-wrapper color-accent-3 gradient"><header class="header header--middle-center header--mobile-center page-width drawer-menu header--has-menu header--has-account">
+
+<header-drawer data-breakpoint="desktop">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="Menu"
+    >
+      <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</span>
+    </summary>
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-accent-3">
+      <div class="menu-drawer__inner-container">
+        <div class="menu-drawer__navigation-container">
+          <nav class="menu-drawer__navigation">
+            <ul class="menu-drawer__menu has-submenu list-menu" role="list"><li><a
+                      id="HeaderDrawer-home"
+                      href="/"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                      
+                    >
+                      Home
+                    </a></li><li><a
+                      id="HeaderDrawer-catalog"
+                      href="/collections/all"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                      
+                    >
+                      Catalog
+                    </a></li><li><a
+                      id="HeaderDrawer-contact"
+                      href="/pages/contact"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                      
+                    >
+                      Contact
+                    </a></li></ul>
+          </nav>
+          <div class="menu-drawer__utility-links"><a
+                href="https://store.folotoy.com/customer_authentication/redirect?locale=en&region_country=CN"
+                class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
+              ><span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-account" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M6 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15M9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35" clip-rule="evenodd"/></svg>
+</span>Log in</a><div class="menu-drawer__localization header-localization"><localization-form><form method="post" action="/localization" id="HeaderCountryMobileForm" accept-charset="UTF-8" class="localization-form" enctype="multipart/form-data"><input type="hidden" name="form_type" value="localization" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="return_to" value="/products/folotoy-ai-teddy" /><div>
+                        <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
+                          Country/region
+                        </h2>
+
+<div class="disclosure">
+  <button
+    type="button"
+    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    aria-expanded="false"
+    aria-controls="HeaderCountryMobile-country-results"
+    aria-describedby="HeaderCountryMobileLabel"
+  >
+    <span>China |
+      USD
+      $</span>
+    <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"/></svg>
+
+  </button>
+  <div class="disclosure__list-wrapper country-selector" hidden>
+    <div class="country-filter">
+      
+        <div class="field">
+          <input
+            class="country-filter__input field__input"
+            id="country-filter-input"
+            type="search"
+            name="country_filter"
+            value=""
+            placeholder="Search"
+            role="combobox"
+            aria-owns="country-results"
+            aria-controls="country-results"
+            aria-haspopup="listbox"
+            aria-autocomplete="list"
+            autocorrect="off"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          >
+          <label class="field__label" for="country-filter-input">Search</label>
+          <button
+            type="reset"
+            class="country-filter__reset-button field__button hidden"
+            aria-label="Clear search term"
+          ><svg fill="none" stroke="currentColor" class="icon icon-close" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.5" stroke-opacity=".2"/><path stroke-linecap="round" stroke-linejoin="round" d="M11.83 11.83 6.172 6.17M6.229 11.885l5.544-5.77"/></svg>
+</button>
+          <div class="country-filter__search-icon field__button motion-reduce"><svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg>
+</div>
+        </div>
+      
+      <button
+        class="country-selector__close-button button--small link"
+        type="button"
+        aria-label="Close"
+      ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</button>
+    </div>
+    <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
+    <div
+      class="disclosure__list country-selector__list"
+      id="HeaderCountryMobile-country-results"
+    >
+      
+      <ul role="list" class="list-unstyled countries"><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="AU"
+              id="Australia"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Australia</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="CA"
+              id="Canada"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Canada</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+                aria-current="true"
+              
+              data-value="CN"
+              id="China"
+            >
+              <span
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">China</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="HK"
+              id="Hong Kong SAR"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Hong Kong SAR</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="IL"
+              id="Israel"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Israel</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="JP"
+              id="Japan"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Japan</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="MY"
+              id="Malaysia"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Malaysia</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="NZ"
+              id="New Zealand"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">New Zealand</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="SG"
+              id="Singapore"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Singapore</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="KR"
+              id="South Korea"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">South Korea</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="TW"
+              id="Taiwan"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Taiwan</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="TH"
+              id="Thailand"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Thailand</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="AE"
+              id="United Arab Emirates"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United Arab Emirates</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="GB"
+              id="United Kingdom"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United Kingdom</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="US"
+              id="United States"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United States</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="VN"
+              id="Vietnam"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Vietnam</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li></ul>
+    </div>
+  </div>
+  <div class="country-selector__overlay"></div>
+</div>
+<input type="hidden" name="country_code" value="CN">
+</div></form></localization-form>
+                
+</div><ul class="list list-social list-unstyled" role="list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>
+
+<a href="/" class="header__heading-link link link--text focus-inset"><div class="header__heading-logo-wrapper">
+                
+                <img src="//store.folotoy.com/cdn/shop/files/logo-square_2x_ba304539-1a4b-477a-9041-d7c6b9b20dd2.png?v=1730192195&amp;width=600" alt="FOLOTOY" srcset="//store.folotoy.com/cdn/shop/files/logo-square_2x_ba304539-1a4b-477a-9041-d7c6b9b20dd2.png?v=1730192195&amp;width=80 80w, //store.folotoy.com/cdn/shop/files/logo-square_2x_ba304539-1a4b-477a-9041-d7c6b9b20dd2.png?v=1730192195&amp;width=120 120w, //store.folotoy.com/cdn/shop/files/logo-square_2x_ba304539-1a4b-477a-9041-d7c6b9b20dd2.png?v=1730192195&amp;width=160 160w" width="80" height="25.623641894828335" loading="eager" class="header__heading-logo" sizes="(min-width: 750px) 80px, 50vw">
+              </div></a><div class="header__icons">
+      <div class="desktop-localization-wrapper">
+</div>
+      
+
+<details-modal class="header__search">
+  <details>
+    <summary
+      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+      aria-haspopup="dialog"
+      aria-label="Search"
+    >
+      <span>
+        <span class="svg-wrapper"><svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg>
+</span>
+        <span class="svg-wrapper header__icon-close"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</span>
+      </span>
+    </summary>
+    <div
+      class="search-modal modal__content gradient"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search"
+    >
+      <div class="modal-overlay"></div>
+      <div
+        class="search-modal__content search-modal__content-bottom"
+        tabindex="-1"
+      ><predictive-search class="search-modal__form" data-loading-text="Loading..."><form action="/search" method="get" role="search" class="search search-modal__form">
+          <div class="field">
+            <input
+              class="search__input field__input"
+              id="Search-In-Modal"
+              type="search"
+              name="q"
+              value=""
+              placeholder="Search"role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results"
+                aria-controls="predictive-search-results"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false">
+            <label class="field__label" for="Search-In-Modal">Search</label>
+            <input type="hidden" name="options[prefix]" value="last">
+            <button
+              type="reset"
+              class="reset__button field__button hidden"
+              aria-label="Clear search term"
+            >
+              <span class="svg-wrapper"><svg fill="none" stroke="currentColor" class="icon icon-close" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.5" stroke-opacity=".2"/><path stroke-linecap="round" stroke-linejoin="round" d="M11.83 11.83 6.172 6.17M6.229 11.885l5.544-5.77"/></svg>
+</span>
+            </button>
+            <button class="search__button field__button" aria-label="Search">
+              <span class="svg-wrapper"><svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg>
+</span>
+            </button>
+          </div><div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+
+<div class="predictive-search__loading-state">
+  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>
+
+</div>
+</div>
+
+            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span></form></predictive-search><button
+          type="button"
+          class="search-modal__close-button modal__close-button link link--text focus-inset"
+          aria-label="Close"
+        >
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</span>
+        </button>
+      </div>
+    </div>
+  </details>
+</details-modal>
+
+<a href="https://store.folotoy.com/customer_authentication/redirect?locale=en&region_country=CN" class="header__icon header__icon--account link focus-inset small-hide"><span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-account" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M6 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15M9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35" clip-rule="evenodd"/></svg>
+</span><span class="visually-hidden">Log in</span>
+        </a><a href="/cart" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+          
+            <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-cart-empty" viewBox="0 0 40 40"><path fill="currentColor" fill-rule="evenodd" d="M15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33L28.4 11.8zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1-9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z"/></svg>
+</span>
+          
+        <span class="visually-hidden">Cart</span></a>
+    </div>
+  </header>
+</sticky-header>
+
+<cart-notification>
+  <div class="cart-notification-wrapper">
+    <div
+      id="cart-notification"
+      class="cart-notification focus-inset color-accent-3 gradient"
+      aria-modal="true"
+      aria-label="Item added to your cart"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="cart-notification__header">
+        <h2 class="cart-notification__heading caption-large text-body"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+Item added to your cart
+        </h2>
+        <button
+          type="button"
+          class="cart-notification__close modal__close-button link link--text focus-inset"
+          aria-label="Close"
+        >
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</span>
+        </button>
+      </div>
+      <div id="cart-notification-product" class="cart-notification-product"></div>
+      <div class="cart-notification__links">
+        <a
+          href="/cart"
+          id="cart-notification-button"
+          class="button button--secondary button--full-width"
+        >View cart</a>
+        <form action="/cart" method="post" id="cart-notification-form">
+          <button class="button button--primary button--full-width" name="checkout">
+            Check out
+          </button>
+        </form>
+        <button type="button" class="link button-label">Continue shopping</button>
+      </div>
+    </div>
+  </div>
+</cart-notification>
+<style data-shopify>
+  .cart-notification {
+    display: none;
+  }
+</style>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "FOLOTOY",
+    
+      "logo": "https:\/\/store.folotoy.com\/cdn\/shop\/files\/logo-square_2x_ba304539-1a4b-477a-9041-d7c6b9b20dd2.png?v=1730192195\u0026width=500",
+    
+    "sameAs": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "url": "https:\/\/store.folotoy.com"
+  }
+</script>
+</div>
+<!-- END sections: header-group -->
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <section id="shopify-section-template--19340611780683__main" class="shopify-section section"><product-info
+  id="MainProduct-template--19340611780683__main"
+  class="section-template--19340611780683__main-padding gradient color-accent-2"
+  data-section="template--19340611780683__main"
+  data-product-id="7249157718091"
+  data-update-url="true"
+  data-url="/products/folotoy-ai-teddy"
+  
+>
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/section-main-product.css?v=161818056142182136911788336348" rel="stylesheet" type="text/css" media="all" />
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/component-accordion.css?v=7971072480289620591788336348" rel="stylesheet" type="text/css" media="all" />
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/component-price.css?v=70172745017360139101788336348" rel="stylesheet" type="text/css" media="all" />
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/component-slider.css?v=14039311878856620671788336348" rel="stylesheet" type="text/css" media="all" />
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/component-rating.css?v=179577762467860590411788336348" rel="stylesheet" type="text/css" media="all" />
+  <link href="//store.folotoy.com/cdn/shop/t/14/assets/component-deferred-media.css?v=14096082462203297471788336348" rel="stylesheet" type="text/css" media="all" />
+
+  
+<style data-shopify>.section-template--19340611780683__main-padding {
+      padding-top: 27px;
+      padding-bottom: 9px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-template--19340611780683__main-padding {
+        padding-top: 36px;
+        padding-bottom: 12px;
+      }
+    }</style><script src="//store.folotoy.com/cdn/shop/t/14/assets/product-info.js?v=149160427226008204701788336348" defer="defer"></script>
+  <script src="//store.folotoy.com/cdn/shop/t/14/assets/product-form.js?v=82553749319723712671788336348" defer="defer"></script>
+
+  <div class="page-width">
+    <div class="product product--medium product--left product--stacked product--mobile-hide grid grid--1-col grid--2-col-tablet">
+      <div class="grid__item product__media-wrapper">
+        
+<media-gallery
+  id="MediaGallery-template--19340611780683__main"
+  role="region"
+  
+    class="product__column-sticky"
+  
+  aria-label="Gallery Viewer"
+  data-desktop-layout="stacked"
+>
+  <div id="GalleryStatus-template--19340611780683__main" class="visually-hidden" role="status"></div>
+  <slider-component id="GalleryViewer-template--19340611780683__main" class="slider-mobile-gutter">
+    <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-template--19340611780683__main">
+      Skip to product information
+    </a>
+    <ul
+      id="Slider-Gallery-template--19340611780683__main"
+      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
+      role="list"
+    >
+<li
+            id="Slide-template--19340611780683__main-26785645002827"
+            class="product__media-item grid__item slider__slide is-active scroll-trigger animate--fade-in"
+            data-media-id="template--19340611780683__main-26785645002827"
+          >
+
+<div
+  class="product-media-container media-type-image media-fit-contain global-media-settings gradient constrain-height"
+  style="--ratio: 1.0; --preview-ratio: 1.0;"
+>
+  <modal-opener
+    class="product__modal-opener product__modal-opener--image"
+    data-modal="#ProductModal-template--19340611780683__main"
+  >
+    <span
+      class="product__media-icon motion-reduce quick-add-hidden product__media-icon--none"
+      aria-hidden="true"
+    >
+      
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-plus" viewBox="0 0 19 19"><path fill="currentColor" fill-rule="evenodd" d="M4.667 7.94a.5.5 0 0 1 .499-.501l5.534-.014a.5.5 0 1 1 .002 1l-5.534.014a.5.5 0 0 1-.5-.5" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M7.926 4.665a.5.5 0 0 1 .501.498l.014 5.534a.5.5 0 1 1-1 .003l-.014-5.534a.5.5 0 0 1 .499-.501" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M12.832 3.03a6.931 6.931 0 1 0-9.802 9.802 6.931 6.931 0 0 0 9.802-9.802M2.323 2.323a7.931 7.931 0 0 1 11.296 11.136l4.628 4.628a.5.5 0 0 1-.707.707l-4.662-4.662A7.932 7.932 0 0 1 2.323 2.323" clip-rule="evenodd"/></svg>
+</span>
+      
+    </span>
+
+<div class="loading__spinner hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>
+
+</div>
+<div class="product__media media media--transparent">
+      <img src="//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1946" alt="" srcset="//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=246 246w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=493 493w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=600 600w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=713 713w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=823 823w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=990 990w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1100 1100w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1206 1206w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1346 1346w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1426 1426w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1646 1646w, //store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&amp;width=1946 1946w" width="1946" height="1946" class="image-magnify-none" sizes="(min-width: 1200px) 605px, (min-width: 990px) calc(55.0vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / 1 - 4rem)">
+    </div>
+    <button
+      class="product__media-toggle quick-add-hidden product__media-zoom-none"
+      type="button"
+      aria-haspopup="dialog"
+      data-media-id="26785645002827"
+    >
+      <span class="visually-hidden">
+        Open media 1 in modal
+      </span>
+    </button>
+  </modal-opener></div>
+
+          </li>
+<li
+            id="Slide-template--19340611780683__main-26941664788555"
+            class="product__media-item grid__item slider__slide scroll-trigger animate--fade-in"
+            data-media-id="template--19340611780683__main-26941664788555"
+          >
+
+<div
+  class="product-media-container media-type-image media-fit-contain global-media-settings gradient constrain-height"
+  style="--ratio: 1.0; --preview-ratio: 1.0;"
+>
+  <modal-opener
+    class="product__modal-opener product__modal-opener--image"
+    data-modal="#ProductModal-template--19340611780683__main"
+  >
+    <span
+      class="product__media-icon motion-reduce quick-add-hidden product__media-icon--none"
+      aria-hidden="true"
+    >
+      
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-plus" viewBox="0 0 19 19"><path fill="currentColor" fill-rule="evenodd" d="M4.667 7.94a.5.5 0 0 1 .499-.501l5.534-.014a.5.5 0 1 1 .002 1l-5.534.014a.5.5 0 0 1-.5-.5" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M7.926 4.665a.5.5 0 0 1 .501.498l.014 5.534a.5.5 0 1 1-1 .003l-.014-5.534a.5.5 0 0 1 .499-.501" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M12.832 3.03a6.931 6.931 0 1 0-9.802 9.802 6.931 6.931 0 0 0 9.802-9.802M2.323 2.323a7.931 7.931 0 0 1 11.296 11.136l4.628 4.628a.5.5 0 0 1-.707.707l-4.662-4.662A7.932 7.932 0 0 1 2.323 2.323" clip-rule="evenodd"/></svg>
+</span>
+      
+    </span>
+
+<div class="loading__spinner hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>
+
+</div>
+<div class="product__media media media--transparent">
+      <img src="//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1946" alt="" srcset="//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=246 246w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=493 493w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=600 600w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=713 713w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=823 823w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=990 990w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1100 1100w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1206 1206w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1346 1346w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1426 1426w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1646 1646w, //store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&amp;width=1946 1946w" width="1946" height="1946" loading="lazy" class="image-magnify-none" sizes="(min-width: 1200px) 605px, (min-width: 990px) calc(55.0vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / 1 - 4rem)">
+    </div>
+    <button
+      class="product__media-toggle quick-add-hidden product__media-zoom-none"
+      type="button"
+      aria-haspopup="dialog"
+      data-media-id="26941664788555"
+    >
+      <span class="visually-hidden">
+        Open media 2 in modal
+      </span>
+    </button>
+  </modal-opener></div>
+
+          </li></ul>
+    <div class="slider-buttons quick-add-hidden">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="Slide left"
+      >
+        <span class="svg-wrapper"><svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"/></svg>
+</span>
+      </button>
+      <div class="slider-counter caption">
+        <span class="slider-counter--current">1</span>
+        <span aria-hidden="true"> / </span>
+        <span class="visually-hidden">of</span>
+        <span class="slider-counter--total">2</span>
+      </div>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="Slide right"
+      >
+        <span class="svg-wrapper"><svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"/></svg>
+</span>
+      </button>
+    </div>
+  </slider-component></media-gallery>
+
+      </div>
+      <div class="product__info-wrapper grid__item scroll-trigger animate--slide-in">
+        <section
+          id="ProductInfo-template--19340611780683__main"
+          class="product__info-container product__column-sticky"
+        ><p
+                  class="product__text inline-richtext caption-with-letter-spacing"
+                  
+                >FoloToy</p><div class="product__title" >
+                  <h1>FoloToy AI Teddy Kumma AI Toy</h1>
+                  <a href="/products/folotoy-ai-teddy" class="product__title">
+                    <h2 class="h1">
+                      FoloToy AI Teddy Kumma AI Toy
+                    </h2>
+                  </a>
+                </div><div id="price-template--19340611780683__main" role="status" >
+<div
+    class="
+      price price--large price--show-badge"
+  >
+    <div class="price__container"><div class="price__regular"><span class="visually-hidden visually-hidden--inline">Regular price</span>
+          <span class="price-item price-item--regular">
+            $99.00 USD
+          </span></div>
+      <div class="price__sale">
+          <span class="visually-hidden visually-hidden--inline">Regular price</span>
+          <span>
+            <s class="price-item price-item--regular">
+              
+                
+              
+            </s>
+          </span><span class="visually-hidden visually-hidden--inline">Sale price</span>
+        <span class="price-item price-item--sale price-item--last">
+          $99.00 USD
+        </span>
+      </div>
+      <small class="unit-price caption hidden">
+        <span class="visually-hidden">Unit price</span>
+        <span class="price-item price-item--last">
+          <span></span>
+          <span aria-hidden="true">/</span>
+          <span class="visually-hidden">&nbsp;per&nbsp;</span>
+          <span>
+          </span>
+        </span>
+      </small>
+    </div><span class="badge price__badge-sale color-accent-3">
+        Sale
+      </span>
+
+      <span class="badge price__badge-sold-out color-accent-3">
+        Sold out
+      </span></div>
+
+</div><div class="product__tax caption rte"><a href="/policies/shipping-policy">Shipping</a> calculated at checkout.
+</div><div ><form method="post" action="/cart/add" id="product-form-installment-template--19340611780683__main" accept-charset="UTF-8" class="installment caption-large" enctype="multipart/form-data"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="id" value="41113156911179">
+                    
+<input type="hidden" name="product-id" value="7249157718091" /><input type="hidden" name="section-id" value="template--19340611780683__main" /></form></div>
+
+<div
+                  id="Quantity-Form-template--19340611780683__main"
+                  class="product-form__input product-form__quantity"
+                  
+                >
+                  
+                  
+
+                  <label class="quantity__label form__label" for="Quantity-template--19340611780683__main">
+                    Quantity
+                    <span class="quantity__rules-cart hidden">
+
+<div class="loading__spinner hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>
+
+</div>
+<span
+                        >(<span class="quantity-cart">0</span> in cart)</span
+                      >
+                    </span>
+                  </label>
+                  <div class="price-per-item__container">
+                    <quantity-input class="quantity" data-url="/products/folotoy-ai-teddy" data-section="template--19340611780683__main">
+                      <button class="quantity__button" name="minus" type="button">
+                        <span class="visually-hidden">Decrease quantity for FoloToy AI Teddy Kumma AI Toy</span>
+                        <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-minus" viewBox="0 0 10 2"><path fill="currentColor" fill-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 1 1 0 1H1A.5.5 0 0 1 .5 1" clip-rule="evenodd"/></svg>
+</span>
+                      </button>
+                      <input
+                        class="quantity__input"
+                        type="number"
+                        name="quantity"
+                        id="Quantity-template--19340611780683__main"
+                        data-cart-quantity="0"
+                        data-min="1"
+                        min="1"
+                        
+                        step="1"
+                        value="1"
+                        form="product-form-template--19340611780683__main"
+                      >
+                      <button class="quantity__button" name="plus" type="button">
+                        <span class="visually-hidden">Increase quantity for FoloToy AI Teddy Kumma AI Toy</span>
+                        <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-plus" viewBox="0 0 10 10"><path fill="currentColor" fill-rule="evenodd" d="M1 4.51a.5.5 0 0 0 0 1h3.5l.01 3.5a.5.5 0 0 0 1-.01V5.5l3.5-.01a.5.5 0 0 0-.01-1H5.5L5.49.99a.5.5 0 0 0-1 .01v3.5l-3.5.01z" clip-rule="evenodd"/></svg>
+</span>
+                      </button>
+                    </quantity-input></div>
+                  <div class="quantity__rules caption" id="Quantity-Rules-template--19340611780683__main"></div></div><p
+                  class="product__text inline-richtext"
+                  
+                >🚚 Free shipping</p><p
+                  class="product__text inline-richtext"
+                  
+                >📦 Processed in 1–3 days</p><div class="product__accordion accordion quick-add-hidden" >
+                  <details id="Details-collapsible_tab_BHjDcQ-template--19340611780683__main">
+                    <summary>
+                      <div class="summary__title">
+                        <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-accordion icon-price-tag" viewBox="0 0 20 20"><path fill-rule="evenodd" d="m1.162 11.842 6.93 6.987c.198.2.52.2.717 0l10.03-10.143a.5.5 0 0 0 .148-.36V1.531a.51.51 0 0 0-.507-.51h-7.093a.5.5 0 0 0-.358.15L1.162 11.12a.514.514 0 0 0 0 .722M20 1.532C20 .686 19.32 0 18.48 0h-7.093c-.403 0-.79.162-1.075.449L.445 10.398a1.54 1.54 0 0 0 0 2.167l6.93 6.986a1.51 1.51 0 0 0 2.151-.001l10.03-10.143A1.54 1.54 0 0 0 20 8.325z"/><path d="M15.903 8.23a2.86 2.86 0 0 1-4.066 0 2.915 2.915 0 0 1 0-4.1 2.86 2.86 0 0 1 4.066 0 2.915 2.915 0 0 1 0 4.1m-3.35-.723a1.85 1.85 0 0 0 2.633 0 1.89 1.89 0 0 0 0-2.654 1.85 1.85 0 0 0-2.633 0 1.89 1.89 0 0 0 0 2.654"/></svg>
+</span>
+                        <h2 class="h4 accordion__title inline-richtext">
+                          Shipping &amp; Returns
+                        </h2>
+                      </div><svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"/></svg>
+</summary>
+                    <div class="accordion__content rte" id="ProductAccordion-collapsible_tab_BHjDcQ-template--19340611780683__main">
+                      <p>Estimated delivery is 7–14 business days. </p><p>Eligible items can be returned within 30 days after delivery. Sale items and gift cards are excluded.<br/><br/>Questions? Contact support@folotoy.com.</p>
+                      
+                    </div>
+                  </details>
+                </div>
+<div ><product-form
+      class="product-form"
+      data-hide-errors="false"
+      data-section-id="template--19340611780683__main"
+    >
+      <div class="product-form__error-message-wrapper" role="alert" hidden>
+        <span class="svg-wrapper"><svg class="icon icon-error" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.5" stroke="#fff" stroke-width="2"/><circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width=".7"/><path fill="#fff" d="m5.874 3.528.1 4.044h1.053l.1-4.044zm.627 6.133c.38 0 .68-.288.68-.656s-.3-.656-.68-.656-.681.288-.681.656.3.656.68.656"/><path fill="#fff" stroke="#EB001B" stroke-width=".7" d="M5.874 3.178h-.359l.01.359.1 4.044.008.341h1.736l.008-.341.1-4.044.01-.359H5.873Zm.627 6.833c.56 0 1.03-.432 1.03-1.006s-.47-1.006-1.03-1.006-1.031.432-1.031 1.006.47 1.006 1.03 1.006Z"/></svg>
+</span>
+        <span class="product-form__error-message"></span>
+      </div><form method="post" action="/cart/add" id="product-form-template--19340611780683__main" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input
+          type="hidden"
+          name="id"
+          value="41113156911179"
+          
+          class="product-variant-id"
+        ><div class="product-form__buttons"><button
+            id="ProductSubmitButton-template--19340611780683__main"
+            type="submit"
+            name="add"
+            class="product-form__submit button button--full-width button--primary"
+            
+          >
+            <span>Add to cart
+</span>
+
+<div class="loading__spinner hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>
+
+</div>
+</button></div><input type="hidden" name="product-id" value="7249157718091" /><input type="hidden" name="section-id" value="template--19340611780683__main" /></form></product-form><link href="//store.folotoy.com/cdn/shop/t/14/assets/component-pickup-availability.css?v=34645222959864780961788336348" rel="stylesheet" type="text/css" media="all" />
+<pickup-availability
+      class="product__pickup-availabilities quick-add-hidden"
+      
+      data-root-url="/"
+      data-variant-id="41113156911179"
+      data-has-only-default-variant="true"
+      data-product-page-color-scheme="gradient color-accent-2"
+    >
+      <template>
+        <pickup-availability-preview class="pickup-availability-preview">
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-unavailable" viewBox="0 0 20 20"><path fill="#DE3618" stroke="#fff" d="M13.94 3.94 10 7.878l-3.94-3.94A1.499 1.499 0 1 0 3.94 6.06L7.88 10l-3.94 3.94a1.499 1.499 0 1 0 2.12 2.12L10 12.12l3.94 3.94a1.497 1.497 0 0 0 2.12 0 1.5 1.5 0 0 0 0-2.12L12.122 10l3.94-3.94a1.499 1.499 0 1 0-2.121-2.12z"/></svg>
+</span>
+          <div class="pickup-availability-info">
+            <p class="caption-large">Couldn&#39;t load pickup availability</p>
+            <button class="pickup-availability-button link link--text underlined-link">
+              Refresh
+            </button>
+          </div>
+        </pickup-availability-preview>
+      </template>
+    </pickup-availability>
+
+    <script src="//store.folotoy.com/cdn/shop/t/14/assets/pickup-availability.js?v=78418059211521962961788336348" defer="defer"></script></div>
+<div class="product__description rte quick-add-hidden" >
+                    <div style="text-align: center;">
+<img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/1.jpg?v=1767684239"><img style="margin: 0; padding: 0;" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/2.jpg?v=1767684260" alt=""><img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/3.jpg?v=1767684260"><img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/4.jpg?v=1767684260"><img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/5_b40a6aa7-1646-4b8a-9cfa-5484b2792c7c.jpg?v=1767684259"><img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/6_918ad384-2d87-4d71-9cdc-956fd3ac1045.jpg?v=1767684260"><img style="margin: 0; padding: 0;" alt="" src="https://cdn.shopify.com/s/files/1/0586/6058/5547/files/7.jpg?v=1767684259"><br>
+</div>
+<h3>Product Specifications:</h3>
+<ul>
+<li>
+<strong>Model</strong>: F-202</li>
+<li>
+<strong>Battery Capacity</strong>: 800mAh rechargeable</li>
+<li>
+<strong>Dimensions</strong>: 35 cm (toy) | 55x50x40 mm (AI module)</li>
+<li>
+<strong>Connectivity</strong>: Wi-Fi 2.4G (hotspot support for on-the-go use)</li>
+<li>
+<strong>Material</strong>: Soft plush, washable (AI module removable for safe washing)<meta charset="utf-8">
+</li>
+<li>
+<strong>Supported Languages</strong>: English, French, Chinese,Japanese,Korean,Spanish etc</li>
+</ul>
+<h3>Care Instructions:</h3>
+<p>Keep your FoloToy fresh by removing the AI module before washing. Hand-wash or spot clean only. Avoid machine wash and extreme heat exposure to keep the plush soft and long-lasting.</p>
+<p><jarvis-extension style="position: relative; z-index: 2147483647;"></jarvis-extension><jarvis-injection></jarvis-injection></p>
+                  </div>
+<script src="//store.folotoy.com/cdn/shop/t/14/assets/share.js?v=13024540447964430191788336348" defer="defer"></script>
+
+<share-button id="Share-template--19340611780683__main" class="share-button quick-add-hidden" >
+  <button class="share-button__button hidden">
+    <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-share" viewBox="0 0 13 12"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.625 8.125v2.167a1.083 1.083 0 0 0 1.083 1.083h7.584a1.083 1.083 0 0 0 1.083-1.083V8.125"/><path fill="currentColor" fill-rule="evenodd" d="M6.148 1.271a.5.5 0 0 1 .707 0L9.563 3.98a.5.5 0 0 1-.707.707L6.501 2.332 4.147 4.687a.5.5 0 1 1-.708-.707z" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M6.5 1.125a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-1 0v-6.5a.5.5 0 0 1 .5-.5" clip-rule="evenodd"/></svg>
+</span>
+    Share
+  </button>
+  <details id="Details-share-template--19340611780683__main">
+    <summary class="share-button__button">
+      <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-share" viewBox="0 0 13 12"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.625 8.125v2.167a1.083 1.083 0 0 0 1.083 1.083h7.584a1.083 1.083 0 0 0 1.083-1.083V8.125"/><path fill="currentColor" fill-rule="evenodd" d="M6.148 1.271a.5.5 0 0 1 .707 0L9.563 3.98a.5.5 0 0 1-.707.707L6.501 2.332 4.147 4.687a.5.5 0 1 1-.708-.707z" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M6.5 1.125a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-1 0v-6.5a.5.5 0 0 1 .5-.5" clip-rule="evenodd"/></svg>
+</span>
+      Share
+    </summary>
+    <div class="share-button__fallback motion-reduce">
+      <div class="field">
+        <span id="ShareMessage-template--19340611780683__main" class="share-button__message hidden" role="status"> </span>
+        <input
+          type="text"
+          class="field__input"
+          id="ShareUrl-template--19340611780683__main"
+          value="https://store.folotoy.com/products/folotoy-ai-teddy"
+          placeholder="Link"
+          onclick="this.select();"
+          readonly
+        >
+        <label class="field__label" for="ShareUrl-template--19340611780683__main">Link</label>
+      </div>
+      <button class="share-button__close hidden">
+        <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</span>
+        <span class="visually-hidden">Close share</span>
+      </button>
+      <button class="share-button__copy">
+        <span class="svg-wrapper"><svg
+  class="icon icon-clipboard"
+  width="11"
+  height="13"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+  viewBox="0 0 11 13"
+>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z" fill="currentColor"/>
+</svg>
+</span>
+        <span class="visually-hidden">Copy link</span>
+      </button>
+    </div>
+  </details>
+</share-button>
+
+<a href="/products/folotoy-ai-teddy" class="link product__view-details animate-arrow">
+            View full details
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10"><path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/></svg>
+</a>
+        </section>
+      </div>
+    </div>
+
+    
+
+<product-modal id="ProductModal-template--19340611780683__main" class="product-media-modal media-modal">
+  <div
+    class="product-media-modal__dialog color-accent-2 gradient"
+    role="dialog"
+    aria-label="Media gallery"
+    aria-modal="true"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-template--19340611780683__main"
+      type="button"
+      class="product-media-modal__toggle"
+      aria-label="Close"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+
+    </button>
+
+    <div
+      class="product-media-modal__content color-accent-2 gradient"
+      role="document"
+      aria-label="Media gallery"
+      tabindex="0"
+    >
+<img
+    class="global-media-settings global-media-settings--no-shadow"
+    srcset="//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&width=550 550w,//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&width=1100 1100w,//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930 1254w
+    "
+    sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+    src="//store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&width=1445"
+    alt="FoloToy AI Teddy Kumma AI Toy"
+    loading="lazy"
+    width="1100"
+    height="1100"
+    data-media-id="26785645002827"
+  >
+<img
+    class="global-media-settings global-media-settings--no-shadow"
+    srcset="//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&width=550 550w,//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&width=1100 1100w,//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262 1254w
+    "
+    sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+    src="//store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&width=1445"
+    alt="FoloToy AI Teddy Kumma AI Toy"
+    loading="lazy"
+    width="1100"
+    height="1100"
+    data-media-id="26941664788555"
+  ></div>
+  </div>
+</product-modal>
+
+
+    
+<script src="//store.folotoy.com/cdn/shop/t/14/assets/product-modal.js?v=116616134454508949461788336348" defer="defer"></script>
+      <script src="//store.folotoy.com/cdn/shop/t/14/assets/media-gallery.js?v=53998976194532824491788336348" defer="defer"></script><script type="application/ld+json">
+      {"@context":"http:\/\/schema.org\/","@id":"\/products\/folotoy-ai-teddy#product","@type":"Product","brand":{"@type":"Brand","name":"FoloToy"},"category":"Robotic Toys","description":"\n\n\nProduct Specifications:\n\n\nModel: F-202\n\nBattery Capacity: 800mAh rechargeable\n\nDimensions: 35 cm (toy) | 55x50x40 mm (AI module)\n\nConnectivity: Wi-Fi 2.4G (hotspot support for on-the-go use)\n\nMaterial: Soft plush, washable (AI module removable for safe washing)\n\n\nSupported Languages: English, French, Chinese,Japanese,Korean,Spanish etc\n\nCare Instructions:\nKeep your FoloToy fresh by removing the AI module before washing. Hand-wash or spot clean only. Avoid machine wash and extreme heat exposure to keep the plush soft and long-lasting.\n","image":"https:\/\/store.folotoy.com\/cdn\/shop\/files\/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930\u0026width=1920","name":"FoloToy AI Teddy Kumma AI Toy","offers":{"@id":"\/products\/folotoy-ai-teddy?variant=41113156911179#offer","@type":"Offer","availability":"http:\/\/schema.org\/InStock","price":"99.00","priceCurrency":"USD","url":"https:\/\/store.folotoy.com\/products\/folotoy-ai-teddy?variant=41113156911179"},"url":"https:\/\/store.folotoy.com\/products\/folotoy-ai-teddy"}
+    </script>
+  </div>
+</product-info>
+
+
+</section><section id="shopify-section-template--19340611780683__related-products" class="shopify-section section"><link href="//store.folotoy.com/cdn/shop/t/14/assets/component-card.css?v=120341546515895839841788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-price.css?v=70172745017360139101788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/section-related-products.css?v=80324771040738084201788336348" rel="stylesheet" type="text/css" media="all" />
+
+<style data-shopify>.section-template--19340611780683__related-products-padding {
+    padding-top: 27px;
+    padding-bottom: 21px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-template--19340611780683__related-products-padding {
+      padding-top: 36px;
+      padding-bottom: 28px;
+    }
+  }</style><div class="color-accent-3 gradient">
+  <product-recommendations
+    class="related-products page-width section-template--19340611780683__related-products-padding isolate scroll-trigger animate--slide-in"
+    data-url="/recommendations/products?limit=4"
+    data-section-id="template--19340611780683__related-products"
+    data-product-id="7249157718091"
+  >
+    
+  </product-recommendations>
+  </div>
+
+
+</section>
+    </main>
+
+    <!-- BEGIN sections: footer-group -->
+<div id="shopify-section-sections--19340608766027__footer" class="shopify-section shopify-section-group-footer-group">
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/section-footer.css?v=60318643098753476351788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-newsletter.css?v=4727253280200485261788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-list-menu.css?v=151968516119678728991788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-list-payment.css?v=69253961410771838501788336348" rel="stylesheet" type="text/css" media="all" />
+<link href="//store.folotoy.com/cdn/shop/t/14/assets/component-list-social.css?v=35792976012981934991788336348" rel="stylesheet" type="text/css" media="all" />
+<style data-shopify>.footer {
+    margin-top: 0px;
+  }
+
+  .section-sections--19340608766027__footer-padding {
+    padding-top: 45px;
+    padding-bottom: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer {
+      margin-top: 0px;
+    }
+
+    .section-sections--19340608766027__footer-padding {
+      padding-top: 60px;
+      padding-bottom: 32px;
+    }
+  }</style><footer class="footer color-scheme-bb2c541b-8552-4104-bc07-ce611d81153a gradient section-sections--19340608766027__footer-padding"><div class="footer__content-top page-width"><div
+          class="footer-block--newsletter scroll-trigger animate--slide-in"
+          
+            data-cascade
+          
+        ><div class="footer-block__newsletter"><h2 class="footer-block__heading inline-richtext">Let's keep in touch</h2><form method="post" action="/contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="newsletter-form__field-wrapper">
+                  <div class="field">
+                    <input
+                      id="NewsletterForm--sections--19340608766027__footer"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value=""
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      
+                      placeholder="Email"
+                      required
+                    >
+                    <label class="field__label" for="NewsletterForm--sections--19340608766027__footer">
+                      Email
+                    </label>
+                    <button
+                      type="submit"
+                      class="newsletter-form__button field__button"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="Subscribe"
+                    >
+                      <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10"><path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/></svg>
+</span>
+                    </button>
+                  </div></div></form></div><div class="footer__follow-on-shop">
+              <script defer="defer" async type="module" src="https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.shop-follow-button.en.esm.js"></script>
+<script type="module">
+  await import("https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.shop-follow-button.en.esm.js");
+
+  
+</script>
+
+<shop-follow-button ux-mode="windoid" return-uri="https://store.folotoy.com/account/redirect" proxy="true"></shop-follow-button>
+
+            </div></div>
+      </div><div
+    class="footer__content-bottom scroll-trigger animate--slide-in"
+    
+      data-cascade
+    
+  >
+    <div class="footer__content-bottom-wrapper page-width">
+      <div class="footer__column footer__localization isolate"><localization-form><form method="post" action="/localization" id="FooterCountryForm" accept-charset="UTF-8" class="localization-form" enctype="multipart/form-data"><input type="hidden" name="form_type" value="localization" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="return_to" value="/products/folotoy-ai-teddy" /><div>
+                <h2 class="caption-large text-body" id="FooterCountryLabel">Country/region</h2>
+
+<div class="disclosure">
+  <button
+    type="button"
+    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    aria-expanded="false"
+    aria-controls="FooterCountry-country-results"
+    aria-describedby="FooterCountryLabel"
+  >
+    <span>China |
+      USD
+      $</span>
+    <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"/></svg>
+
+  </button>
+  <div class="disclosure__list-wrapper country-selector" hidden>
+    <div class="country-filter">
+      
+        <div class="field">
+          <input
+            class="country-filter__input field__input"
+            id="country-filter-input"
+            type="search"
+            name="country_filter"
+            value=""
+            placeholder="Search"
+            role="combobox"
+            aria-owns="country-results"
+            aria-controls="country-results"
+            aria-haspopup="listbox"
+            aria-autocomplete="list"
+            autocorrect="off"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          >
+          <label class="field__label" for="country-filter-input">Search</label>
+          <button
+            type="reset"
+            class="country-filter__reset-button field__button hidden"
+            aria-label="Clear search term"
+          ><svg fill="none" stroke="currentColor" class="icon icon-close" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.5" stroke-opacity=".2"/><path stroke-linecap="round" stroke-linejoin="round" d="M11.83 11.83 6.172 6.17M6.229 11.885l5.544-5.77"/></svg>
+</button>
+          <div class="country-filter__search-icon field__button motion-reduce"><svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg>
+</div>
+        </div>
+      
+      <button
+        class="country-selector__close-button button--small link"
+        type="button"
+        aria-label="Close"
+      ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"/></svg>
+</button>
+    </div>
+    <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
+    <div
+      class="disclosure__list country-selector__list"
+      id="FooterCountry-country-results"
+    >
+      
+      <ul role="list" class="list-unstyled countries"><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="AU"
+              id="Australia"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Australia</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="CA"
+              id="Canada"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Canada</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+                aria-current="true"
+              
+              data-value="CN"
+              id="China"
+            >
+              <span
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">China</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="HK"
+              id="Hong Kong SAR"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Hong Kong SAR</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="IL"
+              id="Israel"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Israel</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="JP"
+              id="Japan"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Japan</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="MY"
+              id="Malaysia"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Malaysia</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="NZ"
+              id="New Zealand"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">New Zealand</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="SG"
+              id="Singapore"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Singapore</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="KR"
+              id="South Korea"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">South Korea</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="TW"
+              id="Taiwan"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Taiwan</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="TH"
+              id="Thailand"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Thailand</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="AE"
+              id="United Arab Emirates"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United Arab Emirates</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="GB"
+              id="United Kingdom"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United Kingdom</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="US"
+              id="United States"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">United States</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li><li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              
+              data-value="VN"
+              id="Vietnam"
+            >
+              <span
+                
+                  class="visibility-hidden"
+                
+              ><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-checkmark" viewBox="0 0 12 9"><path fill="currentColor" fill-rule="evenodd" d="M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z" clip-rule="evenodd"/></svg>
+</span>
+              <span class="country">Vietnam</span>
+              <span class="localization-form__currency motion-reduce hidden">
+                USD
+                $</span>
+            </a>
+          </li></ul>
+    </div>
+  </div>
+  <div class="country-selector__overlay"></div>
+</div>
+<input type="hidden" name="country_code" value="CN">
+</div></form></localization-form></div>
+      <div class="footer__column footer__column--info"><div class="footer__payment">
+            <span class="visually-hidden">Payment methods</span>
+            <ul class="list list-payment" role="list"><li class="list-payment__item">
+                  <svg class="icon icon--full-color" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z" /><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875" /><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858" /><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048" /></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z" /><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z" /><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z" /></g></g></svg>
+
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-google_pay"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"/><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"/><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"/><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"/><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"/><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"/><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"/></svg>
+
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" fill="none" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="#000" stroke-opacity=".07" fill="none"/><path d="M35 0H3C1.3 0 0 1.3 0 3V21C0 22.7 1.4 24 3 24H35C36.7 24 38 22.7 38 21V3C38 1.3 36.6 0 35 0Z" fill="#1C1C1C" style="fill:#1C1C1C;fill:color(display-p3 0.1098 0.1098 0.1098);fill-opacity:1;"/><path d="M35 1C36.1 1 37 1.9 37 3V21C37 22.1 36.1 23 35 23H3C1.9 23 1 22.1 1 21V3C1 1.9 1.9 1 3 1H35Z" fill="#232323" style="fill:#232323;fill:color(display-p3 0.1373 0.1373 0.1373);fill-opacity:1;"/><path d="M14.6364 19.2727C18.8538 19.2727 22.2727 15.8538 22.2727 11.6364C22.2727 7.41892 18.8538 4 14.6364 4C10.4189 4 7 7.41892 7 11.6364C7 15.8538 10.4189 19.2727 14.6364 19.2727Z" fill="#EB001B" style="fill:#EB001B;fill:color(display-p3 0.9216 0.0000 0.1059);fill-opacity:1;"/><path d="M23.3637 19.2727C27.5811 19.2727 31 15.8538 31 11.6364C31 7.41892 27.5811 4 23.3637 4C19.1462 4 15.7273 7.41892 15.7273 11.6364C15.7273 15.8538 19.1462 19.2727 23.3637 19.2727Z" fill="#F79E1B" style="fill:#F79E1B;fill:color(display-p3 0.9686 0.6196 0.1059);fill-opacity:1;"/><path d="M22.2727 11.6362C22.2727 9.01797 20.9637 6.72706 19 5.41797C17.0364 6.83615 15.7273 9.12706 15.7273 11.6362C15.7273 14.1452 17.0364 16.5452 19 17.8543C20.9637 16.5452 22.2727 14.2543 22.2727 11.6362Z" fill="#FF5F00" style="fill:#FF5F00;fill:color(display-p3 1.0000 0.3725 0.0000);fill-opacity:1;"/></svg>
+
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"/><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"/><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"/></svg>
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-shopify_pay"><title id="pi-shopify_pay">Shop Pay</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000"/><path d="M35.889 0C37.05 0 38 .982 38 2.182v19.636c0 1.2-.95 2.182-2.111 2.182H2.11C.95 24 0 23.018 0 21.818V2.182C0 .982.95 0 2.111 0H35.89z" fill="#5A31F4"/><path d="M9.35 11.368c-1.017-.223-1.47-.31-1.47-.705 0-.372.306-.558.92-.558.54 0 .934.238 1.225.704a.079.079 0 00.104.03l1.146-.584a.082.082 0 00.032-.114c-.475-.831-1.353-1.286-2.51-1.286-1.52 0-2.464.755-2.464 1.956 0 1.275 1.15 1.597 2.17 1.82 1.02.222 1.474.31 1.474.705 0 .396-.332.582-.993.582-.612 0-1.065-.282-1.34-.83a.08.08 0 00-.107-.035l-1.143.57a.083.083 0 00-.036.111c.454.92 1.384 1.437 2.627 1.437 1.583 0 2.539-.742 2.539-1.98s-1.155-1.598-2.173-1.82v-.003zM15.49 8.855c-.65 0-1.224.232-1.636.646a.04.04 0 01-.069-.03v-2.64a.08.08 0 00-.08-.081H12.27a.08.08 0 00-.08.082v8.194a.08.08 0 00.08.082h1.433a.08.08 0 00.081-.082v-3.594c0-.695.528-1.227 1.239-1.227.71 0 1.226.521 1.226 1.227v3.594a.08.08 0 00.081.082h1.433a.08.08 0 00.081-.082v-3.594c0-1.51-.981-2.577-2.355-2.577zM20.753 8.62c-.778 0-1.507.24-2.03.588a.082.082 0 00-.027.109l.632 1.088a.08.08 0 00.11.03 2.5 2.5 0 011.318-.366c1.25 0 2.17.891 2.17 2.068 0 1.003-.736 1.745-1.669 1.745-.76 0-1.288-.446-1.288-1.077 0-.361.152-.657.548-.866a.08.08 0 00.032-.113l-.596-1.018a.08.08 0 00-.098-.035c-.799.299-1.359 1.018-1.359 1.984 0 1.46 1.152 2.55 2.76 2.55 1.877 0 3.227-1.313 3.227-3.195 0-2.018-1.57-3.492-3.73-3.492zM28.675 8.843c-.724 0-1.373.27-1.845.746-.026.027-.069.007-.069-.029v-.572a.08.08 0 00-.08-.082h-1.397a.08.08 0 00-.08.082v8.182a.08.08 0 00.08.081h1.433a.08.08 0 00.081-.081v-2.683c0-.036.043-.054.069-.03a2.6 2.6 0 001.808.7c1.682 0 2.993-1.373 2.993-3.157s-1.313-3.157-2.993-3.157zm-.271 4.929c-.956 0-1.681-.768-1.681-1.783s.723-1.783 1.681-1.783c.958 0 1.68.755 1.68 1.783 0 1.027-.713 1.783-1.681 1.783h.001z" fill="#fff"/></svg>
+
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" viewBox="-36 25 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-unionpay"><title id="pi-unionpay">Union Pay</title><path fill="#005B9A" d="M-36 46.8v.7-.7zM-18.3 25v24h-7.2c-1.3 0-2.1-1-1.8-2.3l4.4-19.4c.3-1.3 1.9-2.3 3.2-2.3h1.4zm12.6 0c-1.3 0-2.9 1-3.2 2.3l-4.5 19.4c-.3 1.3.5 2.3 1.8 2.3h-4.9V25h10.8z"/><path fill="#E9292D" d="M-19.7 25c-1.3 0-2.9 1.1-3.2 2.3l-4.4 19.4c-.3 1.3.5 2.3 1.8 2.3h-8.9c-.8 0-1.5-.6-1.5-1.4v-21c0-.8.7-1.6 1.5-1.6h14.7z"/><path fill="#0E73B9" d="M-5.7 25c-1.3 0-2.9 1.1-3.2 2.3l-4.4 19.4c-.3 1.3.5 2.3 1.8 2.3H-26h.5c-1.3 0-2.1-1-1.8-2.3l4.4-19.4c.3-1.3 1.9-2.3 3.2-2.3h14z"/><path fill="#059DA4" d="M2 26.6v21c0 .8-.6 1.4-1.5 1.4h-12.1c-1.3 0-2.1-1.1-1.8-2.3l4.5-19.4C-8.6 26-7 25-5.7 25H.5c.9 0 1.5.7 1.5 1.6z"/><path fill="#fff" d="M-21.122 38.645h.14c.14 0 .28-.07.28-.14l.42-.63h1.19l-.21.35h1.4l-.21.63h-1.68c-.21.28-.42.42-.7.42h-.84l.21-.63m-.21.91h3.01l-.21.7h-1.19l-.21.7h1.19l-.21.7h-1.19l-.28 1.05c-.07.14 0 .28.28.21h.98l-.21.7h-1.89c-.35 0-.49-.21-.35-.63l.35-1.33h-.77l.21-.7h.77l.21-.7h-.7l.21-.7zm4.83-1.75v.42s.56-.42 1.12-.42h1.96l-.77 2.66c-.07.28-.35.49-.77.49h-2.24l-.49 1.89c0 .07 0 .14.14.14h.42l-.14.56h-1.12c-.42 0-.56-.14-.49-.35l1.47-5.39h.91zm1.68.77h-1.75l-.21.7s.28-.21.77-.21h1.05l.14-.49zm-.63 1.68c.14 0 .21 0 .21-.14l.14-.35h-1.75l-.14.56 1.54-.07zm-1.19.84h.98v.42h.28c.14 0 .21-.07.21-.14l.07-.28h.84l-.14.49c-.07.35-.35.49-.77.56h-.56v.77c0 .14.07.21.35.21h.49l-.14.56h-1.19c-.35 0-.49-.14-.49-.49l.07-2.1zm4.2-2.45l.21-.84h1.19l-.07.28s.56-.28 1.05-.28h1.47l-.21.84h-.21l-1.12 3.85h.21l-.21.77h-.21l-.07.35h-1.19l.07-.35h-2.17l.21-.77h.21l1.12-3.85h-.28m1.26 0l-.28 1.05s.49-.21.91-.28c.07-.35.21-.77.21-.77h-.84zm-.49 1.54l-.28 1.12s.56-.28.98-.28c.14-.42.21-.77.21-.77l-.91-.07zm.21 2.31l.21-.77h-.84l-.21.77h.84zm2.87-4.69h1.12l.07.42c0 .07.07.14.21.14h.21l-.21.7h-.77c-.28 0-.49-.07-.49-.35l-.14-.91zm-.35 1.47h3.57l-.21.77h-1.19l-.21.7h1.12l-.21.77h-1.26l-.28.42h.63l.14.84c0 .07.07.14.21.14h.21l-.21.7h-.7c-.35 0-.56-.07-.56-.35l-.14-.77-.56.84c-.14.21-.35.35-.63.35h-1.05l.21-.7h.35c.14 0 .21-.07.35-.21l.84-1.26h-1.05l.21-.77h1.19l.21-.7h-1.19l.21-.77zm-19.74-5.04c-.14.7-.42 1.19-.91 1.54-.49.35-1.12.56-1.89.56-.7 0-1.26-.21-1.54-.56-.21-.28-.35-.56-.35-.98 0-.14 0-.35.07-.56l.84-3.92h1.19l-.77 3.92v.28c0 .21.07.35.14.49.14.21.35.28.7.28s.7-.07.91-.28c.21-.21.42-.42.49-.77l.77-3.92h1.19l-.84 3.92m1.12-1.54h.84l-.07.49.14-.14c.28-.28.63-.42 1.05-.42.35 0 .63.14.77.35.14.21.21.49.14.91l-.49 2.38h-.91l.42-2.17c.07-.28.07-.49 0-.56-.07-.14-.21-.14-.35-.14-.21 0-.42.07-.56.21-.14.14-.28.35-.28.63l-.42 2.03h-.91l.63-3.57m9.8 0h.84l-.07.49.14-.14c.28-.28.63-.42 1.05-.42.35 0 .63.14.77.35s.21.49.14.91l-.49 2.38h-.91l.42-2.24c.07-.21 0-.42-.07-.49-.07-.14-.21-.14-.35-.14-.21 0-.42.07-.56.21-.14.14-.28.35-.28.63l-.42 2.03h-.91l.7-3.57m-5.81 0h.98l-.77 3.5h-.98l.77-3.5m.35-1.33h.98l-.21.84h-.98l.21-.84zm1.4 4.55c-.21-.21-.35-.56-.35-.98v-.21c0-.07 0-.21.07-.28.14-.56.35-1.05.7-1.33.35-.35.84-.49 1.33-.49.42 0 .77.14 1.05.35.21.21.35.56.35.98v.21c0 .07 0 .21-.07.28-.14.56-.35.98-.7 1.33-.35.35-.84.49-1.33.49-.35 0-.7-.14-1.05-.35m1.89-.7c.14-.21.28-.49.35-.84v-.35c0-.21-.07-.35-.14-.49a.635.635 0 0 0-.49-.21c-.28 0-.49.07-.63.28-.14.21-.28.49-.35.84v.28c0 .21.07.35.14.49.14.14.28.21.49.21.28.07.42 0 .63-.21m6.51-4.69h2.52c.49 0 .84.14 1.12.35.28.21.35.56.35.91v.28c0 .07 0 .21-.07.28-.07.49-.35.98-.7 1.26-.42.35-.84.49-1.4.49h-1.4l-.42 2.03h-1.19l1.19-5.6m.56 2.59h1.12c.28 0 .49-.07.7-.21.14-.14.28-.35.35-.63v-.28c0-.21-.07-.35-.21-.42-.14-.07-.35-.14-.7-.14h-.91l-.35 1.68zm8.68 3.71c-.35.77-.7 1.26-.91 1.47-.21.21-.63.7-1.61.7l.07-.63c.84-.28 1.26-1.4 1.54-1.96l-.28-3.78h1.19l.07 2.38.91-2.31h1.05l-2.03 4.13m-2.94-3.85l-.42.28c-.42-.35-.84-.56-1.54-.21-.98.49-1.89 4.13.91 2.94l.14.21h1.12l.7-3.29-.91.07m-.56 1.82c-.21.56-.56.84-.91.77-.28-.14-.35-.63-.21-1.19.21-.56.56-.84.91-.77.28.14.35.63.21 1.19"/></svg>
+                </li><li class="list-payment__item">
+                  <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" fill="none" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="#000" stroke-opacity=".07" fill="none"/><path d="M35 0H3C1.3 0 0 1.3 0 3V21C0 22.7 1.4 24 3 24H35C36.7 24 38 22.7 38 21V3C38 1.3 36.6 0 35 0Z" fill="#142FBD" style="fill:#142FBD;fill:color(display-p3 0.0784 0.1843 0.7412);fill-opacity:1;"/><path d="M35 1C36.1 1 37 1.9 37 3V21C37 22.1 36.1 23 35 23H3C1.9 23 1 22.1 1 21V3C1 1.9 1.9 1 3 1H35Z" fill="#1532CB" style="fill:#1532CB;fill:color(display-p3 0.0824 0.1961 0.7961);fill-opacity:1;"/><path d="M29.5944 10.2167H29.2778C28.8556 11.2722 28.5389 11.8 28.2222 13.3833H30.2278C29.9111 11.8 29.9111 11.0611 29.5944 10.2167V10.2167ZM32.6556 16.4444H30.8611C30.7556 16.4444 30.7556 16.4444 30.65 16.3389L30.4389 15.3889L30.3333 15.1778H27.8C27.6944 15.1778 27.5889 15.1778 27.5889 15.3889L27.2722 16.3389C27.2722 16.4444 27.1667 16.4444 27.1667 16.4444H24.95L25.1611 15.9167L28.2222 8.73889C28.2222 8.21111 28.5389 8 29.0667 8H30.65C30.7556 8 30.8611 8 30.8611 8.21111L32.3389 15.0722C32.4444 15.4944 32.55 15.8111 32.55 16.2333C32.6556 16.3389 32.6556 16.3389 32.6556 16.4444V16.4444ZM18.5111 16.1278L18.9333 14.2278C19.0389 14.2278 19.1444 14.3333 19.1444 14.3333C19.8833 14.65 20.6222 14.8611 21.3611 14.7556C21.5722 14.7556 21.8889 14.65 22.1 14.5444C22.6278 14.3333 22.6278 13.8056 22.2056 13.3833C21.9944 13.1722 21.6778 13.0667 21.3611 12.8556C20.9389 12.6444 20.5167 12.4333 20.2 12.1167C18.9333 11.0611 19.3556 9.58333 20.0944 8.84444C20.7278 8.42222 21.0444 8 21.8889 8C23.1556 8 24.5278 8 25.1611 8.21111H25.2667C25.1611 8.84444 25.0556 9.37222 24.8444 10.0056C24.3167 9.79444 23.7889 9.58333 23.2611 9.58333C22.9444 9.58333 22.6278 9.58333 22.3111 9.68889C22.1 9.68889 21.9944 9.79444 21.8889 9.9C21.6778 10.1111 21.6778 10.4278 21.8889 10.6389L22.4167 11.0611C22.8389 11.2722 23.2611 11.4833 23.5778 11.6944C24.1056 12.0111 24.6333 12.5389 24.7389 13.1722C24.95 14.1222 24.6333 14.9667 23.7889 15.6C23.2611 16.0222 23.05 16.2333 22.3111 16.2333C20.8333 16.2333 19.6722 16.3389 18.7222 16.0222C18.6167 16.2333 18.6167 16.2333 18.5111 16.1278V16.1278ZM14.8167 16.4444C14.9222 15.7056 14.9222 15.7056 15.0278 15.3889C15.5556 13.0667 16.0833 10.6389 16.5056 8.31667C16.6111 8.10556 16.6111 8 16.8222 8H18.7222C18.5111 9.26667 18.3 10.2167 17.9833 11.3778C17.6667 12.9611 17.35 14.5444 16.9278 16.1278C16.9278 16.3389 16.8222 16.3389 16.6111 16.3389L14.8167 16.4444ZM5 8.21111C5 8.10556 5.21111 8 5.31667 8H8.90556C9.43333 8 9.85556 8.31667 9.96111 8.84444L10.9111 13.4889C10.9111 13.5944 10.9111 13.5944 11.0167 13.7C11.0167 13.5944 11.1222 13.5944 11.1222 13.5944L13.3389 8.21111C13.2333 8.10556 13.3389 8 13.4444 8H15.6611C15.6611 8.10556 15.6611 8.10556 15.5556 8.21111L12.2833 15.9167C12.1778 16.1278 12.1778 16.2333 12.0722 16.3389C11.9667 16.4444 11.7556 16.3389 11.5444 16.3389H9.96111C9.85556 16.3389 9.75 16.3389 9.75 16.1278L8.06111 9.58333C7.85 9.37222 7.53333 9.05556 7.11111 8.95C6.47778 8.63333 5.31667 8.42222 5.10556 8.42222L5 8.21111Z" fill="white" style="fill:white;fill-opacity:1;"/></svg>
+
+                </li></ul>
+          </div></div>
+    </div>
+    <div class="footer__content-bottom-wrapper page-width">
+      <div class="footer__copyright caption">
+        <small class="copyright__content"
+          >&copy; 2026, <a href="/" title="">FOLOTOY</a></small>
+        <small class="copyright__content"><a target="_blank" rel="nofollow" href="https://www.shopify.com?utm_campaign=poweredby&amp;utm_medium=shopify&amp;utm_source=onlinestore">Powered by Shopify</a></small><ul class="policies list-unstyled"><li>
+                  <small class="copyright__content"
+                    ><a href="/policies/privacy-policy">Privacy policy</a></small
+                  >
+                </li><li>
+                  <small class="copyright__content"
+                    ><a href="/policies/contact-information">Contact information</a></small
+                  >
+                </li><li>
+                  <small class="copyright__content"
+                    ><a href="/policies/refund-policy">Refund policy</a></small
+                  >
+                </li><li>
+                  <small class="copyright__content"
+                    ><a href="/policies/terms-of-service">Terms of service</a></small
+                  >
+                </li><li>
+                  <small class="copyright__content"
+                    ><a href="/policies/shipping-policy">Shipping policy</a></small
+                  >
+                </li></ul></div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<!-- END sections: footer-group -->
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">Choosing a selection results in a full page refresh.</li>
+      <li id="a11y-new-window-message">Opens in a new window.</li>
+    </ul>
+
+    <script>
+      window.shopUrl = 'https://store.folotoy.com';
+      window.routes = {
+        cart_add_url: '/cart/add',
+        cart_change_url: '/cart/change',
+        cart_update_url: '/cart/update',
+        cart_url: '/cart',
+        predictive_search_url: '/search/suggest',
+      };
+
+      window.cartStrings = {
+        error: `There was an error while updating your cart. Please try again.`,
+        quantityError: `You can only add [quantity] of this item to your cart.`,
+      };
+
+      window.variantStrings = {
+        addToCart: `Add to cart`,
+        soldOut: `Sold out`,
+        unavailable: `Unavailable`,
+        unavailable_with_option: `[value] - Unavailable`,
+      };
+
+      window.quickOrderListStrings = {
+        itemsAdded: `[quantity] items added`,
+        itemAdded: `[quantity] item added`,
+        itemsRemoved: `[quantity] items removed`,
+        itemRemoved: `[quantity] item removed`,
+        viewCart: `View cart`,
+        each: `[money]/ea`,
+        min_error: `This item has a minimum of [min]`,
+        max_error: `This item has a maximum of [max]`,
+        step_error: `You can only add this item in increments of [step]`,
+      };
+
+      window.accessibilityStrings = {
+        imageAvailable: `Image [index] is now available in gallery view`,
+        shareSuccess: `Link copied to clipboard`,
+        pauseSlideshow: `Pause slideshow`,
+        playSlideshow: `Play slideshow`,
+        recipientFormExpanded: `Gift card recipient form expanded`,
+        recipientFormCollapsed: `Gift card recipient form collapsed`,
+        countrySelectorSearchCount: `[count] countries/regions found`,
+      };
+    </script><script src="//store.folotoy.com/cdn/shop/t/14/assets/predictive-search.js?v=57209189334897115771788336348" defer="defer"></script><script src="https://cdn.shopify.com/storefront/standard-actions.js" type="module" data-source-attribution="shopify.standard_actions"></script>
+<shopify-store store-domain="https://store.folotoy.com" country="CN" language="en"></shopify-store>
+<shopify-chat></shopify-chat>
+</body>
+</html>

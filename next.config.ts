@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {protocol: 'https', hostname: 'cdn.shopify.com'},
       {protocol: 'https', hostname: '**.myshopify.com'},
-      {protocol: 'https', hostname: '**.shopifycdn.com'}
+      {protocol: 'https', hostname: '**.shopifycdn.com'},
+      {protocol: 'https', hostname: 'store.folotoy.com'},
+      {protocol: 'https', hostname: '**.folotoy.com'}
     ]
   },
   async headers() {

@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {ArrowUp, Arrow} from './Icons';
+import {
+  ArrowUp,
+  Arrow,
+  InstagramIcon,
+  YouTubeIcon,
+  FacebookIcon,
+  XIcon,
+  LinkedInIcon,
+  WhatsAppIcon
+} from './Icons';
 
 export default function SiteFooter() {
   return (
@@ -33,6 +42,73 @@ export default function SiteFooter() {
             PlayNex original creations and thoughtfully curated discoveries.<br />
             Connection, at every age.
           </p>
+
+          {/* Social Media Channels */}
+          <div className="footer-social-block">
+            <span className="footer-social-title">CONNECT WITH US</span>
+            <div className="footer-social-icons">
+              <a
+                href="https://www.instagram.com/playnexinteractive"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PlayNex on Instagram"
+                className="footer-social-btn instagram"
+                title="Instagram"
+              >
+                <InstagramIcon size={18} />
+              </a>
+              <a
+                href="https://www.youtube.com/@playnexinteractive"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PlayNex on YouTube"
+                className="footer-social-btn youtube"
+                title="YouTube"
+              >
+                <YouTubeIcon size={18} />
+              </a>
+              <a
+                href="https://www.facebook.com/playnexinteractive"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PlayNex on Facebook"
+                className="footer-social-btn facebook"
+                title="Facebook"
+              >
+                <FacebookIcon size={18} />
+              </a>
+              <a
+                href="https://x.com/playnex_ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PlayNex on X"
+                className="footer-social-btn x"
+                title="X (Twitter)"
+              >
+                <XIcon size={16} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/playnex-interactive"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PlayNex on LinkedIn"
+                className="footer-social-btn linkedin"
+                title="LinkedIn"
+              >
+                <LinkedInIcon size={18} />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20PlayNex%20team,%20I%20have%20a%20question%20about%20your%20products"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+                className="footer-social-btn whatsapp"
+                title="WhatsApp Support"
+              >
+                <WhatsAppIcon size={18} />
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="footer-columns">
@@ -57,11 +133,11 @@ export default function SiteFooter() {
             <Link href="/returns">Returns</Link>
           </div>
           <div>
-            <span>IMPORTANT</span>
-            <Link href="/safety">Responsibility</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-            <Link href="/contact">Partnerships</Link>
+            <span>SOCIAL</span>
+            <a href="https://www.instagram.com/playnexinteractive" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://www.youtube.com/@playnexinteractive" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+            <a href="https://x.com/playnex_ai" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a>
+            <a href="https://www.linkedin.com/company/playnex-interactive" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           </div>
         </div>
       </div>

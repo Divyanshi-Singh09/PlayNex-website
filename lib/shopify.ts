@@ -282,7 +282,98 @@ export async function getStoreProducts(): Promise<StoreProduct[]> {
   }
 }
 
+export const FOLOTOY_TEDDY_PRODUCT: StoreProduct = {
+  id: 'gid://shopify/Product/folotoy-ai-teddy',
+  handle: 'folotoy-ai-teddy',
+  title: 'FoloToy AI Teddy Kumma AI Toy',
+  description:
+    'Meet Kumma, the interactive conversational AI Teddy powered by PlayNex & FoloToy. Featuring natural speech dialogue, a removable washable AI core, and multilingual learning, Kumma is designed to inspire curiosity and bedtime storytelling.',
+  descriptionHtml: '',
+  price: '7999',
+  currency: 'INR',
+  available: true,
+  image: 'https://store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&width=1100',
+  alt: 'FoloToy AI Teddy Kumma AI Toy',
+  images: [
+    {
+      url: 'https://store.folotoy.com/cdn/shop/files/b363db57ccaf7b36813ed705912d9e09.png?v=1781179930&width=1100',
+      altText: 'FoloToy AI Teddy Kumma Front View'
+    },
+    {
+      url: 'https://store.folotoy.com/cdn/shop/files/8815146adb8d0f8d547228ff2271d5cd.png?v=1782218262&width=1100',
+      altText: 'FoloToy AI Teddy Kumma Angle View'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/1.jpg?v=1767684239',
+      altText: 'FoloToy AI Teddy Features Overview'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/2.jpg?v=1767684260',
+      altText: 'FoloToy Press Paw to Talk'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/3.jpg?v=1767684260',
+      altText: 'FoloToy Storytelling and Learning'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/4.jpg?v=1767684260',
+      altText: 'FoloToy Removable AI Core and Washable Plush'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/5_b40a6aa7-1646-4b8a-9cfa-5484b2792c7c.jpg?v=1767684259',
+      altText: 'FoloToy Wi-Fi 2.4G & Mobile Hotspot'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/6_918ad384-2d87-4d71-9cdc-956fd3ac1045.jpg?v=1767684260',
+      altText: 'FoloToy Specifications and Care'
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0586/6058/5547/files/7.jpg?v=1767684259',
+      altText: 'FoloToy Packaging and Box Contents'
+    }
+  ],
+  variantId: 'gid://shopify/ProductVariant/53632868286776',
+  variants: [
+    {
+      id: 'gid://shopify/ProductVariant/53632868286776',
+      title: 'Classic Soft Honey Plush',
+      availableForSale: true,
+      price: { amount: '7999', currencyCode: 'INR' },
+      selectedOptions: [{ name: 'Color', value: 'Classic Soft Honey' }]
+    },
+    {
+      id: 'gid://shopify/ProductVariant/53619301122360',
+      title: 'Warm Cocoa Brown Plush',
+      availableForSale: true,
+      price: { amount: '7999', currencyCode: 'INR' },
+      selectedOptions: [{ name: 'Color', value: 'Warm Cocoa Brown' }]
+    }
+  ],
+  vendor: 'FoloToy × PlayNex',
+  productType: 'AI Interactive Companion',
+  tags: ['ai', 'smart-toy', 'interactive', 'companion', 'folotoy'],
+  collectionHandles: ['playnex-product', 'playnex-originals']
+};
+
 export async function getStoreProduct(handle: string): Promise<StoreProduct | null> {
+  const cleanHandle = handle.toLowerCase().trim();
+  if (['folotoy-ai-teddy', 'ai-teddy', 'kumma', 'folotoy'].includes(cleanHandle)) {
+    if (shopifyEnabled) {
+      try {
+        const d = await storefront<{ product: any | null }>(
+          `query($handle:String!){ product(handle:$handle){${detailSelection}} }`,
+          { handle },
+          undefined,
+          { revalidate: 120, tags: ['shopify-products', `product-${handle}`] }
+        );
+        if (d.product) return normalize(d.product);
+      } catch (err) {
+        console.warn('Folotoy product lookup fallback to static definition', err);
+      }
+    }
+    return FOLOTOY_TEDDY_PRODUCT;
+  }
+
   if (!shopifyEnabled) return null;
   try {
     const d = await storefront<{ product: any | null }>(
@@ -363,6 +454,17 @@ type CartResult = {
   userErrors: { field?: string[]; message: string }[];
 };
 
+function sanitizeE164Phone(phone?: string): string | undefined {
+  if (!phone) return undefined;
+  const digitsOnly = phone.replace(/[^\d+]/g, '');
+  if (!digitsOnly) return undefined;
+  if (digitsOnly.startsWith('+') && digitsOnly.length >= 10) return digitsOnly;
+  if (digitsOnly.length === 10) return `+91${digitsOnly}`;
+  if (digitsOnly.length === 12 && digitsOnly.startsWith('91')) return `+${digitsOnly}`;
+  if (digitsOnly.length >= 10) return `+${digitsOnly}`;
+  return undefined;
+}
+
 export async function createCart(
   lines: { merchandiseId: string; quantity: number }[],
   buyerIp?: string,
@@ -372,67 +474,66 @@ export async function createCart(
   if (!shopifyEnabled) throw new Error('Shopify is not configured');
   const m = `mutation($input:CartInput!){cartCreate(input:$input){cart{id checkoutUrl totalQuantity}userErrors{field message}}}`;
 
-  // Helper to execute cartCreate mutation
+  const cleanPhone = sanitizeE164Phone(customerInfo?.phone);
+  const cleanEmail = customerInfo?.email?.trim() || undefined;
+
+  // Helper to execute cartCreate mutation safely without throwing
   const tryCreate = async (buyerIdentity?: {
     customerAccessToken?: string;
     email?: string;
     phone?: string;
     countryCode?: string;
   }) => {
-    const input: {
-      lines: { merchandiseId: string; quantity: number }[];
-      buyerIdentity?: typeof buyerIdentity;
-    } = { lines };
-    if (buyerIdentity && Object.keys(buyerIdentity).length > 0) {
-      input.buyerIdentity = buyerIdentity;
+    try {
+      const input: {
+        lines: { merchandiseId: string; quantity: number }[];
+        buyerIdentity?: typeof buyerIdentity;
+      } = { lines };
+      if (buyerIdentity && Object.keys(buyerIdentity).length > 0) {
+        input.buyerIdentity = buyerIdentity;
+      }
+      const res = await storefront<{ cartCreate: CartResult }>(m, { input }, buyerIp);
+      if (res?.cartCreate?.cart?.checkoutUrl && (!res.cartCreate.userErrors || res.cartCreate.userErrors.length === 0)) {
+        return res.cartCreate.cart;
+      }
+      if (res?.cartCreate?.userErrors?.length) {
+        console.warn('Shopify cartCreate userErrors:', res.cartCreate.userErrors);
+      }
+      return null;
+    } catch (err) {
+      console.warn('Shopify cartCreate exception caught:', err instanceof Error ? err.message : err);
+      return null;
     }
-    return await storefront<{ cartCreate: CartResult }>(m, { input }, buyerIp);
   };
 
-  let initialBuyerIdentity: {
-    customerAccessToken?: string;
-    email?: string;
-    phone?: string;
-    countryCode?: string;
-  } | undefined = undefined;
-
-  if (customerAccessToken || customerInfo?.email || customerInfo?.phone) {
-    initialBuyerIdentity = {
+  // Attempt 1: Full identity (token + email + phone)
+  let cart = null;
+  if (customerAccessToken || cleanEmail || cleanPhone) {
+    cart = await tryCreate({
       ...(customerAccessToken ? { customerAccessToken } : {}),
-      ...(customerInfo?.email ? { email: customerInfo.email } : {}),
-      ...(customerInfo?.phone ? { phone: customerInfo.phone } : {}),
-      ...(customerInfo?.countryCode ? { countryCode: customerInfo.countryCode } : { countryCode: 'IN' })
-    };
+      ...(cleanEmail ? { email: cleanEmail } : {}),
+      ...(cleanPhone ? { phone: cleanPhone } : {}),
+      countryCode: customerInfo?.countryCode || 'IN'
+    });
   }
 
-  // Attempt 1: Full buyerIdentity (with customer token if available)
-  let d = await tryCreate(initialBuyerIdentity);
-
-  // Fallback 1: If customer token failed or was rejected as invalid, retry without customerAccessToken
-  if (
-    (d.cartCreate.userErrors.length > 0 || !d.cartCreate.cart?.checkoutUrl) &&
-    customerAccessToken
-  ) {
-    console.warn('cartCreate failed with customer token. Retrying with email & phone fallback...', d.cartCreate.userErrors);
-    const fallbackIdentity = {
-      ...(customerInfo?.email ? { email: customerInfo.email } : {}),
-      ...(customerInfo?.phone ? { phone: customerInfo.phone } : {}),
-      ...(customerInfo?.countryCode ? { countryCode: customerInfo.countryCode } : { countryCode: 'IN' })
-    };
-    d = await tryCreate(Object.keys(fallbackIdentity).length ? fallbackIdentity : undefined);
+  // Attempt 2: If failed with token, retry with email & phone only
+  if (!cart && (cleanEmail || cleanPhone)) {
+    cart = await tryCreate({
+      ...(cleanEmail ? { email: cleanEmail } : {}),
+      ...(cleanPhone ? { phone: cleanPhone } : {}),
+      countryCode: customerInfo?.countryCode || 'IN'
+    });
   }
 
-  // Fallback 2: If still failing (e.g., carrier phone format error), retry with bare lines
-  if (d.cartCreate.userErrors.length > 0 || !d.cartCreate.cart?.checkoutUrl) {
-    console.warn('cartCreate failed with buyerIdentity. Retrying with direct cart lines...', d.cartCreate.userErrors);
-    d = await tryCreate(undefined);
+  // Attempt 3: If still failed or no identity, create bare cart lines (100% reliable)
+  if (!cart) {
+    cart = await tryCreate(undefined);
   }
 
-  if (d.cartCreate.userErrors.length) {
-    throw new Error(d.cartCreate.userErrors.map((e) => e.message).join('; '));
+  if (!cart?.checkoutUrl) {
+    throw new Error('Shopify could not create a checkout destination. Please check item availability.');
   }
-  if (!d.cartCreate.cart?.checkoutUrl) {
-    throw new Error('Shopify could not create a checkout destination');
-  }
-  return d.cartCreate.cart;
+
+  return cart;
 }

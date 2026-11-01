@@ -38,6 +38,19 @@ export default function CartDrawer() {
         setProvince(user.defaultAddress.province || '');
         setZip(user.defaultAddress.zip || '');
         setCountry(user.defaultAddress.country || 'India');
+      } else {
+        // Fallback to localStorage saved details
+        try {
+          const saved = localStorage.getItem('playnex_saved_delivery_address');
+          if (saved) {
+            const d = JSON.parse(saved);
+            if (d.phone && !user.phone) setPhone(d.phone);
+            if (d.address1) setAddress1(d.address1);
+            if (d.city) setCity(d.city);
+            if (d.province) setProvince(d.province);
+            if (d.zip) setZip(d.zip);
+          }
+        } catch {}
       }
     }
   }, [user]);
@@ -132,13 +145,25 @@ export default function CartDrawer() {
 
     try {
       if (!items.length) throw Error('Your bag is empty.');
+
+      let activePhone = customerInfo?.phone || user?.phone || phone;
+      if (!activePhone && typeof window !== 'undefined') {
+        try {
+          const saved = localStorage.getItem('playnex_saved_delivery_address');
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed.phone) activePhone = parsed.phone;
+          }
+        } catch {}
+      }
+
       const r = await fetch('/api/shopify/cart', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           lines: items.map((i) => ({merchandiseId: i.id, quantity: i.quantity})),
           customerInfo: {
-            phone: customerInfo?.phone || user?.phone || phone,
+            phone: activePhone,
             email: customerInfo?.email || user?.email,
             countryCode: 'IN'
           }
@@ -150,7 +175,8 @@ export default function CartDrawer() {
       if (url.protocol !== 'https:') throw new Error('Invalid checkout destination');
       location.assign(url.toString());
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not start checkout');
+      console.error('Checkout error:', e);
+      setError(e instanceof Error ? e.message : 'Could not begin checkout. Please try again.');
       setBusy(false);
     }
   }
@@ -400,35 +426,27 @@ export default function CartDrawer() {
                           className="bag-delivery-edit-btn"
                           onClick={() => setIsEditingDetails(true)}
                         >
-                          {hasDeliveryDetails ? 'Edit / Change' : '+ Add Address'}
+                          Change
                         </button>
                       </div>
 
-                      {hasDeliveryDetails ? (
-                        <div className="bag-delivery-body">
-                          <p className="bag-delivery-name">
-                            <strong>{user.firstName} {user.lastName}</strong>
-                            {user.phone && <span className="bag-delivery-phone">• {user.phone}</span>}
-                          </p>
+                      <div className="bag-delivery-body">
+                        <p className="bag-delivery-name">
+                          <strong>{user.firstName || 'Customer'} {user.lastName || ''}</strong>
+                          {(user.phone || phone) && <span className="bag-delivery-phone">• {user.phone || phone}</span>}
+                        </p>
+                        {(address1 || user.defaultAddress?.address1) ? (
                           <p className="bag-delivery-address">
-                            {user.defaultAddress?.address1}
-                            {user.defaultAddress?.address2 ? `, ${user.defaultAddress.address2}` : ''}
-                            <br />
-                            {user.defaultAddress?.city}, {user.defaultAddress?.province} - {user.defaultAddress?.zip}
+                            {user.defaultAddress?.address1 || address1}
+                            {city || user.defaultAddress?.city ? `, ${user.defaultAddress?.city || city}` : ''}
+                            {zip || user.defaultAddress?.zip ? ` (${user.defaultAddress?.zip || zip})` : ''}
                           </p>
-                        </div>
-                      ) : (
-                        <div className="bag-delivery-missing">
-                          <p>📍 Mobile number & delivery address required for courier shipping.</p>
-                          <button
-                            type="button"
-                            className="bag-delivery-prompt-btn"
-                            onClick={() => setIsEditingDetails(true)}
-                          >
-                            Enter delivery address & mobile ↗
-                          </button>
-                        </div>
-                      )}
+                        ) : (
+                          <p className="bag-delivery-address" style={{color: '#6e8597', fontStyle: 'italic'}}>
+                            Address confirmed at Shopify Checkout.
+                          </p>
+                        )}
+                      </div>
                     </div>
                   )}
                 </>

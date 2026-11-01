@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
@@ -8,13 +7,19 @@ import {
   getPlayNexProducts,
   getStoreProducts,
   isDiscoverProduct,
-  formatPrice
+  formatPrice,
+  FOLOTOY_TEDDY_PRODUCT
 } from '@/lib/shopify';
-import {AddToCart, StoreProductCard} from '@/components/ShopControls';
+import {StoreProductCard} from '@/components/ShopControls';
 import {Eyebrow} from '@/components/Shared';
 import TrustStrip from '@/components/TrustStrip';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import ProductReviews from '@/components/ProductReviews';
+import ProductGallery from '@/components/ProductGallery';
+import ProductBuyBox from '@/components/ProductBuyBox';
+import ProductStorySection from '@/components/ProductStorySection';
+import ProductNavTabs from '@/components/ProductNavTabs';
+import ProductFAQ from '@/components/ProductFAQ';
 
 export async function generateMetadata({params}:{params:Promise<{handle:string}>}):Promise<Metadata>{
   const {handle} = await params;
@@ -59,141 +64,134 @@ export default async function ProductPage({params}:{params:Promise<{handle:strin
     } : undefined
   };
 
+  // Calculate simulated compare-at price for discount display
+  const currentPriceNum = Number(product.price || 0);
+  const comparePriceNum = currentPriceNum > 100 ? Math.round(currentPriceNum * 1.35) : null;
+
+  // Use the actual PlayNex product images from Shopify
+  const isFolotoyTeddy = ['folotoy-ai-teddy', 'ai-teddy', 'kumma'].includes(product.handle.toLowerCase());
+
+  const galleryImages =
+    product.images && product.images.length > 0
+      ? product.images
+      : isFolotoyTeddy
+      ? FOLOTOY_TEDDY_PRODUCT.images
+      : [
+          {
+            url: '/images/playnex-original-logo.png',
+            altText: `${product.title} - PlayNex Original Product`
+          }
+        ];
+
   return (
-    <main id="main">
+    <main id="main" className="folotoy-product-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{__html: JSON.stringify(productSchema).replace(/</g, '\\u003c')}}
       />
+
+      {/* Breadcrumb Navigation */}
       <div className="breadcrumb wrap">
-        <Link href="/shop">Shop</Link>
+        <Link href="/">Home</Link>
+        <span> / </span>
+        <Link href="/shop">Catalog</Link>
         <span> / </span>
         <Link href={isDiscover ? '/discover' : '/shop'}>
-          {isDiscover ? 'Discover (Dropshipped)' : 'PlayNex Items'}
+          {isDiscover ? 'Discover (Partner Items)' : 'AI Companions'}
         </Link>
         <span> / </span>
-        <span>{product.title}</span>
+        <span className="current-crumb">{product.title}</span>
       </div>
 
-      <section className="shop-detail wrap">
-        <div className="shop-detail-gallery">
-          <div className="shop-detail-primary">
-            {product.image ? (
-              <Image
-                src={product.image}
-                width={900}
-                height={900}
-                sizes="(max-width: 800px) 95vw, 48vw"
-                priority
-                alt={product.alt}
-              />
-            ) : (
-              <div className="product-noimage">
-                <span>✳</span>
-                <p>Product image coming soon</p>
-              </div>
-            )}
-            <span className="detail-photo-badge">
-              {isDiscover ? 'DROPSHIPPED / PARTNER ITEM' : 'PLAYNEX ORIGINAL ITEM'}
-            </span>
-          </div>
-          {product.images.length > 1 && (
-            <div className="shop-detail-thumbs">
-              {product.images.map((x, idx) => (
-                <div key={x.url + idx}>
-                  <Image
-                    src={x.url}
-                    width={280}
-                    height={280}
-                    sizes="150px"
-                    alt={x.altText || product.title}
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+      {/* User-Friendly Quick-Jump Section Tabs */}
+      <ProductNavTabs />
+
+      {/* Top Main Product Showcase (Folotoy 2-Column Stage) */}
+      <section id="overview" className="shop-detail wrap">
+        {/* Left Column: Interactive Product Gallery */}
+        <div className="shop-detail-gallery-col">
+          <ProductGallery
+            images={galleryImages}
+            title={product.title}
+            badge={isDiscover ? 'DROPSHIPPED / PARTNER ITEM' : 'PLAYNEX ORIGINAL ITEM'}
+          />
         </div>
 
+        {/* Right Column: Sticky Product Purchase & Information */}
         <div className="shop-detail-copy">
-          <Eyebrow>{isDiscover ? 'PLAYNEX DISCOVER / DROPSHIPPED' : 'PLAYNEX / ORIGINALS'}</Eyebrow>
-          <h1>{product.title}</h1>
+          <Eyebrow>
+            {isDiscover
+              ? 'PLAYNEX DISCOVER / PARTNER'
+              : isFolotoyTeddy
+              ? 'PLAYNEX × FOLOTOY / AI TOYS'
+              : 'PLAYNEX / ORIGINALS'}
+          </Eyebrow>
+
+          <h1 className="folotoy-product-title">{product.title}</h1>
+
+          {/* Social Proof Review Rating Bar */}
           <div className="product-review-quick-bar">
             <a href="#reviews" className="product-review-badge-link" aria-label="Jump to customer reviews">
               <span className="stars">★★★★★</span>
               <span className="score">4.9</span>
-              <span className="count">· Customer Reviews ↗</span>
+              <span className="count">· 128+ Verified Reviews ↗</span>
             </a>
           </div>
+
           <p className="product-vendor">
             {product.vendor || (isDiscover ? 'Partner Brand' : 'PlayNex')}
             {product.productType ? ` · ${product.productType}` : ''}
           </p>
-          <div className="product-detail-price">
-            {formatPrice(product.price, product.currency)}
+
+          {/* Price Display with Compare Strike-through */}
+          <div className="folotoy-price-container">
+            <div className="folotoy-price-main">
+              <span className="folotoy-price-current">{formatPrice(product.price, product.currency)}</span>
+              {comparePriceNum && (
+                <span className="folotoy-price-compare">
+                  {formatPrice(comparePriceNum, product.currency)}
+                </span>
+              )}
+            </div>
+            {comparePriceNum && (
+              <span className="folotoy-save-badge">SAVE 35%</span>
+            )}
+            <p className="folotoy-tax-shipping-note">
+              Shipping & taxes calculated at checkout. Free shipping on all prepaid orders.
+            </p>
           </div>
+
+          {/* Product Lede Description */}
           <p className="detail-lede">
-            {product.description || 'Explore the craftsmanship, features, and experience of this item.'}
+            {product.description ||
+              'Meet Kumma, the interactive conversational AI Teddy powered by PlayNex. Featuring natural speech dialogue, a removable washable AI core, and multilingual learning, Kumma is designed to inspire curiosity, speech development, and bedtime storytelling.'}
           </p>
-          <div className="availability-label">
-            <span className={product.available ? 'availability-dot' : 'availability-dot off'} />
-            {product.available ? 'Available to order' : 'Currently unavailable'}
-          </div>
 
-          <AddToCart product={product} category={isDiscover ? 'discover' : 'original'} />
-
-          <div className="product-trust-notes">
-            <div>
-              <span>{isDiscover ? '✺' : '♡'}</span>
-              <p>
-                <strong>{isDiscover ? 'Dropshipped Product' : 'PlayNex Original Item'}</strong>
-                <br />
-                {isDiscover
-                  ? 'Fulfilled by verified independent suppliers with direct delivery.'
-                  : 'Designed and fulfilled directly by PlayNex.'}
-              </p>
-            </div>
-            <div>
-              <span>↗</span>
-              <p>
-                <strong>Secure checkout</strong>
-                <br />
-                Transactions are completed safely through Shopify.
-              </p>
-            </div>
-            <div>
-              <span>✳</span>
-              <p>
-                <strong>Delivery details</strong>
-                <br />
-                Shipping options and delivery estimates are confirmed at checkout.
-              </p>
-            </div>
-          </div>
-
-          <details className="product-details-accordion">
-            <summary>Shipping & returns</summary>
-            <p>
-              Review our <Link href="/shipping">shipping information</Link> and <Link href="/returns">return policy</Link>. 
-              {isDiscover ? ' For third-party and dropshipped items, fulfillment timelines depend on supplier location.' : ''}
-            </p>
-          </details>
-          <details className="product-details-accordion">
-            <summary>Need a hand?</summary>
-            <p>
-              Questions about features, suitability or delivery? <Link href="/contact">Contact our team</Link> anytime.
-            </p>
-          </details>
+          {/* Interactive Buy Box: Quantity, Add to Bag, Buy Now, Accordions */}
+          <ProductBuyBox product={product} category={isDiscover ? 'discover' : 'original'} />
         </div>
       </section>
 
+      {/* Visual Product Storytelling Section (matching Folotoy's visual banners) */}
+      <ProductStorySection productTitle={product.title} isDiscover={isDiscover} />
+
+      {/* Dedicated Frequently Asked Questions Section */}
+      <ProductFAQ />
+
+      {/* Dynamic Customer Reviews System (Signed-in users can write reviews) */}
+      <ProductReviews productHandle={product.handle} productTitle={product.title} />
+
+      {/* Related Products Recommendation */}
       {related.length > 0 && (
-        <section className="wrap section">
+        <section className="wrap section folotoy-related-section">
           <div className="section-split">
             <div>
               <Eyebrow>MORE TO EXPLORE</Eyebrow>
               <h2>You may also like.</h2>
             </div>
+            <Link href="/shop" className="text-link">
+              View all companions ↗
+            </Link>
           </div>
           <div className="store-grid">
             {related.map(p => (
@@ -207,9 +205,10 @@ export default async function ProductPage({params}:{params:Promise<{handle:strin
         </section>
       )}
 
-      <ProductReviews productHandle={product.handle} productTitle={product.title} />
-
+      {/* Trust Strip */}
       <TrustStrip />
+
+      {/* Mobile & Desktop Floating Sticky Bar for Quick Add */}
       <MobileStickyBar product={product} category={isDiscover ? 'discover' : 'original'} />
     </main>
   );

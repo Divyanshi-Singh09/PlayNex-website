@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import Image from 'next/image';
 import type {StoreProduct} from '@/lib/shopify';
 import {useCart, price} from './CartProvider';
+import {useAuth} from './AuthProvider';
 
 export default function MobileStickyBar({
   product,
@@ -13,14 +14,16 @@ export default function MobileStickyBar({
   category?: 'original' | 'discover';
 }) {
   const [visible, setVisible] = useState(false);
-  const {add} = useCart();
+  const [added, setAdded] = useState(false);
+  const {add, setOpen} = useCart();
+  const {user, openAuthModal} = useAuth();
 
   const variant = product.variants?.find((v) => v.availableForSale) || product.variants?.[0];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show sticky bar after scrolling past 320px
-      setVisible(window.scrollY > 350);
+      // Show sticky bar after scrolling past 450px
+      setVisible(window.scrollY > 450);
     };
 
     window.addEventListener('scroll', handleScroll, {passive: true});
@@ -29,7 +32,7 @@ export default function MobileStickyBar({
 
   if (!visible || !variant) return null;
 
-  const handleAdd = () => {
+  const handleAdd = (openDrawer = true) => {
     if (!variant.availableForSale) return;
 
     const item = {
@@ -45,33 +48,85 @@ export default function MobileStickyBar({
       category
     };
 
-    // Item adding is free and unblocked for all shoppers; authentication is compulsory at checkout
     add(item);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+
+    if (openDrawer) {
+      setOpen(true);
+    }
+  };
+
+  const handleBuyNow = async () => {
+    if (!variant.availableForSale) return;
+
+    if (!user) {
+      handleAdd(false);
+      openAuthModal('checkout');
+      return;
+    }
+
+    try {
+      handleAdd(false);
+      const res = await fetch('/api/shopify/cart', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          lines: [{merchandiseId: variant.id, quantity: 1}],
+          customerInfo: {
+            phone: user?.phone,
+            email: user?.email,
+            countryCode: 'IN'
+          }
+        })
+      });
+      const data = await res.json();
+      if (data.checkoutUrl) {
+        window.location.assign(data.checkoutUrl);
+      } else {
+        setOpen(true);
+      }
+    } catch {
+      setOpen(true);
+    }
   };
 
   return (
-    <div className="mobile-sticky-bar" role="region" aria-label="Quick order bar">
+    <div className="mobile-sticky-bar universal-sticky-bar" role="region" aria-label="Quick order bar">
       <div className="mobile-sticky-info">
         {product.image && (
           <div className="mobile-sticky-thumb">
-            <Image src={product.image} width={40} height={40} alt="" />
+            <Image src={product.image} width={44} height={44} alt="" />
           </div>
         )}
         <div className="mobile-sticky-copy">
           <strong>{product.title}</strong>
-          <span>{product.price ? price(Number(product.price), product.currency) : 'Contact for price'}</span>
+          <div className="sticky-sub-row">
+            <span>{product.price ? price(Number(product.price), product.currency) : 'Contact for price'}</span>
+            <span className="sticky-stock-dot">● In Stock</span>
+          </div>
         </div>
       </div>
 
-      <button
-        type="button"
-        className="button button-blue mobile-sticky-add-btn"
-        disabled={!variant.availableForSale}
-        onClick={handleAdd}
-      >
-        {variant.availableForSale ? 'Add to bag ↗' : 'Sold out'}
-      </button>
+      <div className="sticky-actions-group">
+        <button
+          type="button"
+          className={`button button-blue mobile-sticky-add-btn ${added ? 'added' : ''}`}
+          disabled={!variant.availableForSale}
+          onClick={() => handleAdd(true)}
+        >
+          {added ? 'Added ✓' : variant.availableForSale ? 'Add to bag ↗' : 'Sold out'}
+        </button>
+
+        <button
+          type="button"
+          className="button button-gold sticky-instant-buy-btn"
+          disabled={!variant.availableForSale}
+          onClick={handleBuyNow}
+        >
+          Buy Now ⚡
+        </button>
+      </div>
     </div>
   );
 }
-
