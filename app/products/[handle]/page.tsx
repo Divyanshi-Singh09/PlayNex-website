@@ -18,6 +18,7 @@ import ProductReviews from '@/components/ProductReviews';
 import ProductGallery from '@/components/ProductGallery';
 import ProductBuyBox from '@/components/ProductBuyBox';
 import ProductStorySection from '@/components/ProductStorySection';
+import ProductDemoSection from '@/components/ProductDemoSection';
 import ProductNavTabs from '@/components/ProductNavTabs';
 import ProductFAQ from '@/components/ProductFAQ';
 
@@ -174,6 +175,9 @@ export default async function ProductPage({params}:{params:Promise<{handle:strin
 
       {/* Visual Product Storytelling Section (matching Folotoy's visual banners) */}
       <ProductStorySection productTitle={product.title} isDiscover={isDiscover} />
+
+      {/* Live Interactive Voice Demo Simulator */}
+      <ProductDemoSection productTitle={product.title} />
 
       {/* Dedicated Frequently Asked Questions Section */}
       <ProductFAQ />

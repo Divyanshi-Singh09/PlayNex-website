@@ -461,7 +461,9 @@ export async function customerUpdate(
     });
 
     if (data.customerUpdate.customerUserErrors.length > 0) {
-      console.warn('customerUpdate notice:', data.customerUpdate.customerUserErrors[0].message);
+      const errMsg = data.customerUpdate.customerUserErrors[0].message;
+      console.warn('customerUpdate notice:', errMsg);
+      throw new Error(errMsg);
     }
   } catch (err) {
     console.error('Failed to update customer in Shopify:', err);

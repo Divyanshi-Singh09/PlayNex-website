@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 const TABS = [
   {id: 'overview', label: 'Overview'},
   {id: 'story', label: 'Magic & Features'},
+  {id: 'demo', label: 'Try Demo 🎙️'},
   {id: 'specifications', label: 'Specifications'},
   {id: 'unboxing', label: 'In the Box'},
   {id: 'faq', label: 'FAQs'},

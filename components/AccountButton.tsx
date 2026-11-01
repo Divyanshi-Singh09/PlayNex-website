@@ -38,13 +38,18 @@ export default function AccountButton({mobile = false}: {mobile?: boolean}) {
               </div>
             </div>
           </Link>
-          <button
-            type="button"
-            className="mobile-account-logout-btn"
-            onClick={logout}
-          >
-            Sign out
-          </button>
+          <div className="mobile-account-btns-row">
+            <Link href="/account?edit=1" className="mobile-account-edit-link">
+              ✎ Edit Profile
+            </Link>
+            <button
+              type="button"
+              className="mobile-account-logout-btn"
+              onClick={logout}
+            >
+              Sign out
+            </button>
+          </div>
         </div>
       );
     }
@@ -108,6 +113,14 @@ export default function AccountButton({mobile = false}: {mobile?: boolean}) {
               onClick={() => setMenuOpen(false)}
             >
               👤 My Account & Orders ↗
+            </Link>
+            <Link
+              href="/account?edit=1"
+              className="nav-account-action-link"
+              role="menuitem"
+              onClick={() => setMenuOpen(false)}
+            >
+              ✎ Edit Profile & Address
             </Link>
             <Link
               href="/shop"

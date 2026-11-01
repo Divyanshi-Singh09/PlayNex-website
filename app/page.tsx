@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -6,16 +8,32 @@ import DemoPlayground from '@/components/DemoPlayground';
 import {Arrow, ArrowUp, Spark, Heart, Wave, Shield} from '@/components/Icons';
 import {Eyebrow, LinkButton, Marquee, BottomCTA} from '@/components/Shared';
 import HomeCommerceShowcase from '@/components/HomeCommerceShowcase';
+import HomeReviewsSlider from '@/components/HomeReviewsSlider';
+import type {ProductReview} from '@/app/api/reviews/route';
 import {HomeFeeling} from '@/components/HomeImmersive';
 import {HomeLetter, HomeVision} from '@/components/HomeSections';
 import Perspectives from '@/components/Perspectives';
 import {getPerspectives} from '@/lib/perspectives';
 import StoryMotion from '@/components/StoryMotion';
 
+function getHomeReviews(): ProductReview[] {
+  try {
+    const file = path.join(process.cwd(), 'data', 'reviews.json');
+    if (fs.existsSync(file)) {
+      const raw = fs.readFileSync(file, 'utf8');
+      return JSON.parse(raw);
+    }
+  } catch (err) {
+    console.warn('Could not read reviews for homepage:', err);
+  }
+  return [];
+}
+
 export const metadata: Metadata = {alternates: {canonical: '/'}};
 
 export default async function Home() {
   const perspectives = await getPerspectives();
+  const reviews = getHomeReviews();
   return (
     <main id="main">
       <StoryMotion />
@@ -191,6 +209,7 @@ export default async function Home() {
       <Marquee />
       <Perspectives section={perspectives} />
       <HomeCommerceShowcase />
+      <HomeReviewsSlider initialReviews={reviews} />
 
       <section className="concept-section section wrap">
         <div className="section-split" data-reveal>

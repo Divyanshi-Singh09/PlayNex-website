@@ -29,12 +29,12 @@ type AuthContextType = {
   updateDetails: (data: {
     firstName?: string;
     lastName?: string;
-    phone: string;
-    address1: string;
+    phone?: string;
+    address1?: string;
     address2?: string;
-    city: string;
-    province: string;
-    zip: string;
+    city?: string;
+    province?: string;
+    zip?: string;
     country?: string;
   }) => Promise<{ success: boolean; error?: string; customer?: CustomerUser }>;
   refreshUser: () => Promise<CustomerUser | null>;
@@ -218,12 +218,12 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
   const updateDetails = async (data: {
     firstName?: string;
     lastName?: string;
-    phone: string;
-    address1: string;
+    phone?: string;
+    address1?: string;
     address2?: string;
-    city: string;
-    province: string;
-    zip: string;
+    city?: string;
+    province?: string;
+    zip?: string;
     country?: string;
   }) => {
     try {
@@ -234,9 +234,26 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
       });
       const resData = await res.json();
       if (!res.ok || !resData.customer) {
-        return {success: false, error: resData.error || 'Could not update delivery details.'};
+        return {success: false, error: resData.error || 'Could not update profile details.'};
       }
       setUser(resData.customer);
+      try {
+        localStorage.setItem('playnex_customer_user', JSON.stringify(resData.customer));
+        if (resData.customer.defaultAddress || resData.customer.phone) {
+          localStorage.setItem(
+            'playnex_saved_delivery_address',
+            JSON.stringify({
+              phone: resData.customer.phone || data.phone || '',
+              address1: resData.customer.defaultAddress?.address1 || data.address1 || '',
+              address2: resData.customer.defaultAddress?.address2 || data.address2 || '',
+              city: resData.customer.defaultAddress?.city || data.city || '',
+              province: resData.customer.defaultAddress?.province || data.province || '',
+              zip: resData.customer.defaultAddress?.zip || data.zip || '',
+              country: resData.customer.defaultAddress?.country || data.country || 'India'
+            })
+          );
+        }
+      } catch {}
       return {success: true, customer: resData.customer};
     } catch {
       return {success: false, error: 'Network error. Please try again.'};

@@ -1,15 +1,5 @@
 [
   {
-    "id": "rev-1793468084645",
-    "handle": "abc",
-    "author": "Abc abc",
-    "rating": 5,
-    "title": "very good",
-    "comment": "easy to use",
-    "date": "Oct 31, 2026",
-    "verified": true
-  },
-  {
     "id": "rev-1",
     "handle": "abc",
     "author": "Rohan Deshmukh",
@@ -20,12 +10,22 @@
     "verified": true
   },
   {
+    "id": "rev-4",
+    "handle": "abc",
+    "author": "Priya Sharma",
+    "rating": 5,
+    "title": "My 7-year-old hasn't put it down",
+    "comment": "It sparks so much curiosity and natural conversation. It's refreshing to see technology that encourages speaking and listening rather than screen staring.",
+    "date": "Oct 26, 2026",
+    "verified": true
+  },
+  {
     "id": "rev-2",
     "handle": "abc",
     "author": "Ananya Sen",
     "rating": 5,
     "title": "Delivered on time with immaculate packaging",
-    "comment": "Delivery was super fast. The product design is clean, minimal, and fits right into my daily workspace.",
+    "comment": "Delivery was super fast. The product design is clean, minimal, and fits right into my daily workspace and living room.",
     "date": "Oct 28, 2026",
     "verified": true
   },
@@ -35,8 +35,38 @@
     "author": "Vikram Mehta",
     "rating": 5,
     "title": "Top-notch performance and finish",
-    "comment": "PlayNex has created something truly special here. Smooth responsiveness and wonderful attention to detail.",
+    "comment": "PlayNex has created something truly special here. Smooth responsiveness, lovely materials, and wonderful attention to detail.",
     "date": "Oct 27, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-5",
+    "handle": "abc",
+    "author": "Dr. Siddharth Roy",
+    "rating": 5,
+    "title": "Remarkable for calming and conversational moments",
+    "comment": "As a child development specialist, I am impressed by the gentle pacing and tone. A thoughtful leap forward in companion technology.",
+    "date": "Oct 29, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-6",
+    "handle": "abc",
+    "author": "Meera Nair",
+    "rating": 5,
+    "title": "The unboxing was delightful",
+    "comment": "Everything from the packaging to the initial setup was seamless. Truly feels like a premium, human-centered product.",
+    "date": "Oct 30, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-1793468084645",
+    "handle": "abc",
+    "author": "Aarav Patel",
+    "rating": 5,
+    "title": "Outstanding build quality and aesthetic",
+    "comment": "Very pleased with the performance and minimalist design. Fits effortlessly into our family setup.",
+    "date": "Oct 31, 2026",
     "verified": true
   }
 ]

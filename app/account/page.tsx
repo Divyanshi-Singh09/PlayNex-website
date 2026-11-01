@@ -1,22 +1,47 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {useRouter} from 'next/navigation';
 import {useAuth} from '@/components/AuthProvider';
 import {formatPrice} from '@/lib/shopify';
-import {Arrow, UserIcon} from '@/components/Icons';
+import {Arrow} from '@/components/Icons';
+import EditProfileModal from '@/components/EditProfileModal';
 
 export default function AccountPage() {
   const router = useRouter();
   const {user, loading, logout} = useAuth();
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login?redirect=/account');
     }
   }, [user, loading, router]);
+
+  // Support ?edit=1 in URL
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('edit') === '1' || params.get('edit') === 'true') {
+        setIsEditModalOpen(true);
+      }
+    }
+  }, []);
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('edit')) {
+        params.delete('edit');
+        const newQuery = params.toString();
+        const newUrl = window.location.pathname + (newQuery ? `?${newQuery}` : '');
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+  };
 
   if (loading) {
     return (
@@ -58,6 +83,13 @@ export default function AccountPage() {
           </div>
 
           <div className="account-header-actions">
+            <button
+              type="button"
+              className="button button-outline account-edit-header-btn"
+              onClick={() => setIsEditModalOpen(true)}
+            >
+              <span>✎</span> Edit Profile & Address
+            </button>
             <Link href="/shop" className="button button-blue">
               Explore Shop <Arrow size={14} />
             </Link>
@@ -180,7 +212,17 @@ export default function AccountPage() {
           <aside className="account-sidebar">
             {/* Profile Info */}
             <div className="account-sidebar-card">
-              <h3>Customer Details</h3>
+              <div className="account-card-header-row">
+                <h3>Customer Details</h3>
+                <button
+                  type="button"
+                  className="account-card-edit-btn"
+                  onClick={() => setIsEditModalOpen(true)}
+                  aria-label="Edit customer details"
+                >
+                  Edit ✎
+                </button>
+              </div>
               <div className="account-detail-list">
                 <div>
                   <span className="detail-label">Name</span>
@@ -190,12 +232,20 @@ export default function AccountPage() {
                   <span className="detail-label">Email</span>
                   <span>{user.email}</span>
                 </div>
-                {user.phone && (
-                  <div>
-                    <span className="detail-label">Phone</span>
-                    <span>{user.phone}</span>
-                  </div>
-                )}
+                <div>
+                  <span className="detail-label">Phone</span>
+                  {user.phone ? (
+                    <span className="account-phone-val">{user.phone}</span>
+                  ) : (
+                    <button
+                      type="button"
+                      className="account-add-field-link"
+                      onClick={() => setIsEditModalOpen(true)}
+                    >
+                      + Add mobile number for tracking
+                    </button>
+                  )}
+                </div>
                 <div>
                   <span className="detail-label">Authentication</span>
                   <span className="auth-platform-tag">Shopify Storefront ID</span>
@@ -205,7 +255,17 @@ export default function AccountPage() {
 
             {/* Shipping Address */}
             <div className="account-sidebar-card">
-              <h3>Shipping Address</h3>
+              <div className="account-card-header-row">
+                <h3>Shipping Address</h3>
+                <button
+                  type="button"
+                  className="account-card-edit-btn"
+                  onClick={() => setIsEditModalOpen(true)}
+                  aria-label="Edit shipping address"
+                >
+                  {defaultAddress ? 'Edit ✎' : '+ Add Address'}
+                </button>
+              </div>
               {defaultAddress ? (
                 <div className="account-address-box">
                   {defaultAddress.formatted && defaultAddress.formatted.length > 0 ? (
@@ -222,13 +282,24 @@ export default function AccountPage() {
                       <p>{defaultAddress.country}</p>
                     </>
                   )}
+                  <button
+                    type="button"
+                    className="account-address-quick-edit"
+                    onClick={() => setIsEditModalOpen(true)}
+                  >
+                    Update default shipping address →
+                  </button>
                 </div>
               ) : (
                 <div className="account-no-address">
                   <p>No default address saved yet.</p>
-                  <small>
-                    Your shipping address is automatically saved when you checkout through Shopify.
-                  </small>
+                  <button
+                    type="button"
+                    className="button button-outline account-add-address-btn"
+                    onClick={() => setIsEditModalOpen(true)}
+                  >
+                    + Add Delivery Address
+                  </button>
                 </div>
               )}
             </div>
@@ -254,7 +325,12 @@ export default function AccountPage() {
           </aside>
         </div>
       </div>
+
+      {/* Edit Profile & Address Modal */}
+      <EditProfileModal
+        isOpen={isEditModalOpen}
+        onClose={handleCloseEditModal}
+      />
     </main>
   );
 }
-
